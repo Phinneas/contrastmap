@@ -9,6 +9,10 @@ const CITY_SLUGS = {
   'austin': 'austin',
   'los angeles': 'los-angeles',
   'new york': 'new-york',
+  'denver': 'denver',
+  'chicago': 'chicago',
+  'san diego': 'san-diego',
+  'houston': 'houston',
 };
 const cities = Object.keys(CITY_SLUGS);
 
@@ -80,7 +84,7 @@ const articles = [
       </form>
 
       <div class="lp-trust">
-        <span><span class="dot"></span><b>20+</b> studios listed</span>
+        <span><span class="dot"></span><b>{allListings.length}+</b> studios listed</span>
         <span><span class="dot"></span>free to browse</span>
       </div>
     </div>

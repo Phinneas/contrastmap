@@ -8,6 +8,10 @@ export function getStaticPaths() {
     'austin': { name: 'Austin', state: 'TX', lat: 30.2672, lng: -97.7431, zoom: 11 },
     'los-angeles': { name: 'Los Angeles', state: 'CA', lat: 34.0522, lng: -118.2437, zoom: 11 },
     'new-york': { name: 'New York', state: 'NY', lat: 40.7484, lng: -73.9967, zoom: 12 },
+    'denver': { name: 'Denver', state: 'CO', lat: 39.7392, lng: -104.9903, zoom: 11 },
+    'chicago': { name: 'Chicago', state: 'IL', lat: 41.8781, lng: -87.6298, zoom: 11 },
+    'san-diego': { name: 'San Diego', state: 'CA', lat: 32.7157, lng: -117.1611, zoom: 11 },
+    'houston': { name: 'Houston', state: 'TX', lat: 29.7604, lng: -95.3698, zoom: 11 },
   };
   return Object.entries(CITY_MAP).map(([slug, info]) => ({
     params: { city: slug },
@@ -22,6 +26,10 @@ const CITY_EDITORIAL = {
   'austin': 'Austin has gone all-in on contrast therapy. From East Austin\u2019s private sauna-and-plunge suites to communal bathhouses off South Lamar, the city offers more ways to go hot and cold than anywhere else in Texas.',
   'los-angeles': 'LA was an early adopter of contrast therapy. Options run from Playa Vista\u2019s award-winning private suites to communal Nordic sauna clubs in the Valley. Whether you want a guided ice bath or a solo infrared session, Los Angeles has it.',
   'new-york': 'New York\u2019s contrast therapy scene has exploded, from NoHo bathing clubs to Flatiron sauna temples. Space is tight and prices run higher, but the studios that have cracked the code offer some of the best-guided contrast rituals in the country.',
+  'denver': 'Denver\u2019s altitude makes recovery non-negotiable. From Cherry Creek athlete recovery labs to RiNo bathhouses, the Mile High City has one of the most developed contrast therapy scenes between the coasts.',
+  'chicago': 'Chicago\u2019s wellness scene has embraced contrast therapy with characteristically Midwestern pragmatism. From West Loop infrared studios to Lincoln Park recovery clubs, the city offers year-round indoor options for every budget.',
+  'san-diego': 'San Diego\u2019s outdoor lifestyle pairs naturally with contrast therapy. From coastal sauna-and-plunge studios to inland recovery centers, America\u2019s Finest City makes it easy to combine cold exposure with beach living.',
+  'houston': 'Houston\u2019s heat makes cold plunge a natural fit. From Montrose wellness studios to Memorial recovery centers, the city\u2019s contrast therapy scene is growing fast, with options ranging from no-frills ice baths to full-service spa experiences.',
 };
 const cityEditorial = CITY_EDITORIAL[citySlug] || '';
 

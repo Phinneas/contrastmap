@@ -14,6 +14,10 @@ export function getStaticPaths() {
     'austin': { name: 'Austin' },
     'los-angeles': { name: 'Los Angeles' },
     'new-york': { name: 'New York' },
+    'denver': { name: 'Denver' },
+    'chicago': { name: 'Chicago' },
+    'san-diego': { name: 'San Diego' },
+    'houston': { name: 'Houston' },
   };
   const AMENITY_KEY_MAP = {
     'cold-plunge': 'coldPlunge',
@@ -74,6 +78,14 @@ const CITY_INFO = {
     scene: 'LA was an early adopter of contrast therapy. Options run from Playa Vista\u2019s award-winning private suites to communal Nordic sauna clubs in the Valley. Whether you want a guided ice bath or a solo infrared session, Los Angeles has it.' },
   'new-york': { name: 'New York', state: 'NY', lat: 40.7484, lng: -73.9967, zoom: 12,
     scene: 'New York\u2019s contrast therapy scene has exploded, from NoHo bathing clubs to Flatiron sauna temples. Space is tight and prices run higher, but the studios that have cracked the code offer some of the best-guided contrast rituals in the country.' },
+  'denver': { name: 'Denver', state: 'CO', lat: 39.7392, lng: -104.9903, zoom: 11,
+    scene: 'Denver\u2019s altitude makes recovery non-negotiable. From Cherry Creek athlete recovery labs to RiNo bathhouses, the Mile High City has one of the most developed contrast therapy scenes between the coasts.' },
+  'chicago': { name: 'Chicago', state: 'IL', lat: 41.8781, lng: -87.6298, zoom: 11,
+    scene: 'Chicago\u2019s wellness scene has embraced contrast therapy with characteristically Midwestern pragmatism. From West Loop infrared studios to Lincoln Park recovery clubs, the city offers year-round indoor options for every budget.' },
+  'san-diego': { name: 'San Diego', state: 'CA', lat: 32.7157, lng: -117.1611, zoom: 11,
+    scene: 'San Diego\u2019s outdoor lifestyle pairs naturally with contrast therapy. From coastal sauna-and-plunge studios to inland recovery centers, America\u2019s Finest City makes it easy to combine cold exposure with beach living.' },
+  'houston': { name: 'Houston', state: 'TX', lat: 29.7604, lng: -95.3698, zoom: 11,
+    scene: 'Houston\u2019s heat makes cold plunge a natural fit. From Montrose wellness studios to Memorial recovery centers, the city\u2019s contrast therapy scene is growing fast, with options ranging from no-frills ice baths to full-service spa experiences.' },
 };
 
 const { amenitySlug, citySlug, count } = Astro.props;

@@ -20,7 +20,13 @@ import { randomUUID } from 'crypto';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = join(__dirname, 'output');
-const INPUT_FILE = join(OUTPUT_DIR, 'verified-listings.json');
+const args = process.argv.slice(2);
+const inputIdx = args.indexOf('--input');
+const INPUT_FILE = inputIdx !== -1
+  ? join(OUTPUT_DIR, args[inputIdx + 1])
+  : existsSync(join(OUTPUT_DIR, 'verified-listings.json'))
+    ? join(OUTPUT_DIR, 'verified-listings.json')
+    : join(OUTPUT_DIR, 'merged-candidates.json');
 const LISTINGS_FILE = join(__dirname, '..', 'src', 'data', 'listings.json');
 
 const STATE_CODE_MAP = {

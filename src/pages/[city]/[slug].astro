@@ -4,7 +4,7 @@ import '../../styles/directory.css';
 import listingsData from '../../data/listings.json';
 
 export function getStaticPaths() {
-  const CITY_SLUG_MAP = { 'Austin': 'austin', 'Los Angeles': 'los-angeles', 'New York': 'new-york' };
+  const CITY_SLUG_MAP = { 'Austin': 'austin', 'Los Angeles': 'los-angeles', 'New York': 'new-york', 'Denver': 'denver', 'Chicago': 'chicago', 'San Diego': 'san-diego', 'Houston': 'houston' };
   return listingsData.listings
     .filter(l => l.status === 'active')
     .map(l => ({
