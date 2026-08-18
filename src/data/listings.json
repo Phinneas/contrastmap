@@ -1,0 +1,1840 @@
+{
+  "schemaVersion": "1.0.0",
+  "count": 20,
+  "listings": [
+    {
+      "id": "85f63d2e-7f9f-467f-85d9-84616717db04",
+      "slug": "contrast-austin-tx",
+      "name": "CØNTRAST",
+      "description": "A lush East Austin oasis where private IR-sauna-and-plunge suites sit alongside a garden-style communal contrast area.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.2672,
+          "lng": -97.7251
+        },
+        "neighborhood": "East Austin"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "redLightTherapy": true
+      },
+      "pricing": {
+        "priceRange": 1,
+        "dropInPrice": 29,
+        "dropInPriceNote": "$29 communal hour / $49 private suite",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.contrastatx.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 5,
+        "reviewCount": 40,
+        "featured": true,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "9c988a9e-d084-457d-a2ed-a7010477b011",
+      "slug": "the-ocean-lab-austin-tx",
+      "name": "The Ocean Lab",
+      "description": "A community-driven recovery hub near UT Austin stacking infrared sauna, cold plunge, float therapy, and PEMF under one roof.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.2939,
+          "lng": -97.7336
+        },
+        "neighborhood": "North University"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "floatTank": true
+      },
+      "pricing": {
+        "priceRange": 1,
+        "dropInPrice": 25,
+        "dropInPriceNote": "$25 cold plunge drop-in / $49 sauna",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://oceanlabatx.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.9,
+        "reviewCount": 218,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "bde1e4d3-cf85-438a-a2a7-30d9e44e35ba",
+      "slug": "melt-well-austin-tx",
+      "name": "Melt Well",
+      "description": "A brand-new, ultra-private South Austin studio pairing infrared sauna, calibrated cold plunge, and medical-grade red light in your own suite.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.2436,
+          "lng": -97.7654
+        },
+        "neighborhood": "South Austin"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "redLightTherapy": true
+      },
+      "pricing": {
+        "priceRange": 2,
+        "dropInPrice": 35,
+        "dropInPriceNote": "$35 intro contrast session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.melt-well.com/austin",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 5,
+        "reviewCount": 2,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "5f1cde6f-c7f5-409e-b959-72712cad293c",
+      "slug": "ulu-recovery-wellness-austin-tx",
+      "name": "ULU Recovery & Wellness",
+      "description": "Bali-meets-Barton-Springs wellness studio with four private sauna-and-cold-plunge suites plus IV therapy and red light beds.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.2521,
+          "lng": -97.7521
+        },
+        "neighborhood": "Bouldin Creek"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "redLightTherapy": true,
+        "compressionTherapy": true
+      },
+      "pricing": {
+        "priceRange": 2,
+        "dropInPrice": 40,
+        "dropInPriceNote": "$40 intro sauna & cold plunge",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://uluwellness.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 5,
+        "reviewCount": 32,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "39d5a8c2-af2f-4e77-a906-f925e9192242",
+      "slug": "pure-sweat-studios-austin-tx",
+      "name": "Pure Sweat Studios",
+      "description": "South Lamar's only spot pairing a Sunlighten infrared cabin, cold plunge, and Epsom-salt float tank in one contrast therapy program.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.2415,
+          "lng": -97.7893
+        },
+        "neighborhood": "South Lamar"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "floatTank": true
+      },
+      "pricing": {
+        "priceRange": 3,
+        "dropInPrice": 45,
+        "dropInPriceNote": "From $45 / session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.puresweatstudios.com/austin-texas",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": null,
+        "reviewCount": null,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "fbd25c61-7138-44f8-8a1c-12818b4199d8",
+      "slug": "swthz-belterra-austin-tx",
+      "name": "SWTHZ Belterra",
+      "description": "National contrast-therapy franchise offering private infrared sauna, cold plunge, and Vitamin-C shower suites in Southwest Austin.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.2176,
+          "lng": -97.8453
+        },
+        "neighborhood": "Southwest Austin"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 2,
+        "dropInPrice": 35,
+        "dropInPriceNote": "$35 intro / $70 single visit",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://sweathouz.com/belterra-book-now/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.9,
+        "reviewCount": 552,
+        "featured": true,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "7be53241-753b-4899-9174-55ec0851b92e",
+      "slug": "ceremony-spa-austin-tx",
+      "name": "Ceremony Spa",
+      "description": "Austin's original bathhouse: two blazing cedar saunas up to 230°F and ozonated cold plunges in a lush indoor-outdoor social setting.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 30.242,
+          "lng": -97.785
+        },
+        "neighborhood": "South Lamar"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "compressionTherapy": true
+      },
+      "pricing": {
+        "priceRange": 2,
+        "dropInPrice": 44,
+        "dropInPriceNote": "$44 drop-in (up to 2 hrs)",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://ceremonyspa.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": null,
+        "reviewCount": null,
+        "featured": false,
+        "sponsored": false,
+        "verified": false
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "834a015c-c467-4f96-9297-7bff805ea534",
+      "slug": "reset-on-third-los-angeles-ca",
+      "name": "RESET on Third",
+      "description": "Billed as LA's lowest-cost contrast therapy, pairing a currented cold plunge with an infrared sauna in one private room.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 34.0702,
+          "lng": -118.3421
+        },
+        "neighborhood": "Miracle Mile"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 1,
+        "dropInPrice": 25,
+        "dropInPriceNote": "$25 / 30 min, $40 / 60 min",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.resetonthird.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.8,
+        "reviewCount": 18,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "c5689f8a-02d3-4cc1-930e-eb40e887815b",
+      "slug": "rvivl-los-angeles-ca",
+      "name": "RVIVL",
+      "description": "Playa Vista's award-winning private-suite studio combining a full-spectrum infrared sauna with a Renu Cold Stoic ice bath and Aesop showers.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 33.9759,
+          "lng": -118.4213
+        },
+        "neighborhood": "Playa Vista"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "compressionTherapy": true,
+        "redLightTherapy": true
+      },
+      "pricing": {
+        "priceRange": 3,
+        "dropInPrice": 59,
+        "dropInPriceNote": "From $59 / 30-min private suite",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://rvivl.co/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.7,
+        "reviewCount": 87,
+        "featured": true,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "ffb25b92-68fb-4ff9-be26-592fcc41b962",
+      "slug": "nordic-nirvana-los-angeles-ca",
+      "name": "Nordic Nirvana",
+      "description": "Norse-inspired boutique on the Cahuenga Pass with four themed private suites pairing traditional or infrared sauna with cold immersion.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 34.1385,
+          "lng": -118.389
+        },
+        "neighborhood": "Studio City"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 4,
+        "dropInPrice": 60,
+        "dropInPriceNote": "From $60 / 30-min private suite",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://nordicnirvana.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 5,
+        "reviewCount": 10,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "a480e16c-e26e-4751-b46a-05bd33210816",
+      "slug": "club-contrast-los-angeles-ca",
+      "name": "Club Contrast",
+      "description": "A communal Nordic sauna-and-plunge social club in Sherman Oaks built for ritual, not rush hour.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 34.1511,
+          "lng": -118.4492
+        },
+        "neighborhood": "Sherman Oaks"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 1,
+        "dropInPrice": 20,
+        "dropInPriceNote": "From $20 / session (membership)",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://clubcontrast.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.8,
+        "reviewCount": 40,
+        "featured": false,
+        "sponsored": false,
+        "verified": false
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "a54b7002-ab55-450b-8bd1-8e63edac2e60",
+      "slug": "remedy-place-west-hollywood-los-angeles-ca",
+      "name": "Remedy Place West Hollywood",
+      "description": "The original Social Wellness Club on Sunset Strip, mixing guided ice baths and infrared sauna with IV drips, HBOT, and acupuncture.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 34.0901,
+          "lng": -118.3626
+        },
+        "neighborhood": "West Hollywood"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "redLightTherapy": true,
+        "compressionTherapy": true
+      },
+      "pricing": {
+        "priceRange": 3,
+        "dropInPrice": 45,
+        "dropInPriceNote": "Day pass sequences from ~$45",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.remedyplace.com/clubs/weho",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.5,
+        "reviewCount": 23,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "ed6bdd1c-953c-4609-9e3a-ac72a1545d4e",
+      "slug": "sweatheory-hollywood-los-angeles-ca",
+      "name": "Sweatheory Hollywood",
+      "description": "Cedar-built infrared sauna pods with private showers on the Sunset/Cahuenga corner, plus cold plunge and infrared yoga classes.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 34.0923,
+          "lng": -118.3287
+        },
+        "neighborhood": "Hollywood"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": false
+      },
+      "pricing": {
+        "priceRange": 3,
+        "dropInPrice": 45,
+        "dropInPriceNote": "From $45 / infrared sauna session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.sweatheory.com/hollywood",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.5,
+        "reviewCount": 200,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "9fc2c506-134c-4f5a-a115-5e7b86cd8f24",
+      "slug": "pause-studio-brentwood-los-angeles-ca",
+      "name": "Pause Studio Brentwood",
+      "description": "West LA's guided contrast therapy suite near Brentwood Country Mart, alternating infrared sauna and cold plunge on your schedule.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "Los Angeles",
+        "state": "CA",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 34.0367,
+          "lng": -118.4477
+        },
+        "neighborhood": "Brentwood"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "compressionTherapy": true
+      },
+      "pricing": {
+        "priceRange": 3,
+        "dropInPrice": 45,
+        "dropInPriceNote": "From $45 / 30-min session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://pausestudio.com/brentwood/contrast-therapy",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": null,
+        "reviewCount": null,
+        "featured": false,
+        "sponsored": false,
+        "verified": false
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "abe08337-f96b-4ddf-b523-fab56656ee7b",
+      "slug": "lore-bathing-club-new-york-ny",
+      "name": "Lore Bathing Club",
+      "description": "A phone-free NoHo bathing club offering a Finnish sauna, infrared sauna, and generous cold plunge in one unhurried 75-minute session.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 40.7264,
+          "lng": -73.9921
+        },
+        "neighborhood": "NoHo"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 1,
+        "dropInPrice": 25,
+        "dropInPriceNote": "$25 off-peak / $55 peak",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.lorebathingclub.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.9,
+        "reviewCount": 25,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "ec867f46-b48d-4fce-9ffe-c4428fa739b5",
+      "slug": "othership-flatiron-new-york-ny",
+      "name": "Othership Flatiron",
+      "description": "A 7,000-square-foot social sauna-and-ice-bath temple near Madison Square Garden built around guided breathwork classes.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 40.7411,
+          "lng": -73.9903
+        },
+        "neighborhood": "Flatiron"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 2,
+        "dropInPrice": 33,
+        "dropInPriceNote": "From $33 / guided session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.othership.us/flatiron",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.4,
+        "reviewCount": 25,
+        "featured": true,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "0797aa63-079e-4b78-8591-fdd319c404ab",
+      "slug": "elahni-speakeasy-new-york-ny",
+      "name": "Elahni Speakeasy",
+      "description": "New York's first wellness speakeasy: an intimate four-person Finnish sauna and 39-degree ice bath ritual run by its founders.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 40.7449,
+          "lng": -73.9875
+        },
+        "neighborhood": "NoMad"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 4,
+        "dropInPrice": 65,
+        "dropInPriceNote": "From $65 / 70-min guided session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.elahni.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.9,
+        "reviewCount": 78,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "8863e55e-8b00-4777-b848-347e66030d32",
+      "slug": "recoverie-new-york-ny",
+      "name": "Recoverie",
+      "description": "A locally owned Brooklyn Bridge Park recovery club pairing dry sauna and ice bath with cryotherapy, red light, and IV drips.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 40.6962,
+          "lng": -73.9943
+        },
+        "neighborhood": "Brooklyn Heights"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true,
+        "compressionTherapy": true,
+        "redLightTherapy": true
+      },
+      "pricing": {
+        "priceRange": 1,
+        "dropInPrice": 29,
+        "dropInPriceNote": "$29 first-time discovery session",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.recoverienyc.com/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.9,
+        "reviewCount": 194,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "d13da2c4-a334-473b-be37-821e82f3b5d6",
+      "slug": "bathhouse-flatiron-new-york-ny",
+      "name": "Bathhouse Flatiron",
+      "description": "A six-thermal-pool Manhattan bathhouse with dueling hot and cold pools plus Aufguss-guided dry sauna sessions.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 40.7405,
+          "lng": -73.9889
+        },
+        "neighborhood": "Flatiron"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": false
+      },
+      "pricing": {
+        "priceRange": 2,
+        "dropInPrice": 39,
+        "dropInPriceNote": "Day pass from $39",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.abathhouse.com/flatiron",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": 4.3,
+        "reviewCount": 3701,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    },
+    {
+      "id": "3dbccfcc-9d20-41b6-ab1e-03a1284fb13b",
+      "slug": "continuum-new-york-ny",
+      "name": "Continuum",
+      "description": "An AI-driven, ultra-premium West Village wellness club tracking wearables through cold plunge pools, Finnish sauna, and hyperbaric therapy.",
+      "status": "active",
+      "location": {
+        "address": null,
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "postalCode": null,
+        "country": "US",
+        "coordinates": {
+          "lat": 40.7359,
+          "lng": -74.0051
+        },
+        "neighborhood": "West Village"
+      },
+      "amenities": {
+        "coldPlunge": true,
+        "infraredSauna": true,
+        "traditionalSauna": false,
+        "contrastTherapyMarketed": true
+      },
+      "pricing": {
+        "priceRange": 3,
+        "dropInPrice": null,
+        "dropInPriceNote": "Membership only (~$40k/yr)",
+        "membershipAvailable": false,
+        "membershipPrice": null,
+        "membershipPriceNote": null
+      },
+      "contact": {
+        "phone": null,
+        "website": "https://www.continuum.club/",
+        "bookingUrl": null,
+        "email": null,
+        "instagram": null,
+        "facebook": null
+      },
+      "hours": {
+        "monday": {
+          "closed": false
+        },
+        "tuesday": {
+          "closed": false
+        },
+        "wednesday": {
+          "closed": false
+        },
+        "thursday": {
+          "closed": false
+        },
+        "friday": {
+          "closed": false
+        },
+        "saturday": {
+          "closed": false
+        },
+        "sunday": {
+          "closed": false
+        }
+      },
+      "media": {
+        "photos": [],
+        "logo": null
+      },
+      "editorial": {
+        "rating": null,
+        "reviewCount": null,
+        "featured": false,
+        "sponsored": false,
+        "verified": true
+      },
+      "ownership": {
+        "claimed": false,
+        "claimedBy": null,
+        "claimedDate": null,
+        "claimMethod": null
+      },
+      "audit": {
+        "addedDate": "2026-07-09",
+        "addedBy": "system",
+        "source": "seed",
+        "lastVerifiedDate": "2026-07-09",
+        "lastVerifiedBy": "system",
+        "lastModifiedDate": "2026-07-09",
+        "lastModifiedBy": "system"
+      }
+    }
+  ]
+}

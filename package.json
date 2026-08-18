@@ -1,0 +1,16 @@
+{
+  "name": "contrastmap",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "astro": "^5.13.0",
+    "@astrojs/cloudflare": "^12.4.0"
+  }
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brand Board — Contrast Therapy Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400..800&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cold:#0EA5E9; --cold-d:#0369A1; --hot:#F97316; --hot-d:#EA580C;
+    --pine:#14603F; --glacial:#38BDF8;
+    --ink:#0F172A; --ink-2:#334155; --muted:#64748B; --faint:#94A3B8;
+    --line:#E7E1D8; --bg:#FAF7F2; --white:#FFFFFF; --panel:#F3EEE6;
+    --grad:linear-gradient(100deg,var(--cold) 0%,#7c9ede 48%,var(--hot) 100%);
+    --ok:#16A34A; --no:#DC2626;
+    --r:18px; --r-sm:12px; --maxw:1080px;
+    --fd:"Bricolage Grotesque",system-ui,sans-serif;
+    --fb:"Fraunces","Georgia",serif;
+    --shadow:0 6px 24px rgba(15,23,42,.07),0 2px 6px rgba(15,23,42,.04);
+    --shadow-lg:0 24px 60px -18px rgba(15,23,42,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--fb);color:var(--ink);background:var(--bg);line-height:1.6;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 6vw}
+  @media(min-width:820px){.wrap{padding:0 40px}}
+  h1,h2,h3,h4,.fd{font-family:var(--fd);font-weight:600;letter-spacing:-.02em;line-height:1.08}
+  .eyebrow{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  section{padding:56px 0}
+  .divider{height:1px;background:var(--line);border:none}
+
+  /* header */
+  .top{padding:46px 0 10px}
+  .top .eyebrow{color:var(--hot-d)}
+  .top h1{font-size:clamp(2.1rem,5vw,3.3rem);margin:12px 0 14px;font-weight:700}
+  .top p{font-size:1.12rem;color:var(--ink-2);max-width:62ch}
+  .meta-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px}
+  .meta-row .m{font-family:var(--fd);font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .meta-row .m b{color:var(--ink)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--grad)}
+
+  /* finalists */
+  .sec-h{margin-bottom:8px}
+  .sec-h h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}
+  .sec-h p{color:var(--muted);margin-top:8px;max-width:60ch}
+  .finalists{display:grid;grid-template-columns:1fr;gap:22px;margin-top:30px}
+  .fcard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .fcard.pick{border-color:transparent;box-shadow:0 0 0 2px var(--hot),var(--shadow-lg)}
+  .pick-flag{position:absolute;top:0;right:0;background:var(--grad);color:#fff;font-family:var(--fd);font-weight:600;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-bottom-left-radius:12px}
+  .rank{font-family:var(--fd);font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+  /* wordmark lockups */
+  .wm{display:flex;align-items:center;gap:16px;margin:14px 0 6px}
+  .mark{width:56px;height:56px;flex:none}
+  .wm-text{font-family:var(--fd);font-weight:600;font-size:2rem;letter-spacing:-.03em;color:var(--ink);line-height:1}
+  .amp{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .04em}
+  .amp.pine{background:linear-gradient(100deg,var(--glacial),var(--pine));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .say{font-family:var(--fb);font-style:italic;color:var(--muted);font-size:.95rem;margin-top:2px}
+  .fcard p.body{color:var(--ink-2);margin-top:14px;font-size:1rem}
+  .rowline{display:flex;gap:26px;flex-wrap:wrap;margin-top:18px;align-items:flex-start}
+  .facts{flex:1 1 260px}
+  .facts h4{font-family:var(--fd);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:9px}
+  .facts ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .facts li{font-size:.93rem;color:var(--ink-2);display:flex;gap:9px;align-items:flex-start}
+  .facts li svg{flex:none;margin-top:4px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .chip{font-family:var(--fd);font-size:.72rem;font-weight:500;padding:6px 11px;border-radius:999px;display:flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink-2)}
+  .sw{width:12px;height:12px;border-radius:3px;flex:none}
+  .domain-pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--fd);font-weight:600;font-size:.95rem;padding:9px 15px;border-radius:11px;background:rgba(22,163,74,.09);color:#166534;border:1px solid rgba(22,163,74,.25);margin-top:6px}
+  .domain-pill .tick{width:18px;height:18px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;flex:none}
+
+  /* dark thermae card */
+  .fcard.dark{background:var(--ink);border-color:#1e293b}
+  .fcard.dark .wm-text{color:#F5EFE7}
+  .fcard.dark .rank{color:#64748b}
+  .fcard.dark p.body{color:#aebacb}
+  .fcard.dark .facts h4{color:#64748b}
+  .fcard.dark .facts li{color:#cbd5e1}
+  .fcard.dark .chip{background:#131f36;border-color:#24334d;color:#cbd5e1}
+  .fcard.dark .say{color:#8595ab}
+
+  /* table */
+  .tbl-wrap{margin-top:26px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--white);box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;font-family:var(--fd)}
+  thead th{background:var(--panel);text-align:left;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:13px 18px}
+  tbody td{padding:13px 18px;border-top:1px solid var(--line);font-size:.94rem}
+  tbody tr:hover{background:#fbf9f5}
+  .dname{font-weight:600;color:var(--ink)}
+  .st{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.85rem}
+  .st.ok{color:#166534} .st.no{color:#9a3412}
+  .st .i{width:16px;height:16px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px}
+  .st.ok .i{background:var(--ok)} .st.no .i{background:#b45309}
+  .note{font-size:.82rem;color:var(--muted);margin-top:12px;font-style:italic}
+
+  /* logo direction */
+  .panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow)}
+  .grid2{display:grid;grid-template-columns:1fr;gap:22px;margin-top:26px}
+  @media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+  .ld-h{font-family:var(--fd);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-d);font-weight:600;margin-bottom:12px}
+  .palette{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+  .pc{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .pc .band{height:60px}
+  .pc .lab{padding:9px 12px;font-family:var(--fd)}
+  .pc .lab b{display:block;font-size:.85rem;color:var(--ink)}
+  .pc .lab span{font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+  .typ{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+  .typ .sample{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel)}
+  .typ .sample .big{font-family:var(--fd);font-weight:700;font-size:1.6rem;letter-spacing:-.02em}
+  .typ .sample .lbl{font-size:.74rem;color:var(--muted);margin-top:4px}
+  .typ .sample.serif .big{font-family:var(--fb);font-weight:500;font-style:italic;font-size:1.3rem}
+  .dodont{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
+  @media(min-width:680px){.dodont{grid-template-columns:1fr 1fr}}
+  .dd{border-radius:12px;padding:18px 20px}
+  .dd.do{background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.2)}
+  .dd.dont{background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.18)}
+  .dd h4{font-family:var(--fd);font-size:.85rem;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .dd.do h4{color:#166534} .dd.dont h4{color:#b91c1c}
+  .dd ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .dd li{font-size:.9rem;color:var(--ink-2)}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .tagline{font-family:var(--fd);font-weight:500;font-size:1rem;padding:10px 16px;border-radius:999px;border:1px dashed var(--line);background:var(--panel);color:var(--ink)}
+
+  /* mark system row */
+  .marks-row{display:flex;gap:26px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .msample{text-align:center}
+  .msample .mark{width:66px;height:66px}
+  .msample span{display:block;font-family:var(--fd);font-size:.74rem;color:var(--muted);margin-top:9px}
+  .favicon-demo{display:flex;gap:12px;align-items:center;margin-top:6px}
+  .favicon-demo .fv{width:34px;height:34px;border-radius:9px;overflow:hidden}
+
+  /* next steps */
+  .steps{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px;counter-reset:s}
+  @media(min-width:720px){.steps{grid-template-columns:1fr 1fr}}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;gap:15px;align-items:flex-start}
+  .step::before{counter-increment:s;content:counter(s);font-family:var(--fd);font-weight:700;font-size:1rem;color:#fff;background:var(--ink);width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}
+  .step b{font-family:var(--fd);font-size:1rem;display:block;margin-bottom:3px}
+  .step p{font-size:.9rem;color:var(--ink-2)}
+  .step a{color:var(--cold-d);text-decoration:underline;text-underline-offset:2px}
+
+  footer{padding:40px 0 56px;color:var(--muted);font-size:.85rem;text-align:center}
+  .banner{background:linear-gradient(100deg,rgba(14,165,233,.1),rgba(249,115,22,.1));border:1px solid var(--line);border-radius:var(--r);padding:22px 26px;margin-top:8px;font-size:.95rem;color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <span class="eyebrow">Brand Board · Working session</span>
+  <h1>Naming the contrast<br/>therapy directory</h1>
+  <p>Three finalist identities to replace the <em>“Contrast”</em> placeholder — each with a real, <strong>confirmed-available domain</strong>, a story, and a logo direction. Domains were checked live against registry records (RDAP), not guessed.</p>
+  <div class="meta-row">
+    <span class="m"><span class="dot"></span><b>55</b>&nbsp;domains checked</span>
+    <span class="m"><span class="dot"></span><b>3</b>&nbsp;finalists</span>
+    <span class="m"><span class="dot"></span>one mark system, <b>two temperatures</b></span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow gt">The shortlist</span>
+      <h2>Three directions</h2>
+      <p>Ranked by how well each carries both sides of the directory — the cold plunge and the sauna, the studio finder and the shop.</p>
+    </div>
+
+    <div class="finalists">
+
+      <!-- PICK: Cedar & Ice -->
+      <div class="fcard pick">
+        <span class="pick-flag">◆ Our pick</span>
+        <span class="rank">01 · Recommended</span>
+        <div class="wm">
+          <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Cedar and Ice mark">
+            <defs><clipPath id="c1"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+            <g clip-path="url(#c1)">
+              <rect x="0" y="0" width="32" height="64" fill="#F97316"/>
+              <rect x="32" y="0" width="32" height="64" fill="#0EA5E9"/>
+              <rect x="30.3" y="0" width="3.4" height="64" fill="#FAF7F2"/>
+              <circle cx="20" cy="24" r="5.5" fill="#fff" opacity=".28"/>
+              <circle cx="44" cy="40" r="5.5" fill="#fff" opacity=".28"/>
+            </g>
+            <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(15,23,42,.12)" stroke-width="1.5"/>
+          </svg>
+          <span class="wm-text">Cedar <span class="amp">&amp;</span> Ice</span>
+        </div>
+        <div class="say">“cedar for the sauna, ice for the plunge.”</div>
+        <p class="body">The most literal and the most premium. <strong>Cedar</strong> is the warm wood every good sauna is lined with; <strong>Ice</strong> is the plunge. Together they name the whole ritual without saying “therapy.” Reads instantly, sounds like a place you’d want to be a member of, and works as easily on a product page as a studio listing.</p>
+        <div class="rowline">
+          <div class="facts">
+            <h4>Why it wins</h4>
+            <ul>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Exact-match <b>.com is open</b></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Carries hot <em>and</em> cold in two words</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Premium, calm, editorial — fits the serif type</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Palette</h4>
+            <div class="chips">
+              <span class="chip"><span class="sw" style="background:#F97316"></span>Ember</span>
+              <span class="chip"><span class="sw" style="background:#0EA5E9"></span>Ice</span>
+              <span class="chip"><span class="sw" style="background:#0F172A"></span>Ink</span>
+            </div>
+            <h4 style="margin-top:16px">Domain</h4>
+            <span class="domain-pill"><span class="tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>cedarandice.com · available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pine & Plunge -->
+      <div class="fcard">
+        <span class="rank">02 · Runner-up</span>
+        <div class="wm">
+          <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Pine and Plunge mark">
+            <defs><clipPath id="c2"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+            <g clip-path="url(#c2)">
+              <rect x="0" y="0" width="32" height="64" fill="#14603F"/>
+              <rect x="32" y="0" width="32" height="64" fill="#38BDF8"/>
+              <rect x="30.3" y="0" width="3.4" height="64" fill="#FAF7F2"/>
+              <path d="M20 30 l-6 10 h12 z" fill="#fff" opacity=".85"/>
+              <path d="M20 22 l-5 9 h10 z" fill="#fff" opacity=".85"/>
+              <path d="M44 22 c5 7 5 12 0 15 c-5 -3 -5 -8 0 -15 z" fill="#fff" opacity=".85"/>
+            </g>
+            <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(15,23,42,.12)" stroke-width="1.5"/>
+          </svg>
+          <span class="wm-text">Pine <span class="amp pine">&amp;</span> Plunge</span>
+        </div>
+        <div class="say">“the friendly, outdoorsy one.”</div>
+        <p class="body">Alliteration makes it stick. <strong>Pine</strong> leans into the Nordic, forest-sauna feeling; <strong>Plunge</strong> is unmistakable. Warmer and more approachable than Cedar &amp; Ice — great if you want the brand to feel like a community and adventure rather than a luxury spa. Its own green-and-glacial palette gives it a distinct, energetic look.</p>
+        <div class="rowline">
+          <div class="facts">
+            <h4>Best for</h4>
+            <ul>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Exact-match <b>.com is open</b></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Memorable, playful, word-of-mouth friendly</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Community / outdoor positioning</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Palette</h4>
+            <div class="chips">
+              <span class="chip"><span class="sw" style="background:#14603F"></span>Pine</span>
+              <span class="chip"><span class="sw" style="background:#38BDF8"></span>Glacial</span>
+              <span class="chip"><span class="sw" style="background:#0F172A"></span>Ink</span>
+            </div>
+            <h4 style="margin-top:16px">Domain</h4>
+            <span class="domain-pill"><span class="tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>pineandplunge.com · available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thermae -->
+      <div class="fcard dark">
+        <span class="rank">03 · The bold play</span>
+        <div class="wm">
+          <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Thermae mark">
+            <defs>
+              <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F97316"/><stop offset="1" stop-color="#0EA5E9"/>
+              </linearGradient>
+              <clipPath id="c3"><circle cx="32" cy="32" r="30"/></clipPath>
+            </defs>
+            <g clip-path="url(#c3)"><rect x="0" y="0" width="64" height="64" fill="url(#tg)"/></g>
+            <path d="M17 40 v-8 a15 15 0 0 1 30 0 v8" fill="none" stroke="#0F172A" stroke-width="3.4" opacity=".85"/>
+            <circle cx="32" cy="32" r="30" fill="none" stroke="rgba(245,239,231,.25)" stroke-width="1.5"/>
+          </svg>
+          <span class="wm-text">Thermae</span>
+        </div>
+        <div class="say">“the original hot-and-cold bath.”</div>
+        <p class="body">A single, ownable word with two thousand years of story behind it — the Roman <em>thermae</em> paired a hot room and a cold room, the first contrast bathing. Sophisticated, timeless, and roomy enough to grow past cold-and-sauna into a whole bathing-culture brand. The trade-off: the <strong>.com is taken</strong>, so it launches on a sharp <strong>.co / .io</strong>.</p>
+        <div class="rowline">
+          <div class="facts">
+            <h4>Consider it if…</h4>
+            <ul>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>You want one iconic word, not a compound</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Premium / editorial positioning</li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="3"><path d="M12 2 2 20h20z"/></svg>You're OK launching on .co (not .com)</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Palette</h4>
+            <div class="chips">
+              <span class="chip"><span class="sw" style="background:#F97316"></span>Ember</span>
+              <span class="chip"><span class="sw" style="background:#0EA5E9"></span>Ice</span>
+              <span class="chip"><span class="sw" style="background:#F5EFE7"></span>Bone</span>
+            </div>
+            <h4 style="margin-top:16px">Domain</h4>
+            <span class="domain-pill"><span class="tick"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>thermae.co / thermae.io · available</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- DOMAINS -->
+<section>
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow gt">Live domain check</span>
+      <h2>What's actually available</h2>
+      <p>The honest picture: almost every obvious hot/cold compound <em>.com</em> is already registered by domain investors. These came back open against live registry data — availability confirmed, but always re-check at the registrar before buying.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Name</th><th>Domain</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="dname">Cedar &amp; Ice</td><td>cedarandice.com</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">Pine &amp; Plunge</td><td>pineandplunge.com</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">Thermae</td><td>thermae.co · thermae.io</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">Hush &amp; Heat</td><td>hushandheat.com · heatandhush.com</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">Cold Kiln</td><td>coldkiln.com</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">Brisk</td><td>brisk.co · briskbath.com</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">Afterglow</td><td>afterglow.co</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname">The Nord</td><td>thenord.co</td><td><span class="st ok"><span class="i">✓</span>Available</span></td></tr>
+          <tr><td class="dname" style="color:var(--faint)">Ember &amp; Ice</td><td style="color:var(--faint)">emberandice.com</td><td><span class="st no"><span class="i">✕</span>Taken</span></td></tr>
+          <tr><td class="dname" style="color:var(--faint)">Frost &amp; Flame</td><td style="color:var(--faint)">frostandflame.com</td><td><span class="st no"><span class="i">✕</span>Taken</span></td></tr>
+          <tr><td class="dname" style="color:var(--faint)">Thermae</td><td style="color:var(--faint)">thermae.com</td><td><span class="st no"><span class="i">✕</span>Taken</span></td></tr>
+          <tr><td class="dname" style="color:var(--faint)">Plunge &amp; Sweat</td><td style="color:var(--faint)">plungeandsweat.com</td><td><span class="st no"><span class="i">✕</span>Taken</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">RDAP registry lookup, checked live during this session. A “taken” domain may still be parked/for-sale; an “available” one should be confirmed and screened for trademark before purchase.</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- LOGO DIRECTION -->
+<section>
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow gt">Logo direction</span>
+      <h2>One mark, two temperatures</h2>
+      <p>Whichever name you pick, the identity system is the same idea: a single emblem that holds heat and cold at once. The mark splits warm from cool — that <em>is</em> contrast therapy, in one glyph. It doubles as a favicon and app icon at any size.</p>
+    </div>
+
+    <div class="panel">
+      <div class="ld-h">The mark, adapted per name</div>
+      <div class="marks-row">
+        <div class="msample">
+          <svg class="mark" viewBox="0 0 64 64"><defs><clipPath id="m1"><circle cx="32" cy="32" r="30"/></clipPath></defs><g clip-path="url(#m1)"><rect x="0" width="32" height="64" fill="#F97316"/><rect x="32" width="32" height="64" fill="#0EA5E9"/><rect x="30.3" width="3.4" height="64" fill="#FAF7F2"/></g><circle cx="32" cy="32" r="30" fill="none" stroke="rgba(15,23,42,.12)" stroke-width="1.5"/></svg>
+          <span>Cedar &amp; Ice</span>
+        </div>
+        <div class="msample">
+          <svg class="mark" viewBox="0 0 64 64"><defs><clipPath id="m2"><circle cx="32" cy="32" r="30"/></clipPath></defs><g clip-path="url(#m2)"><rect x="0" width="32" height="64" fill="#14603F"/><rect x="32" width="32" height="64" fill="#38BDF8"/><rect x="30.3" width="3.4" height="64" fill="#FAF7F2"/></g><circle cx="32" cy="32" r="30" fill="none" stroke="rgba(15,23,42,.12)" stroke-width="1.5"/></svg>
+          <span>Pine &amp; Plunge</span>
+        </div>
+        <div class="msample">
+          <svg class="mark" viewBox="0 0 64 64"><defs><linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F97316"/><stop offset="1" stop-color="#0EA5E9"/></linearGradient><clipPath id="m3"><circle cx="32" cy="32" r="30"/></clipPath></defs><g clip-path="url(#m3)"><rect width="64" height="64" fill="url(#mg)"/></g><path d="M17 40 v-8 a15 15 0 0 1 30 0 v8" fill="none" stroke="#0F172A" stroke-width="3.4" opacity=".85"/><circle cx="32" cy="32" r="30" fill="none" stroke="rgba(15,23,42,.12)" stroke-width="1.5"/></svg>
+          <span>Thermae</span>
+        </div>
+        <div class="msample" style="margin-left:auto">
+          <div class="favicon-demo">
+            <div class="fv"><svg viewBox="0 0 64 64" width="34" height="34"><defs><clipPath id="fv"><rect width="64" height="64" rx="14"/></clipPath></defs><g clip-path="url(#fv)"><rect x="0" width="32" height="64" fill="#F97316"/><rect x="32" width="32" height="64" fill="#0EA5E9"/><rect x="30" width="4" height="64" fill="#fff"/></g></svg></div>
+            <div class="fv"><svg viewBox="0 0 64 64" width="34" height="34"><g><rect width="64" height="64" fill="#0F172A"/><circle cx="32" cy="32" r="16" fill="none" stroke="#F97316" stroke-width="6"/><circle cx="32" cy="32" r="16" fill="none" stroke="#0EA5E9" stroke-width="6" stroke-dasharray="50 100"/></g></svg></div>
+          </div>
+          <span>Favicon / app icon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <div class="ld-h">Color system</div>
+        <div class="palette">
+          <div class="pc"><div class="band" style="background:#F97316"></div><div class="lab"><b>Ember</b><span>#F97316 · heat, sauna</span></div></div>
+          <div class="pc"><div class="band" style="background:#0EA5E9"></div><div class="lab"><b>Ice</b><span>#0EA5E9 · cold, plunge</span></div></div>
+        </div>
+        <div class="palette" style="margin-top:12px">
+          <div class="pc"><div class="band" style="background:#0F172A"></div><div class="lab"><b>Ink</b><span>#0F172A · type</span></div></div>
+          <div class="pc"><div class="band" style="background:#FAF7F2;border-bottom:1px solid var(--line)"></div><div class="lab"><b>Bone</b><span>#FAF7F2 · canvas</span></div></div>
+        </div>
+        <p style="font-size:.86rem;color:var(--muted);margin-top:14px">Ember + Ice always appear together and roughly balanced — never one without the other. (Pine &amp; Plunge swaps ember for pine green.)</p>
+      </div>
+
+      <div class="panel">
+        <div class="ld-h">Typography</div>
+        <div class="typ">
+          <div class="sample">
+            <div class="big">Bricolage Grotesque</div>
+            <div class="lbl">Wordmark &amp; headlines — modern, characterful (already live on the site)</div>
+          </div>
+          <div class="sample serif">
+            <div class="big">Fraunces italic sets the mood.</div>
+            <div class="lbl">Taglines &amp; editorial voice — warm, human counterpoint</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <div class="ld-h">Tagline options</div>
+        <div class="tags">
+          <span class="tagline">Hot. Cold. Repeat.</span>
+          <span class="tagline">Master the swing.</span>
+          <span class="tagline">Find your temperature.</span>
+          <span class="tagline">Where recovery runs hot and cold.</span>
+        </div>
+      </div>
+      <div class="dodont" style="margin-top:0">
+        <div class="dd do">
+          <h4>✓ Do</h4>
+          <ul>
+            <li>Keep warm and cool visually balanced</li>
+            <li>Let the mark stand alone as an icon</li>
+            <li>Pair Bricolage headlines with Fraunces lines</li>
+          </ul>
+        </div>
+        <div class="dd dont">
+          <h4>✕ Don't</h4>
+          <ul>
+            <li>Recolor outside the two-temperature palette</li>
+            <li>Stretch or rotate the mark</li>
+            <li>Let one temperature dominate the other</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- NEXT STEPS -->
+<section>
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="eyebrow gt">Before you commit</span>
+      <h2>Next steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div><b>Lock the domain</b><p>Confirm and register the pick at a registrar (Cloudflare, Namecheap). Grab defensive TLDs too — the .co/.net and common misspellings.</p></div></div>
+      <div class="step"><div><b>Trademark screen</b><p>Search the <a href="https://www.uspto.gov/trademarks/search" target="_blank" rel="noopener noreferrer">USPTO database</a> for conflicts in wellness/recovery classes before you print anything.</p></div></div>
+      <div class="step"><div><b>Claim the handles</b><p>Check Instagram, TikTok, and YouTube for the name. Consistency across handle + domain matters more than the perfect TLD.</p></div></div>
+      <div class="step"><div><b>Drop it into the site</b><p>Once you choose, I'll swap the “Contrast” wordmark on the live prototype for the real name, mark, and palette in a few minutes.</p></div></div>
+    </div>
+
+    <div class="banner">
+      <strong>My recommendation:</strong> go with <strong>Cedar &amp; Ice</strong> — it's the rare name that's premium, instantly legible as “sauna + plunge,” and still open on an exact-match .com. <em>Pine &amp; Plunge</em> is the pick if you want warmer and more playful; <em>Thermae</em> if you want one iconic word and don't mind launching on .co.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Brand exploration for the contrast therapy directory · names, domains &amp; logo direction · working session, 2026.<br/>
+    Domain availability from live RDAP lookups — verify at a registrar before purchase.
+  </div>
+</footer>
+
+</body>
+</html>

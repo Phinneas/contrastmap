@@ -1,0 +1,472 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/directory.css';
+import listingsData from '../../data/listings.json';
+
+export function getStaticPaths() {
+  const AMENITY_INFO = {
+    'cold-plunge': { name: 'Cold Plunge' },
+    'infrared-sauna': { name: 'Infrared Sauna' },
+    'traditional-sauna': { name: 'Traditional Sauna' },
+    'contrast-therapy': { name: 'Contrast Therapy' },
+  };
+  const CITY_INFO = {
+    'austin': { name: 'Austin' },
+    'los-angeles': { name: 'Los Angeles' },
+    'new-york': { name: 'New York' },
+  };
+  const AMENITY_KEY_MAP = {
+    'cold-plunge': 'coldPlunge',
+    'infrared-sauna': 'infraredSauna',
+    'traditional-sauna': 'traditionalSauna',
+    'contrast-therapy': 'contrastTherapyMarketed',
+  };
+  const paths = [];
+  for (const [amenitySlug] of Object.entries(AMENITY_INFO)) {
+    for (const [citySlug, city] of Object.entries(CITY_INFO)) {
+      const key = AMENITY_KEY_MAP[amenitySlug];
+      const matching = listingsData.listings.filter(l =>
+        l.location.city === city.name && l.status === 'active' && l.amenities[key]
+      );
+      if (matching.length > 0) {
+        paths.push({
+          params: { amenity: amenitySlug, city: citySlug },
+          props: { amenitySlug, citySlug, count: matching.length },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+// Editorial content for amenities and cities
+const AMENITY_INFO = {
+  'cold-plunge': {
+    name: 'Cold Plunge',
+    short: 'cold plunge',
+    intro: 'Cold plunge therapy immerses your body in water between 39\u201355\u00b0F for 2\u20135 minutes, triggering a surge of norepinephrine and dopamine that leaves you alert, energized, and oddly euphoric. It is the fastest mood and recovery tool in the contrast therapy toolkit.',
+    icon: '\u2744',
+  },
+  'infrared-sauna': {
+    name: 'Infrared Sauna',
+    short: 'infrared sauna',
+    intro: 'Infrared saunas use infrared light to warm your body directly at 110\u2013150\u00b0F, driving a deep sweat without the intense heat of a traditional sauna. Sessions run 20\u201345 minutes and are ideal for relaxation, circulation, and sleep.',
+    icon: '\u2668',
+  },
+  'traditional-sauna': {
+    name: 'Traditional Sauna',
+    short: 'traditional sauna',
+    intro: 'Traditional Finnish saunas heat the air to 150\u2013200\u00b0F using electric or wood-fired stoves, often with rocks you can pour water on for steam. The higher heat drives a more intense cardiovascular response than infrared.',
+    icon: '\u2668',
+  },
+  'contrast-therapy': {
+    name: 'Contrast Therapy',
+    short: 'contrast therapy',
+    intro: 'Contrast therapy alternates between heat (sauna) and cold (plunge) in the same session, creating a vascular pump that neither can deliver alone. The typical protocol: 10\u201315 min sauna, 1\u20133 min cold plunge, repeated 2\u20133 rounds.',
+    icon: '\u21c4',
+  },
+};
+
+const CITY_INFO = {
+  'austin': { name: 'Austin', state: 'TX', lat: 30.2672, lng: -97.7431, zoom: 11,
+    scene: 'Austin has gone all-in on contrast therapy. From East Austin\u2019s private sauna-and-plunge suites to communal bathhouses off South Lamar, the city offers more ways to go hot and cold than anywhere else in Texas.' },
+  'los-angeles': { name: 'Los Angeles', state: 'CA', lat: 34.0522, lng: -118.2437, zoom: 11,
+    scene: 'LA was an early adopter of contrast therapy. Options run from Playa Vista\u2019s award-winning private suites to communal Nordic sauna clubs in the Valley. Whether you want a guided ice bath or a solo infrared session, Los Angeles has it.' },
+  'new-york': { name: 'New York', state: 'NY', lat: 40.7484, lng: -73.9967, zoom: 12,
+    scene: 'New York\u2019s contrast therapy scene has exploded, from NoHo bathing clubs to Flatiron sauna temples. Space is tight and prices run higher, but the studios that have cracked the code offer some of the best-guided contrast rituals in the country.' },
+};
+
+const { amenitySlug, citySlug, count } = Astro.props;
+const amenity = AMENITY_INFO[amenitySlug];
+const city = CITY_INFO[citySlug];
+const cityCenter = { lat: city.lat, lng: city.lng, zoom: city.zoom };
+
+// Transform listings for this city + amenity
+const amenityKey = amenitySlug === 'cold-plunge' ? 'coldPlunge' :
+                   amenitySlug === 'infrared-sauna' ? 'infraredSauna' :
+                   amenitySlug === 'traditional-sauna' ? 'traditionalSauna' :
+                   'contrastTherapyMarketed';
+
+const comboListings = listingsData.listings
+  .filter(l => l.location.city === city.name && l.status === 'active' && l.amenities[amenityKey])
+  .map(l => {
+    const services = [];
+    if (l.amenities.coldPlunge) services.push('cold-plunge');
+    if (l.amenities.infraredSauna) services.push('infrared-sauna');
+    if (l.amenities.traditionalSauna) services.push('traditional-sauna');
+    if (l.amenities.contrastTherapyMarketed) services.push('contrast-therapy');
+    const svcLabels = [];
+    if (l.amenities.coldPlunge) svcLabels.push('Cold Plunge');
+    if (l.amenities.infraredSauna) svcLabels.push('Infrared Sauna');
+    if (l.amenities.contrastTherapyMarketed) svcLabels.push('Contrast Therapy');
+    if (l.amenities.redLightTherapy) svcLabels.push('Red Light');
+    if (l.amenities.compressionTherapy) svcLabels.push('Compression');
+    if (l.amenities.floatTank) svcLabels.push('Float Tank');
+    return {
+      name: l.name, slug: l.slug,
+      neighborhood: l.location.neighborhood,
+      services: svcLabels, amenitySlugs: services,
+      priceFrom: l.pricing.dropInPrice, priceNote: l.pricing.dropInPriceNote,
+      membershipAvailable: l.pricing.membershipAvailable,
+      rating: l.editorial.rating, reviews: l.editorial.reviewCount,
+      website: l.contact.website, blurb: l.description,
+      verified: l.editorial.verified, featured: l.editorial.featured,
+      lat: l.location.coordinates?.lat ?? null,
+      lng: l.location.coordinates?.lng ?? null,
+    };
+  });
+
+// Other amenities available in this city (for cross-links)
+const otherAmenities = Object.entries(AMENITY_INFO)
+  .filter(([slug]) => slug !== amenitySlug)
+  .filter(([slug]) => {
+    const key = slug === 'cold-plunge' ? 'coldPlunge' : slug === 'infrared-sauna' ? 'infraredSauna' : slug === 'traditional-sauna' ? 'traditionalSauna' : 'contrastTherapyMarketed';
+    return listingsData.listings.some(l => l.location.city === city.name && l.status === 'active' && l.amenities[key]);
+  });
+
+const canonicalUrl = `https://contrastmap.com/${amenitySlug}/${citySlug}`;
+const seoTitle = `${amenity.name} in ${city.name}, ${city.state} — ${count} Studios | ContrastMap`;
+const seoDesc = `Find ${amenity.short} studios in ${city.name}, ${city.state}. Compare prices, amenities, and read reviews. ${count} verified studios listed on ContrastMap.`;
+
+// ItemList JSON-LD
+const itemListJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${amenity.name} in ${city.name}, ${city.state}`,
+  itemListElement: comboListings.map((l, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'HealthAndBeautyBusiness',
+      name: l.name,
+      url: `https://contrastmap.com/${citySlug}/${l.slug}`,
+      ...(l.lat ? { geo: { '@type': 'GeoCoordinates', latitude: l.lat, longitude: l.lng } } : {}),
+    },
+  })),
+});
+
+const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN || '';
+---
+
+<Base title={seoTitle} description={seoDesc} canonical={canonicalUrl} ogType="website">
+  <link rel="stylesheet" href="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" />
+  <script is:inline type="application/ld+json" set:html={itemListJsonLd} />
+
+  <!-- Editorial hero -->
+  <section class="dir-hero">
+    <div class="wrap">
+      <div class="crumb">
+        <a href="/">Home</a> &rsaquo;
+        <a href={`/${citySlug}`}>{city.name}</a> &rsaquo;
+        <span>{amenity.name}</span>
+      </div>
+      <h1>{amenity.name} in {city.name}, {city.state}</h1>
+      <p class="dir-hero-intro">{amenity.intro}</p>
+      <p class="dir-hero-scene">{city.scene}</p>
+      <div class="city-stats">
+        <div><b>{count}</b><span>{amenity.short} studios</span></div>
+        <div><b>{comboListings.filter(l => l.verified).length}</b><span>verified</span></div>
+        <div><b>{comboListings.filter(l => l.featured).length}</b><span>featured</span></div>
+      </div>
+      <!-- Cross-links to other amenities in this city -->
+      {otherAmenities.length > 0 && (
+        <div class="amenity-crosslinks">
+          <span class="filter-label">Also in {city.name}:</span>
+          {otherAmenities.map(([slug, info]) => (
+            <a href={`/${slug}/${citySlug}`} class="amenity-xlink">{info.name} &rarr;</a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <section class="dir-filters">
+    <div class="wrap">
+      <div class="filter-row">
+        <div class="filter-search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="dirSearch" placeholder="Search by name or neighborhood&hellip;" />
+        </div>
+        <select class="dir-sort" id="dirSort" aria-label="Sort">
+          <option value="featured">Sort: Featured</option>
+          <option value="rating">Top rated</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+        </select>
+        <div class="view-toggle" id="viewToggle">
+          <button data-view="list" class="on">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            List
+          </button>
+          <button data-view="map">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>
+            Map
+          </button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Amenities</span>
+        <div class="filter-group" id="amenityFilters">
+          <label class="check-chip on" data-amenity={amenitySlug} style="pointer-events:none;opacity:.85">
+            <input type="checkbox" checked disabled />
+            <span class="ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M20 6L9 17l-5-5"/></svg></span>
+            {amenity.name}
+          </label>
+          {otherAmenities.map(([slug, info]) => (
+            <label class="check-chip" data-amenity={slug}>
+              <input type="checkbox" />
+              <span class="ic"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              {info.name}
+            </label>
+          ))}
+        </div>
+        <span class="filter-label" style="margin-left:8px">Price</span>
+        <div class="price-toggle" id="priceToggle">
+          <button data-price="any" class="on">Any</button>
+          <button data-price="drop-in">Drop-in</button>
+          <button data-price="membership">Membership</button>
+        </div>
+        <button class="clear-filters" id="clearFilters">&#10005; Clear filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="dir-results">
+    <div class="wrap dir-layout">
+      <div class="dir-list" id="dirList">
+        <div class="result-count" id="resultCount"></div>
+        <div class="grid cols3" id="listingGrid"></div>
+      </div>
+      <div class="dir-map" id="dirMap">
+        <div id="mapboxMap"></div>
+      </div>
+    </div>
+  </section>
+
+  <button class="mobile-map-close" id="mobileMapClose" style="display:none">&#10005; Close map</button>
+
+  <script src="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+  <script is:inline define:vars={{ comboListings, cityCenter, citySlug, amenitySlug, mapboxToken }}>
+    const ALL_LISTINGS = comboListings;
+    const CITY_CENTER = cityCenter;
+    const CITY_SLUG = citySlug;
+    const LOCKED_AMENITY = amenitySlug;
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => [...document.querySelectorAll(s)];
+    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    function readURL() {
+      const p = new URLSearchParams(window.location.search);
+      const amenities = p.get('amenity') ? p.get('amenity').split(',').filter(Boolean).filter(a => a !== LOCKED_AMENITY) : [];
+      return {
+        amenities: new Set(amenities),
+        price: p.get('price') || 'any',
+        sort: p.get('sort') || 'featured',
+        q: p.get('q') || '',
+        view: p.get('view') || 'list',
+      };
+    }
+    function writeURL(state) {
+      const all = [...state.amenities, LOCKED_AMENITY];
+      const params = new URLSearchParams();
+      if (all.length > 1) params.set('amenity', all.join(','));
+      if (state.price !== 'any') params.set('price', state.price);
+      if (state.sort !== 'featured') params.set('sort', state.sort);
+      if (state.q) params.set('q', state.q);
+      if (state.view !== 'list') params.set('view', state.view);
+      const qs = params.toString();
+      history.replaceState(null, '', `/${LOCKED_AMENITY}/${CITY_SLUG}${qs ? '?' + qs : ''}`);
+    }
+
+    let state = readURL();
+
+    function starHTML(rating, reviews) {
+      if (!rating) return '<span class="stars"><small>New / unrated</small></span>';
+      const full = Math.round(rating);
+      const s = '\u2605'.repeat(full) + '\u2606'.repeat(5 - full);
+      return `<span class="stars"><span class="s">${s}</span>${rating.toFixed(1)}${reviews ? ` <small>(${reviews > 1000 ? (reviews / 1000).toFixed(1) + 'k' : reviews})</small>` : ''}</span>`;
+    }
+    function serviceTag(svc) {
+      if (svc === 'Cold Plunge') return '<span class="tag cold">\u2744 Cold plunge</span>';
+      if (svc === 'Infrared Sauna') return '<span class="tag hot">\u2668 Infrared sauna</span>';
+      if (svc === 'Contrast Therapy') return '<span class="tag both">\u21c4 Contrast</span>';
+      return `<span class="tag neu">${esc(svc)}</span>`;
+    }
+    function providerGrad(l) {
+      const hasCold = l.amenitySlugs.includes('cold-plunge');
+      const hasHot = l.amenitySlugs.includes('infrared-sauna') || l.amenitySlugs.includes('traditional-sauna');
+      if (hasCold && hasHot) return 'linear-gradient(115deg,#0EA5E9 0%,#38BDF8 35%,#A78BFA 55%,#F97316 100%)';
+      if (hasHot) return 'linear-gradient(135deg,#FB923C,#C2410C)';
+      return 'linear-gradient(135deg,#38BDF8,#0369A1)';
+    }
+    function markerClass(l) {
+      const hasCold = l.amenitySlugs.includes('cold-plunge');
+      const hasHot = l.amenitySlugs.includes('infrared-sauna') || l.amenitySlugs.includes('traditional-sauna');
+      if (hasCold && hasHot) return 'both';
+      if (hasHot) return 'hot';
+      return 'cold';
+    }
+
+    function getFiltered() {
+      // Always include the locked amenity in the filter set
+      const allAmenities = new Set([...state.amenities, LOCKED_AMENITY]);
+      let list = ALL_LISTINGS.filter(l => {
+        for (const a of allAmenities) { if (!l.amenitySlugs.includes(a)) return false; }
+        if (state.price === 'drop-in' && l.priceFrom == null) return false;
+        if (state.price === 'membership' && !l.membershipAvailable) return false;
+        if (state.q) {
+          const hay = (l.name + ' ' + l.neighborhood + ' ' + l.blurb).toLowerCase();
+          if (!hay.includes(state.q.toLowerCase())) return false;
+        }
+        return true;
+      });
+      list.sort((a, b) => {
+        if (state.sort === 'featured') { if (!!b.featured - !!a.featured) return !!b.featured - !!a.featured; return (b.rating || 0) - (a.rating || 0); }
+        if (state.sort === 'rating') return (b.rating || 0) - (a.rating || 0);
+        if (state.sort === 'price-low') return (a.priceFrom ?? 99999) - (b.priceFrom ?? 99999);
+        if (state.sort === 'price-high') return (b.priceFrom ?? -1) - (a.priceFrom ?? -1);
+        return 0;
+      });
+      return list;
+    }
+
+    function cardHTML(l) {
+      return `<article class="card" id="card-${esc(l.slug)}" data-slug="${esc(l.slug)}">
+        <a href="/${CITY_SLUG}/${esc(l.slug)}" style="text-decoration:none;color:inherit">
+        <div class="pv-top" style="background:${providerGrad(l)}">
+          ${l.featured ? '<span class="badge feat">\u2605 Featured</span>' : ''}
+          <span class="glyph">${esc(l.name)}</span>
+        </div>
+        <div class="pv-body">
+          <h3>${esc(l.name)}</h3>
+          <div class="loc">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            ${esc(l.neighborhood || '')} &middot; ${esc(CITY_SLUG === 'new-york' ? 'NYC' : CITY_SLUG === 'los-angeles' ? 'LA' : 'Austin')}
+          </div>
+          <div class="tags">${l.services.slice(0, 3).map(serviceTag).join('')}</div>
+          <p class="pv-blurb">${esc(l.blurb)}</p>
+          <div class="pv-meta">
+            ${starHTML(l.rating, l.reviews)}
+            <span class="price">${esc(l.priceNote || '')}</span>
+          </div>
+        </div>
+        </a>
+        <div class="pv-actions" style="padding:0 17px 17px">
+          <a class="btn btn-ghost btn-sm" href="/${CITY_SLUG}/${esc(l.slug)}" style="flex:1;justify-content:center">View details</a>
+          <button class="btn btn-grad btn-sm" onclick='openQuote(${JSON.stringify(l.name)})' style="flex:1;justify-content:center">Get a quote</button>
+        </div>
+      </article>`;
+    }
+    function emptyState() {
+      return `<div class="empty-state"><h3>No studios match those filters</h3><p>Try clearing a filter or widening your search.</p></div>`;
+    }
+
+    /* Map */
+    let map = null;
+    let markers = [];
+    function initMap() {
+      if (map) return;
+      if (typeof mapboxgl === 'undefined') return;
+      if (!mapboxToken) { document.getElementById('mapboxMap').innerHTML = '<div style="display:grid;place-items:center;height:100%;color:var(--muted);font-size:.88rem;text-align:center;padding:20px">Set PUBLIC_MAPBOX_TOKEN in .env to enable the map.</div>'; return; }
+      mapboxgl.accessToken = mapboxToken;
+      map = new mapboxgl.Map({ container: 'mapboxMap', style: 'mapbox://styles/mapbox/streets-v12', center: [CITY_CENTER.lng, CITY_CENTER.lat], zoom: CITY_CENTER.zoom, scrollZoom: false });
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    }
+    function updateMap(list) {
+      if (!map) return;
+      for (const m of markers) m.remove();
+      markers = [];
+      const bounds = new mapboxgl.LngLatBounds();
+      for (const l of list) {
+        if (l.lat == null || l.lng == null) continue;
+        const cls = markerClass(l);
+        const featCls = l.featured ? ' featured' : '';
+        const el = document.createElement('div');
+        el.className = `cm-marker ${cls}${featCls}`;
+        el.innerHTML = `<span class="cm-ic">${cls === 'cold' ? '\u2744' : cls === 'hot' ? '\u2668' : '\u21c4'}</span>`;
+        const popup = new mapboxgl.Popup({ offset: 25, closeButton: false }).setHTML(`<b>${esc(l.name)}</b><div class="popup-meta">${esc(l.neighborhood || '')} &middot; ${esc(l.priceNote || '')}</div>`);
+        const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' }).setLngLat([l.lng, l.lat]).setPopup(popup).addTo(map);
+        el.addEventListener('click', () => {
+          const card = document.getElementById('card-' + l.slug);
+          if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); card.classList.add('highlighted'); setTimeout(() => card.classList.remove('highlighted'), 2000); }
+        });
+        markers.push(marker);
+        bounds.extend([l.lng, l.lat]);
+      }
+      if (!bounds.isEmpty()) { map.fitBounds(bounds, { padding: 60, maxZoom: 14 }); }
+      else { map.flyTo({ center: [CITY_CENTER.lng, CITY_CENTER.lat], zoom: CITY_CENTER.zoom }); }
+    }
+
+    function render() {
+      const list = getFiltered();
+      const hasFilters = state.amenities.size > 0 || state.price !== 'any' || state.q !== '';
+      $('#resultCount').innerHTML = `<b>${list.length}</b> ${list.length === 1 ? 'studio' : 'studios'}` +
+        (hasFilters ? ' <button class="clear-filters show" onclick="clearAll()">&#10005; Clear filters</button>' : '');
+      $('#listingGrid').innerHTML = list.map(cardHTML).join('') || emptyState();
+      updateMap(list);
+      $('#clearFilters').classList.toggle('show', hasFilters);
+    }
+
+    function syncUI() {
+      $$('#amenityFilters .check-chip').forEach(chip => {
+        if (chip.dataset.amenity === LOCKED_AMENITY) return;
+        const a = chip.dataset.amenity;
+        const on = state.amenities.has(a);
+        chip.classList.toggle('on', on);
+        chip.querySelector('input').checked = on;
+      });
+      $$('#priceToggle button').forEach(b => b.classList.toggle('on', b.dataset.price === state.price));
+      $('#dirSort').value = state.sort;
+      $('#dirSearch').value = state.q;
+      $$('#viewToggle button').forEach(b => b.classList.toggle('on', b.dataset.view === state.view));
+      applyView();
+    }
+
+    function applyView() {
+      const isMobile = window.innerWidth < 1024;
+      if (state.view === 'map' && isMobile) {
+        $('#dirMap').classList.add('mobile-show'); $('#dirList').classList.add('mobile-hide');
+        $('#mobileMapClose').style.display = 'block';
+        setTimeout(() => { if (map) map.invalidateSize(); }, 100);
+      } else {
+        $('#dirMap').classList.remove('mobile-show'); $('#dirList').classList.remove('mobile-hide');
+        $('#mobileMapClose').style.display = 'none';
+      }
+    }
+
+    function clearAll() {
+      state.amenities.clear(); state.price = 'any'; state.q = ''; state.sort = 'featured';
+      syncUI(); render(); writeURL(state);
+    }
+    window.clearAll = clearAll;
+
+    // Event listeners (skip the locked amenity chip)
+    $$('#amenityFilters .check-chip').forEach(chip => {
+      if (chip.dataset.amenity === LOCKED_AMENITY) return;
+      chip.addEventListener('click', e => {
+        e.preventDefault();
+        const a = chip.dataset.amenity;
+        if (state.amenities.has(a)) state.amenities.delete(a); else state.amenities.add(a);
+        syncUI(); render(); writeURL(state);
+      });
+    });
+    $$('#priceToggle button').forEach(btn => btn.addEventListener('click', () => { state.price = btn.dataset.price; syncUI(); render(); writeURL(state); }));
+    $('#dirSort').addEventListener('change', e => { state.sort = e.target.value; render(); writeURL(state); });
+    let searchTimer;
+    $('#dirSearch').addEventListener('input', e => { clearTimeout(searchTimer); searchTimer = setTimeout(() => { state.q = e.target.value; render(); writeURL(state); }, 200); });
+    $$('#viewToggle button').forEach(btn => btn.addEventListener('click', () => { state.view = btn.dataset.view; syncUI(); render(); writeURL(state); }));
+    $('#clearFilters').addEventListener('click', clearAll);
+    $('#mobileMapClose').addEventListener('click', () => { state.view = 'list'; syncUI(); writeURL(state); });
+    window.addEventListener('resize', applyView);
+
+    syncUI(); render();
+    function tryInitMap() {
+      if (typeof mapboxgl !== 'undefined') { initMap(); updateMap(getFiltered()); }
+      else setTimeout(tryInitMap, 100);
+    }
+    tryInitMap();
+  </script>
+</Base>

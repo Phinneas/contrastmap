@@ -1,0 +1,80 @@
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "slug": "contrast-east-austin-tx",
+  "name": "CØNTRAST",
+  "description": "A lush East Austin oasis where private IR-sauna-and-plunge suites sit alongside a garden-style communal contrast area.",
+  "status": "active",
+  "location": {
+    "address": "912 E 6th St",
+    "address2": null,
+    "city": "Austin",
+    "state": "TX",
+    "postalCode": "78702",
+    "country": "US",
+    "coordinates": { "lat": 30.2672, "lng": -97.7251 },
+    "neighborhood": "East Austin"
+  },
+  "amenities": {
+    "coldPlunge": true,
+    "infraredSauna": true,
+    "traditionalSauna": false,
+    "contrastTherapyMarketed": true,
+    "redLightTherapy": true,
+    "compressionTherapy": false,
+    "floatTank": false,
+    "coldPlungeCurrented": true
+  },
+  "pricing": {
+    "priceRange": 2,
+    "dropInPrice": 29,
+    "dropInPriceNote": "$29 communal hour / $49 private suite",
+    "membershipAvailable": true,
+    "membershipPrice": 199,
+    "membershipPriceNote": "$199/mo unlimited contrast"
+  },
+  "contact": {
+    "phone": "+15125551234",
+    "website": "https://www.contrastatx.com/",
+    "bookingUrl": "https://www.contrastatx.com/book",
+    "email": "hello@contrastatx.com",
+    "instagram": "https://instagram.com/contrastatx"
+  },
+  "hours": {
+    "monday":    { "open": "07:00", "close": "20:00", "closed": false },
+    "tuesday":   { "open": "07:00", "close": "20:00", "closed": false },
+    "wednesday": { "open": "07:00", "close": "20:00", "closed": false },
+    "thursday":  { "open": "07:00", "close": "20:00", "closed": false },
+    "friday":    { "open": "07:00", "close": "21:00", "closed": false },
+    "saturday":  { "open": "08:00", "close": "21:00", "closed": false },
+    "sunday":    { "open": "08:00", "close": "18:00", "closed": false }
+  },
+  "media": {
+    "photos": [
+      "https://images.contrastmap.com/listings/contrast-austin/01.jpg",
+      "https://images.contrastmap.com/listings/contrast-austin/02.jpg"
+    ],
+    "logo": "https://images.contrastmap.com/listings/contrast-austin/logo.png"
+  },
+  "editorial": {
+    "rating": 5.0,
+    "reviewCount": 40,
+    "featured": true,
+    "sponsored": false,
+    "verified": true
+  },
+  "ownership": {
+    "claimed": false,
+    "claimedBy": null,
+    "claimedDate": null,
+    "claimMethod": null
+  },
+  "audit": {
+    "addedDate": "2026-07-01",
+    "addedBy": "system",
+    "source": "seed",
+    "lastVerifiedDate": "2026-07-08",
+    "lastVerifiedBy": "admin",
+    "lastModifiedDate": "2026-07-08",
+    "lastModifiedBy": "admin"
+  }
+}

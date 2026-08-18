@@ -1,0 +1,378 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/directory.css';
+import listingsData from '../../data/listings.json';
+
+export function getStaticPaths() {
+  const CITY_SLUG_MAP = { 'Austin': 'austin', 'Los Angeles': 'los-angeles', 'New York': 'new-york' };
+  return listingsData.listings
+    .filter(l => l.status === 'active')
+    .map(l => ({
+      params: { city: CITY_SLUG_MAP[l.location.city], slug: l.slug },
+      props: { listing: l },
+    }));
+}
+
+const CITY_SLUG_MAP = { 'Austin': 'austin', 'Los Angeles': 'los-angeles', 'New York': 'new-york' };
+
+const { listing } = Astro.props;
+const citySlug = CITY_SLUG_MAP[listing.location.city];
+const cityName = listing.location.city;
+
+// --- Build JSON-LD LocalBusiness schema ---
+const PRICE_TIERS = ['$', '$$', '$$$', '$$$$'];
+const DAYS = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+const DAY_LABELS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+// amenityFeature entries
+const amenityFeatures = [];
+const amenityMap = [
+  { key: 'coldPlunge', label: 'Cold Plunge' },
+  { key: 'infraredSauna', label: 'Infrared Sauna' },
+  { key: 'traditionalSauna', label: 'Traditional Sauna' },
+  { key: 'contrastTherapyMarketed', label: 'Contrast Therapy' },
+  { key: 'redLightTherapy', label: 'Red Light Therapy' },
+  { key: 'compressionTherapy', label: 'Compression Therapy' },
+  { key: 'floatTank', label: 'Float Tank' },
+  { key: 'vitaminCShower', label: 'Vitamin C Shower' },
+  { key: 'hbot', label: 'Hyperbaric Oxygen Therapy' },
+  { key: 'ivTherapy', label: 'IV Therapy' },
+  { key: 'cryotherapy', label: 'Cryotherapy' },
+  { key: 'pemf', label: 'PEMF Therapy' },
+];
+for (const a of amenityMap) {
+  if (listing.amenities[a.key]) {
+    amenityFeatures.push({
+      '@type': 'LocationFeatureSpecification',
+      name: a.label,
+      value: true,
+    });
+  }
+}
+
+// openingHoursSpecification — only include days with actual times
+const openingHours = [];
+for (let i = 0; i < DAYS.length; i++) {
+  const day = listing.hours[DAYS[i]];
+  if (day && !day.closed && day.open && day.close) {
+    openingHours.push({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: DAY_LABELS[i],
+      opens: day.open,
+      closes: day.close,
+    });
+  }
+}
+
+// priceRange string
+const priceRange = PRICE_TIERS[(listing.pricing.priceRange || 2) - 1] || '$$';
+
+// Build the schema object, omitting null/empty fields
+const schema: Record<string, any> = {
+  '@context': 'https://schema.org',
+  '@type': 'HealthAndBeautyBusiness',
+  name: listing.name,
+  description: listing.description,
+};
+
+if (listing.contact.website) schema.url = listing.contact.website;
+if (listing.contact.phone) schema.telephone = listing.contact.phone;
+schema.priceRange = priceRange;
+
+// Address
+const addr: Record<string, any> = { '@type': 'PostalAddress' };
+if (listing.location.address) addr.streetAddress = listing.location.address;
+addr.addressLocality = listing.location.city;
+addr.addressRegion = listing.location.state;
+if (listing.location.postalCode) addr.postalCode = listing.location.postalCode;
+addr.addressCountry = listing.location.country || 'US';
+schema.address = addr;
+
+// Geo
+if (listing.location.coordinates) {
+  schema.geo = {
+    '@type': 'GeoCoordinates',
+    latitude: listing.location.coordinates.lat,
+    longitude: listing.location.coordinates.lng,
+  };
+}
+
+// Opening hours
+if (openingHours.length > 0) {
+  schema.openingHoursSpecification = openingHours;
+}
+
+// Amenity features
+if (amenityFeatures.length > 0) {
+  schema.amenityFeature = amenityFeatures;
+}
+
+// Aggregate rating
+if (listing.editorial.rating) {
+  schema.aggregateRating = {
+    '@type': 'AggregateRating',
+    ratingValue: String(listing.editorial.rating),
+    ...(listing.editorial.reviewCount ? { reviewCount: String(listing.editorial.reviewCount) } : {}),
+  };
+}
+
+// Image
+if (listing.media.photos && listing.media.photos.length > 0) {
+  schema.image = listing.media.photos;
+}
+
+// Same-as social links
+const sameAs = [];
+if (listing.contact.instagram) sameAs.push(listing.contact.instagram);
+if (listing.contact.facebook) sameAs.push(listing.contact.facebook);
+if (sameAs.length > 0) schema.sameAs = sameAs;
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://contrastmap.com/' },
+    { '@type': 'ListItem', position: 2, name: cityName, item: `https://contrastmap.com/${citySlug}` },
+    { '@type': 'ListItem', position: 3, name: listing.name, item: `https://contrastmap.com/${citySlug}/${listing.slug}` },
+  ],
+};
+
+const jsonLd = JSON.stringify(schema);
+const breadcrumbLd = JSON.stringify(breadcrumbSchema);
+
+// Related studios (same city, exclude self, limit 3)
+const related = listingsData.listings
+  .filter(l => l.location.city === cityName && l.slug !== listing.slug && l.status === 'active')
+  .slice(0, 3);
+
+// Service labels for display
+const serviceLabels = [];
+if (listing.amenities.coldPlunge) serviceLabels.push('Cold Plunge');
+if (listing.amenities.infraredSauna) serviceLabels.push('Infrared Sauna');
+if (listing.amenities.traditionalSauna) serviceLabels.push('Traditional Sauna');
+if (listing.amenities.contrastTherapyMarketed) serviceLabels.push('Contrast Therapy');
+if (listing.amenities.redLightTherapy) serviceLabels.push('Red Light Therapy');
+if (listing.amenities.compressionTherapy) serviceLabels.push('Compression Therapy');
+if (listing.amenities.floatTank) serviceLabels.push('Float Tank');
+---
+
+<Base title={`${listing.name} — ${cityName} Cold Plunge & Sauna | ContrastMap`} description={listing.description} canonical={`https://contrastmap.com/${citySlug}/${listing.slug}`} ogType="business">
+  <link rel="stylesheet" href="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" />
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script is:inline type="application/ld+json" set:html={jsonLd} />
+  <!-- JSON-LD: BreadcrumbList -->
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd} />
+
+  <!-- Listing hero -->
+  <section class="listing-hero">
+    <div class="wrap">
+      <div class="crumb">
+        <a href="/">Home</a> &rsaquo;
+        <a href={`/${citySlug}`}>{cityName}</a> &rsaquo;
+        <span>{listing.name}</span>
+      </div>
+      <div class="listing-hero-grid">
+        <div class="listing-hero-info">
+          {listing.editorial.featured && <span class="badge feat" style="position:static;display:inline-flex;margin-bottom:12px">&#10003; Featured</span>}
+          <h1>{listing.name}</h1>
+          <p class="listing-loc">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            {listing.location.neighborhood ? `${listing.location.neighborhood}, ` : ''}{cityName}, {listing.location.state}
+          </p>
+          <p class="listing-desc">{listing.description}</p>
+          {listing.editorial.rating && (
+            <div class="listing-rating">
+              <span class="stars"><span class="s">{'\u2605'.repeat(Math.round(listing.editorial.rating))}{'\u2606'.repeat(5 - Math.round(listing.editorial.rating))}</span> {listing.editorial.rating.toFixed(1)}</span>
+              {listing.editorial.reviewCount && <span class="review-count">{listing.editorial.reviewCount > 1000 ? `${(listing.editorial.reviewCount / 1000).toFixed(1)}k` : listing.editorial.reviewCount} reviews</span>}
+              {listing.editorial.verified && <span class="verified-badge">&#10003; Verified</span>}
+            </div>
+          )}
+          <div class="listing-cta">
+            <button class="btn btn-grad" onclick="openQuote({JSON.stringify(listing.name)})">Get a quote</button>
+            {listing.contact.website && <a class="btn btn-ghost" href={listing.contact.website} target="_blank" rel="noopener noreferrer">Visit website &rarr;</a>}
+            {listing.contact.bookingUrl && <a class="btn btn-primary" href={listing.contact.bookingUrl} target="_blank" rel="noopener noreferrer">Book now</a>}
+          </div>
+          {!listing.ownership.claimed && (
+            <div class="claim-cta">
+              <div class="claim-cta-inner">
+                <div>
+                  <strong>Own this studio?</strong>
+                  <p>Claim this listing to update hours, pricing, photos, and respond to inquiries.</p>
+                </div>
+                <button class="btn btn-ghost btn-sm" onclick="openList('Claim')">Claim listing</button>
+              </div>
+            </div>
+          )}
+        </div>
+        <div class="listing-hero-card">
+          <div class="info-card">
+            <h3>At a glance</h3>
+            <div class="info-row">
+              <span class="info-k">Drop-in</span>
+              <span class="info-v">{listing.pricing.dropInPriceNote || (listing.pricing.dropInPrice != null ? `$${listing.pricing.dropInPrice}` : 'Contact for pricing')}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-k">Membership</span>
+              <span class="info-v">{listing.pricing.membershipAvailable ? (listing.pricing.membershipPriceNote || (listing.pricing.membershipPrice != null ? `$${listing.pricing.membershipPrice}/mo` : 'Available')) : 'Not available'}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-k">Price range</span>
+              <span class="info-v">{priceRange}</span>
+            </div>
+            {listing.contact.phone && (
+              <div class="info-row">
+                <span class="info-k">Phone</span>
+                <span class="info-v"><a href={`tel:${listing.contact.phone}`}>{listing.contact.phone}</a></span>
+              </div>
+            )}
+            <div class="info-row">
+              <span class="info-k">Last verified</span>
+              <span class="info-v">{listing.audit.lastVerifiedDate}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities + Hours -->
+  <section class="sec-pad" style="padding-top:40px">
+    <div class="wrap listing-detail-grid">
+      <div class="listing-main">
+        <div class="detail-section">
+          <h2>Amenities &amp; services</h2>
+          <div class="amenity-grid">
+            {serviceLabels.map(s => (
+              <div class={`amenity-item ${s === 'Cold Plunge' ? 'cold' : s === 'Infrared Sauna' || s === 'Traditional Sauna' ? 'hot' : s === 'Contrast Therapy' ? 'both' : 'neu'}`}>
+                <span class="amenity-ic">{s === 'Cold Plunge' ? '\u2744' : s === 'Infrared Sauna' || s === 'Traditional Sauna' ? '\u2668' : s === 'Contrast Therapy' ? '\u21c4' : s === 'Red Light Therapy' ? '\u2728' : s === 'Compression Therapy' ? '\u2795' : s === 'Float Tank' ? '\u2638' : '\u2022'}</span>
+                <span>{s}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h2>Hours of operation</h2>
+          <table class="hours-table">
+            <tbody>
+              {DAYS.map((day, i) => {
+                const h = listing.hours[day];
+                return (
+                  <tr>
+                    <td class="day-label">{DAY_LABELS[i]}</td>
+                    <td>{h?.closed ? <span class="closed">Closed</span> : h?.open && h?.close ? `${h.open} – ${h.close}` : <span class="unknown">Hours not yet verified</span>}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        {listing.media.photos && listing.media.photos.length > 0 && (
+          <div class="detail-section">
+            <h2>Photos</h2>
+            <div class="photo-grid">
+              {listing.media.photos.map(photo => <img src={photo} alt={listing.name} loading="lazy" />)}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <aside class="listing-sidebar">
+        <div class="info-card">
+          <h3>Location</h3>
+          {listing.location.address && <p class="addr">{listing.location.address}<br />{cityName}, {listing.location.state} {listing.location.postalCode || ''}</p>}
+          {!listing.location.address && <p class="addr">{listing.location.neighborhood ? `${listing.location.neighborhood}, ` : ''}{cityName}, {listing.location.state}</p>}
+          <div id="listingMap" class="listing-map"></div>
+          {listing.location.coordinates && (
+            <a class="btn btn-ghost btn-sm" style="margin-top:10px;width:100%;justify-content:center" href={`https://www.google.com/maps?q=${listing.location.coordinates.lat},${listing.location.coordinates.lng}`} target="_blank" rel="noopener noreferrer">Open in Google Maps &rarr;</a>
+          )}
+        </div>
+
+        {listing.contact.email || listing.contact.instagram || listing.contact.facebook ? (
+          <div class="info-card">
+            <h3>Connect</h3>
+            {listing.contact.email && <div class="info-row"><span class="info-k">Email</span><a href={`mailto:${listing.contact.email}`} class="info-v">{listing.contact.email}</a></div>}
+            {listing.contact.instagram && <div class="info-row"><span class="info-k">Instagram</span><a href={listing.contact.instagram} target="_blank" rel="noopener noreferrer" class="info-v">View profile &rarr;</a></div>}
+            {listing.contact.facebook && <div class="info-row"><span class="info-k">Facebook</span><a href={listing.contact.facebook} target="_blank" rel="noopener noreferrer" class="info-v">View page &rarr;</a></div>}
+          </div>
+        ) : null}
+      </aside>
+    </div>
+  </section>
+
+  <!-- Related studios -->
+  {related.length > 0 && (
+    <section class="sec-pad" style="background:var(--panel);border-top:1px solid var(--line)">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <h2>More studios in {cityName}</h2>
+            <p>Other cold plunge and sauna spots near {listing.name}.</p>
+          </div>
+          <a href={`/${citySlug}`} class="link">Browse all {cityName} studios &rarr;</a>
+        </div>
+        <div class="grid cols3">
+          {related.map(r => {
+            const rServices = [];
+            if (r.amenities.coldPlunge) rServices.push('Cold Plunge');
+            if (r.amenities.infraredSauna) rServices.push('Infrared Sauna');
+            if (r.amenities.contrastTherapyMarketed) rServices.push('Contrast Therapy');
+            const hasCold = r.amenities.coldPlunge;
+            const hasHot = r.amenities.infraredSauna || r.amenities.traditionalSauna;
+            const grad = hasCold && hasHot ? 'linear-gradient(115deg,#0EA5E9 0%,#38BDF8 35%,#A78BFA 55%,#F97316 100%)' : hasHot ? 'linear-gradient(135deg,#FB923C,#C2410C)' : 'linear-gradient(135deg,#38BDF8,#0369A1)';
+            return (
+              <a class="card" href={`/${citySlug}/${r.slug}`} style="text-decoration:none;color:inherit">
+                <div class="pv-top" style={`background:${grad}`}>
+                  {r.editorial.featured && <span class="badge feat">&#10003; Featured</span>}
+                  <span class="glyph">{r.name}</span>
+                </div>
+                <div class="pv-body">
+                  <h3>{r.name}</h3>
+                  <div class="loc">{r.location.neighborhood || ''} &middot; {cityName}</div>
+                  <div class="tags">{rServices.slice(0, 3).map(s => {
+                    if (s === 'Cold Plunge') return '<span class="tag cold">\u2744 Cold plunge</span>';
+                    if (s === 'Infrared Sauna') return '<span class="tag hot">\u2668 Infrared sauna</span>';
+                    if (s === 'Contrast Therapy') return '<span class="tag both">\u21c4 Contrast</span>';
+                    return '';
+                  }).join('')}</div>
+                  <p class="pv-blurb">{r.description}</p>
+                  <span style="margin-top:14px;font-family:var(--font-d);font-weight:600;font-size:.9rem;color:var(--cold-2);display:inline-flex;align-items:center;gap:6px">View details &rarr;</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Mapbox + listing map init -->
+  <script src="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+  <script is:inline define:vars={{ mapboxToken: import.meta.env.PUBLIC_MAPBOX_TOKEN || '', coords: listing.location.coordinates, name: listing.name, neighborhood: listing.location.neighborhood, priceNote: listing.pricing.dropInPriceNote }}>
+    function initListingMap() {
+      if (typeof mapboxgl === 'undefined') { setTimeout(initListingMap, 100); return; }
+      if (!mapboxToken || !coords) return;
+      mapboxgl.accessToken = mapboxToken;
+      const map = new mapboxgl.Map({
+        container: 'listingMap',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [coords.lng, coords.lat],
+        zoom: 14,
+        interactive: false,
+      });
+      const el = document.createElement('div');
+      el.className = 'cm-marker both';
+      el.innerHTML = '<span class="cm-ic">\u21c4</span>';
+      const popup = new mapboxgl.Popup({ offset: 25, closeButton: false })
+        .setHTML('<b>' + name + '</b><div class="popup-meta">' + (neighborhood || '') + ' &middot; ' + (priceNote || '') + '</div>');
+      new mapboxgl.Marker({ element: el, anchor: 'bottom' })
+        .setLngLat([coords.lng, coords.lat])
+        .setPopup(popup)
+        .addTo(map);
+    }
+    initListingMap();
+  </script>
+</Base>
