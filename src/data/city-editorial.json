@@ -1,0 +1,113 @@
+{
+  "austin": {
+    "sceneOverview": "Austin has gone all-in on contrast therapy. From East Austin's private sauna-and-plunge suites to communal bathhouses off South Lamar, the city offers more ways to go hot and cold than anywhere else in Texas. The scene has grown fast, driven by a wellness community that values both performance recovery and mindful ritual. You'll find dedicated contrast therapy studios, recovery labs inside gyms, and day spas that have added cold plunge to their service menus. The variety means there's a studio for every budget, from no-frills YMCA saunas to luxury spa experiences.",
+    "studioVsGym": "Austin's studio scene splits into two camps: purpose-built contrast therapy studios like those along South Lamar that offer guided sessions, and gym-adjacent recovery centers (YMCA, F45, Life Time) where sauna and plunge are amenities within a larger fitness membership. Studios tend to offer better temperature control, cleaner facilities, and guided protocols. Gyms offer more flexible hours and lower prices if you already have a membership.",
+    "priceTracker": "Drop-in sessions in Austin range from $25 to $45 for a single contrast therapy session. Memberships at dedicated studios run $99 to $199 per month for unlimited plunge and sauna access. Gym memberships that include sauna access start at $39 to $79 per month but may not include cold plunge. Five-session packs at studios typically save 10-15% over single drop-ins.",
+    "beginners": "If you're new to cold plunge in Austin, start with a studio that offers guided sessions. The staff will help you with breathing, timing, and safety. Look for studios with infrared sauna access so you can warm up before plunging. Most studios offer a first-time discount or free intro session.",
+    "athletes": "Austin's athlete recovery scene is strong. Look for studios that offer contrast therapy protocols (3 rounds of sauna + plunge) and additional recovery tools like compression boots and red light therapy. Several studios near downtown cater specifically to the endurance and CrossFit communities with early morning hours.",
+    "faq": [
+      { "q": "Is cold plunge covered by insurance in Austin?", "a": "Generally no. Most insurance plans do not cover cold water immersion as it's considered wellness rather than medical treatment. Some HSA/FSA accounts may cover it with a letter of medical necessity from your doctor." },
+      { "q": "What temperature are cold plunges in Austin studios?", "a": "Most studios keep their plunge tubs between 39 and 50 degrees Fahrenheit. Some allow you to request a specific temperature, especially during guided sessions." },
+      { "q": "Do I need to book in advance?", "a": "Most studios require booking, especially for guided contrast therapy sessions. Drop-in plunge access is available at some studios but may have wait times during peak hours (early morning and after work)." },
+      { "q": "Can I bring a friend?", "a": "Most studios allow guests with a day pass or guest fee. Some memberships include guest passes. Check the studio's listing on ContrastMap for their guest policy." }
+    ]
+  },
+  "denver": {
+    "sceneOverview": "Denver's altitude makes recovery non-negotiable. From Cherry Creek athlete recovery labs to RiNo bathhouses, the Mile High City has one of the most developed contrast therapy scenes between the coasts. The outdoor lifestyle and athletic culture have created strong demand for cold plunge and sauna, and the supply has followed. Denver studios tend to be purpose-built rather than gym-adjacent, with a focus on guided sessions and community. The city's wellness culture also means many studios emphasize the mental health and mindfulness aspects of contrast therapy alongside the physical recovery benefits.",
+    "studioVsGym": "Denver has a higher proportion of dedicated contrast therapy studios compared to other cities. While gyms like Life Time and YMCA offer sauna access, the city's specialty studios in RiNo, Cherry Creek, and LoHi provide the full contrast therapy experience with guided protocols, temperature-controlled plunge tubs, and multi-amenity recovery centers.",
+    "priceTracker": "Drop-in sessions in Denver range from $30 to $50 for contrast therapy. Memberships at dedicated studios run $129 to $249 per month. Denver's studio scene is slightly more expensive than Austin's but offers more amenities per dollar, with many studios including red light therapy, compression, and float tanks in their membership.",
+    "beginners": "Denver's wellness community is welcoming to newcomers. Many studios offer intro sessions and beginner-friendly contrast therapy protocols. Start with a guided session at a studio that offers both sauna and plunge so you can learn the proper rotation and timing.",
+    "athletes": "Denver is a paradise for athletes. The altitude means faster recovery needs, and the studios deliver. Look for studios near Cherry Creek or LoHi that cater to the runner, cyclist, and skier communities. Many offer athlete-specific protocols with longer sauna sessions and multiple plunge rounds.",
+    "faq": [
+      { "q": "Does Denver's altitude affect cold plunge tolerance?", "a": "At 5,280 feet, the reduced oxygen can make cold exposure feel more intense, especially the initial cold shock. Start with shorter sessions (1-2 minutes) and build tolerance gradually. Stay hydrated, as the dry climate increases dehydration risk." },
+      { "q": "Are there outdoor cold plunge options in Denver?", "a": "Some studios offer outdoor plunge tubs, particularly in warmer months. Year-round outdoor options are limited due to winter temperatures, but several studios have indoor facilities with natural light and mountain views." },
+      { "q": "What should I wear to a Denver contrast therapy studio?", "a": "Most studios require a swimsuit for cold plunge and sauna. Some provide robes and towels. Check the studio's listing for their specific dress code and what amenities are provided." }
+    ]
+  },
+  "chicago": {
+    "sceneOverview": "Chicago's wellness scene has embraced contrast therapy with characteristically Midwestern pragmatism. From West Loop infrared studios to Lincoln Park recovery clubs, the city offers year-round indoor options for every budget. The long winters make indoor wellness especially appealing, and the contrast therapy scene has grown significantly. Chicago studios tend to be well-designed and comfortable, with many offering multi-amenity experiences that go beyond just sauna and plunge to include red light, compression, and IV therapy.",
+    "studioVsGym": "Chicago has a good mix of dedicated studios and gym-adjacent options. The West Loop and Lincoln Park areas have the highest concentration of purpose-built contrast therapy studios. Gym chains like Life Time and LA Fitness offer sauna access citywide, though cold plunge is less common in gym settings.",
+    "priceTracker": "Drop-in sessions in Chicago range from $25 to $45. Memberships at dedicated studios run $99 to $199 per month. Chicago's pricing is competitive with Austin and Denver, with several studios offering off-peak discounts for morning and weekday sessions.",
+    "beginners": "Chicago's studio staff are known for being approachable and educational. Many studios offer first-timer specials and beginner protocols. The city's cold winters actually help, as the contrast between outdoor cold and indoor heat makes the sauna feel even better.",
+    "athletes": "Chicago's athlete recovery scene is growing. Look for studios in the West Loop and Lincoln Park that offer contrast therapy protocols and additional recovery tools. The city's running and fitness communities are active, and several studios cater specifically to post-workout recovery.",
+    "faq": [
+      { "q": "Is contrast therapy popular in Chicago winters?", "a": "Yes, Chicago winters actually drive interest in contrast therapy. The warmth of the sauna followed by the cold plunge is especially appealing when it's below freezing outside. Many studios see their busiest months from November through March." },
+      { "q": "Do Chicago studios offer contrast therapy memberships?", "a": "Most dedicated studios offer monthly memberships that include both sauna and cold plunge access. Some also include additional amenities like red light therapy and compression boots." },
+      { "q": "Can I find cold plunge studios outside downtown Chicago?", "a": "Yes, studios are expanding into neighborhoods like Wicker Park, Logan Square, and the North Side. Check ContrastMap for studios near your neighborhood." }
+    ]
+  },
+  "houston": {
+    "sceneOverview": "Houston's heat makes cold plunge a natural fit. From Montrose wellness studios to Memorial recovery centers, the city's contrast therapy scene is growing fast, with options ranging from no-frills ice baths to full-service spa experiences. The year-round warm climate means cold plunge is refreshing even in winter, and the city's large fitness community has embraced the practice. Houston studios tend to be spacious and well-appointed, with many offering multi-amenity recovery experiences.",
+    "studioVsGym": "Houston has a growing number of dedicated contrast therapy studios, particularly in Montrose, Memorial, and the Heights. Gym chains like Life Time and LA Fitness offer sauna access, and some have added cold plunge. The dedicated studios offer better temperature control and guided protocols.",
+    "priceTracker": "Drop-in sessions in Houston range from $25 to $45. Memberships at dedicated studios run $99 to $199 per month. Houston's pricing is similar to Austin's, reflecting the Texas wellness market. Some studios offer annual memberships at a 15-20% discount.",
+    "beginners": "Houston's studios are beginner-friendly, with many offering intro sessions and first-timer discounts. The city's warm climate means the cold plunge is refreshing rather than shocking, making it easier for newcomers to build tolerance.",
+    "athletes": "Houston's athlete recovery scene is strong, with several studios catering to the CrossFit, running, and triathlon communities. Look for studios with contrast therapy protocols and additional recovery tools like compression therapy and red light.",
+    "faq": [
+      { "q": "Is cold plunge refreshing in Houston's hot climate?", "a": "Absolutely. In fact, Houston's warm climate makes cold plunge more accessible year-round. The contrast between the hot weather and the cold water is invigorating, and many people find it easier to tolerate cold water in a warm climate." },
+      { "q": "Do Houston studios offer outdoor plunge options?", "a": "Some Houston studios offer outdoor plunge tubs, particularly in the cooler months. The warm climate makes outdoor contrast therapy appealing for much of the year." }
+    ]
+  },
+  "san-diego": {
+    "sceneOverview": "San Diego's outdoor lifestyle pairs naturally with contrast therapy. From coastal sauna-and-plunge studios to inland recovery centers, America's Finest City makes it easy to combine cold exposure with beach living. The wellness culture is strong, with many studios offering ocean-view sessions or outdoor plunge tubs. San Diego studios tend to have a relaxed, beach-town vibe while still maintaining professional facilities and guided protocols.",
+    "studioVsGym": "San Diego has a good mix of dedicated studios and gym-adjacent options. Coastal areas like Pacific Beach and La Jolla have several purpose-built contrast therapy studios. Inland, gyms like Life Time offer sauna access with some cold plunge availability.",
+    "priceTracker": "Drop-in sessions in San Diego range from $30 to $50. Memberships at dedicated studios run $129 to $249 per month. San Diego's pricing is slightly higher than Austin and Houston, reflecting the premium wellness market.",
+    "beginners": "San Diego's laid-back wellness culture makes it easy to start. Many studios offer beach-adjacent sessions and outdoor plunge options. The mild climate means cold plunge is accessible year-round without the shock of colder climates.",
+    "athletes": "San Diego's athlete community is strong, with many studios catering to surfers, runners, and triathletes. Look for studios with contrast therapy protocols and recovery tools near the beach or in fitness districts.",
+    "faq": [
+      { "q": "Can I do contrast therapy near the beach in San Diego?", "a": "Yes, several studios in Pacific Beach, La Jolla, and Encinitas offer sauna and cold plunge with ocean views or outdoor settings. The coastal wellness scene is one of the best in the country." },
+      { "q": "Is San Diego's climate good for cold plunge year-round?", "a": "Yes. San Diego's mild climate means cold plunge is comfortable year-round. The water temperature in the tubs is controlled (39-55 degrees), so the outdoor temperature doesn't significantly affect the experience." }
+    ]
+  },
+  "los-angeles": {
+    "sceneOverview": "LA was an early adopter of contrast therapy. Options run from Playa Vista's award-winning private suites to communal Nordic sauna clubs in the Valley. Whether you want a guided ice bath or a solo infrared session, Los Angeles has it. The LA wellness scene is the most mature in the country, with studios that have been operating for years and have refined their protocols. The city's emphasis on aesthetics and experience means many studios are beautifully designed, though prices run higher than other cities.",
+    "studioVsGym": "LA has the widest variety of contrast therapy options in the country. From luxury spas in West Hollywood to recovery labs in Playa Vista, the city offers everything. Gym chains like Equinox and Life Time offer sauna access, but the dedicated studios provide the best contrast therapy experience.",
+    "priceTracker": "Drop-in sessions in Los Angeles range from $35 to $65, the highest among ContrastMap cities. Memberships at dedicated studios run $149 to $299 per month. LA's premium wellness market supports higher pricing, but deals can be found at studios in the Valley and East LA.",
+    "beginners": "LA's wellness community is experienced and welcoming. Many studios offer intro sessions and beginner protocols. The city's culture of wellness means you'll find plenty of resources and community support for starting a contrast therapy practice.",
+    "athletes": "LA's athlete recovery scene is world-class. Studios in Playa Vista, Santa Monica, and West Hollywood cater to professional athletes, celebrities, and serious fitness enthusiasts. Expect premium pricing but also premium facilities and protocols.",
+    "faq": [
+      { "q": "Is contrast therapy expensive in Los Angeles?", "a": "LA has the highest contrast therapy pricing among ContrastMap cities, with drop-ins ranging from $35 to $65. However, deals can be found at studios in the Valley, East LA, and during off-peak hours. Memberships offer better value if you'll go 3+ times per week." },
+      { "q": "Can I find contrast therapy studios near the beach in LA?", "a": "Yes, studios in Santa Monica, Venice, and Playa Vista offer contrast therapy with beach access. These tend to be premium-priced but offer excellent facilities and ocean-adjacent locations." }
+    ]
+  },
+  "new-york": {
+    "sceneOverview": "New York's contrast therapy scene has exploded, from NoHo bathing clubs to Flatiron sauna temples. Space is tight and prices run higher, but the studios that have cracked the code offer some of the best-guided contrast rituals in the country. The NYC wellness scene is fast-paced and efficient, with studios offering express sessions for busy professionals. Despite the space constraints, several studios have created intimate, well-designed contrast therapy experiences.",
+    "studioVsGym": "NYC's contrast therapy scene is almost entirely studio-based, as gym space is too expensive for dedicated plunge tubs. Most options are purpose-built studios in Manhattan and Brooklyn. Equinox and Life Time offer sauna access, but cold plunge is primarily found at dedicated studios.",
+    "priceTracker": "Drop-in sessions in New York range from $35 to $65. Memberships at dedicated studios run $149 to $299 per month. NYC pricing is similar to LA, reflecting the premium real estate market. Some studios offer lunch-time or off-peak discounts.",
+    "beginners": "NYC studios are efficient and professional. Many offer express 30-minute sessions for busy schedules. The city's fast pace means sessions are well-organized and time-optimized. Look for studios that offer guided first sessions to learn proper protocol.",
+    "athletes": "NYC's athlete recovery scene is concentrated in Manhattan and Brooklyn. Studios near fitness hubs like Equinox locations and boutique gyms cater to the running and fitness communities. Expect efficient, high-quality sessions but limited space.",
+    "faq": [
+      { "q": "Are NYC contrast therapy studios small?", "a": "Space is at a premium in NYC, so most studios are intimate rather than spacious. However, they're well-designed and well-maintained. Expect smaller plunge tubs and sauna rooms compared to suburban studios, but the quality of the experience is high." },
+      { "q": "Can I find contrast therapy in Brooklyn?", "a": "Yes, the contrast therapy scene is expanding into Brooklyn, particularly in Williamsburg and DUMBO. These studios tend to be slightly less expensive than Manhattan options." }
+    ]
+  },
+  "tampa": {
+    "sceneOverview": "Tampa's wellness scene is emerging, with a growing number of studios offering cold plunge and sauna. The warm Florida climate makes cold plunge especially appealing year-round.",
+    "studioVsGym": "Tampa has a mix of dedicated studios and gym-adjacent options, with the scene still developing.",
+    "priceTracker": "Pricing data will be available once listings are sourced for Tampa.",
+    "beginners": "Tampa's warm climate makes cold plunge accessible and refreshing for beginners.",
+    "athletes": "Tampa's athlete community is growing, with studios catering to the fitness and recovery market.",
+    "faq": [
+      { "q": "Is contrast therapy available in Tampa?", "a": "Yes, the scene is growing. Check ContrastMap for the latest Tampa studios." }
+    ]
+  },
+  "las-vegas": {
+    "sceneOverview": "Las Vegas has a developing contrast therapy scene, with wellness studios and recovery centers catering to both residents and visitors.",
+    "studioVsGym": "Las Vegas has a mix of resort spas and standalone wellness studios offering contrast therapy.",
+    "priceTracker": "Pricing data will be available once listings are sourced for Las Vegas.",
+    "beginners": "Las Vegas studios are welcoming to newcomers, with many offering intro sessions.",
+    "athletes": "Las Vegas has a growing athlete recovery scene, particularly for combat sports and fitness enthusiasts.",
+    "faq": [
+      { "q": "Is contrast therapy available in Las Vegas?", "a": "Yes, the scene is growing. Check ContrastMap for the latest Las Vegas studios." }
+    ]
+  },
+  "minneapolis": {
+    "sceneOverview": "Minneapolis has a strong sauna tradition influenced by Nordic heritage, making it a natural fit for contrast therapy. The long winters make indoor wellness especially appealing.",
+    "studioVsGym": "Minneapolis has both traditional Finnish saunas and modern contrast therapy studios.",
+    "priceTracker": "Pricing data will be available once listings are sourced for Minneapolis.",
+    "beginners": "Minneapolis's sauna culture makes it easy to start contrast therapy, with many experienced practitioners.",
+    "athletes": "Minneapolis's athlete community is strong, with studios catering to winter sports and fitness enthusiasts.",
+    "faq": [
+      { "q": "Is contrast therapy available in Minneapolis?", "a": "Yes, the scene is growing. Check ContrastMap for the latest Minneapolis studios." }
+    ]
+  }
+}
