@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+
+const title = 'List Your Studio on ContrastMap | Pricing & Plans';
+const description = 'Get your cold plunge or infrared sauna studio in front of ready-to-book locals. Free listings, featured placement, and premium plans available.';
+const canonical = 'https://contrastmap.com/list-your-studio';
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <span id="top"></span>
+
+  <!-- Hero -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:60px 40px 40px;text-align:center">
+    <span class="eyebrow" style="color:var(--hot-2)">For studio owners</span>
+    <h1 style="font-family:var(--font-d);font-weight:700;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;margin-top:12px">Get in front of ready-to-book locals</h1>
+    <p style="color:var(--muted);margin-top:12px;max-width:56ch;margin-left:auto;margin-right:auto;font-size:1.1rem">ContrastMap is the directory for cold plunge and infrared sauna studios. Claim your listing free, or upgrade for featured placement and qualified leads.</p>
+  </section>
+
+  <!-- Pricing -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:20px 40px 60px">
+    <div class="pricing-grid">
+
+      <!-- Free -->
+      <div style="border:1px solid var(--line);border-radius:16px;padding:28px 24px;background:var(--white);display:flex;flex-direction:column">
+        <div style="font-family:var(--font-d);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Free</div>
+        <div style="font-family:var(--font-d);font-size:2.4rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)">$0<span style="font-size:1rem;font-weight:400;color:var(--muted)">/mo</span></div>
+        <p style="font-size:.9rem;color:var(--muted);margin:8px 0 20px">Claim your listing and keep your info accurate.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;flex:1">
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Listing on ContrastMap</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Edit hours, pricing, amenities</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Add photos and description</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--faint)">&#10005;</span> Featured placement</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--faint)">&#10005;</span> Lead forwarding</li>
+        </ul>
+        <button class="btn-pill" style="text-align:center;justify-content:center" onclick="openList('Free')">Claim free</button>
+      </div>
+
+      <!-- Featured -->
+      <div style="border:2px solid var(--hot-1);border-radius:16px;padding:28px 24px;background:var(--white);display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow-lg)">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--hot-1);color:#fff;font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:999px">Most popular</div>
+        <div style="font-family:var(--font-d);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--hot-2);margin-bottom:8px">Featured</div>
+        <div style="font-family:var(--font-d);font-size:2.4rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)">$25<span style="font-size:1rem;font-weight:400;color:var(--muted)">/mo</span></div>
+        <p style="font-size:.9rem;color:var(--muted);margin:8px 0 20px">Stand out with featured placement and a badge.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;flex:1">
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Everything in Free</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> <b>Featured</b> badge on listing</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Priority sort in city pages</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Featured on homepage</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--faint)">&#10005;</span> Lead forwarding</li>
+        </ul>
+        <button class="btn btn-grad" style="text-align:center;justify-content:center;width:100%" onclick="openList('Featured')">Start Featured</button>
+      </div>
+
+      <!-- Premium -->
+      <div style="border:1px solid var(--line);border-radius:16px;padding:28px 24px;background:var(--white);display:flex;flex-direction:column">
+        <div style="font-family:var(--font-d);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cold-2);margin-bottom:8px">Premium</div>
+        <div style="font-family:var(--font-d);font-size:2.4rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)">$50<span style="font-size:1rem;font-weight:400;color:var(--muted)">/mo</span></div>
+        <p style="font-size:.9rem;color:var(--muted);margin:8px 0 20px">Everything plus leads and analytics.</p>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;flex:1">
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Everything in Featured</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Lead forwarding to your inbox</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Listing analytics (views, clicks)</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Custom booking link</li>
+          <li style="padding:8px 0;font-size:.92rem;color:var(--ink-2);display:flex;align-items:center;gap:8px"><span style="color:#16a34a">&#10003;</span> Priority support</li>
+        </ul>
+        <button class="btn-pill" style="text-align:center;justify-content:center" onclick="openList('Premium')">Start Premium</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width:760px;margin:0 auto;padding:20px 40px 60px">
+    <h2 style="font-family:var(--font-d);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;margin-bottom:20px;text-align:center">Questions about listing?</h2>
+    <details style="border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--white);overflow:hidden">
+      <summary style="font-family:var(--font-d);font-weight:600;font-size:1rem;padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center">How do I claim my listing? <span style="color:var(--hot-2);font-size:1.3rem">+</span></summary>
+      <div style="padding:0 18px 16px;color:var(--ink-2);font-size:.96rem"><p>If your studio is already listed on ContrastMap, click "Claim listing" on your studio's page. We'll verify your connection to the business (via domain email or phone) and give you edit access.</p></div>
+    </details>
+    <details style="border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--white);overflow:hidden">
+      <summary style="font-family:var(--font-d);font-weight:600;font-size:1rem;padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center">What if my studio isn't listed yet? <span style="color:var(--hot-2);font-size:1.3rem">+</span></summary>
+      <div style="padding:0 18px 16px;color:var(--ink-2);font-size:.96rem"><p>Use the "List your studio" form above to submit your studio. We'll create a listing for you within 48 hours.</p></div>
+    </details>
+    <details style="border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--white);overflow:hidden">
+      <summary style="font-family:var(--font-d);font-weight:600;font-size:1rem;padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center">Can I cancel anytime? <span style="color:var(--hot-2);font-size:1.3rem">+</span></summary>
+      <div style="padding:0 18px 16px;color:var(--ink-2);font-size:.96rem"><p>Yes. All plans are month-to-month with no contract. Cancel anytime and your listing reverts to the free tier.</p></div>
+    </details>
+    <details style="border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--white);overflow:hidden">
+      <summary style="font-family:var(--font-d);font-weight:600;font-size:1rem;padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center">Do you take a cut of bookings? <span style="color:var(--hot-2);font-size:1.3rem">+</span></summary>
+      <div style="padding:0 18px 16px;color:var(--ink-2);font-size:.96rem"><p>No. We don't take a percentage of your bookings. Your booking link goes directly to your own scheduling system. We only charge the monthly subscription fee for Featured and Premium plans.</p></div>
+    </details>
+  </section>
+</Base>
+
+<style>
+.pricing-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+@media (min-width: 700px) { .pricing-grid { grid-template-columns: 1fr 1fr 1fr; } }
+</style>

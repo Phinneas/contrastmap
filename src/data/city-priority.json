@@ -1,0 +1,35 @@
+{
+  "cities": [
+    { "rank": 1, "city": "Denver", "state": "CO", "slug": "denver", "tier": "A", "searchVolume": 650, "competition": 4, "opportunityScore": 162.5, "notes": "Reddit + low-DA locals dominate P1", "live": true },
+    { "rank": 2, "city": "Chicago", "state": "IL", "slug": "chicago", "tier": "A", "searchVolume": 710, "competition": 5, "opportunityScore": 142.0, "notes": "Thin blog posts + gym amenity pages on P1", "live": true },
+    { "rank": 3, "city": "Houston", "state": "TX", "slug": "houston", "tier": "A", "searchVolume": 640, "competition": 5, "opportunityScore": 128.0, "notes": "Instagram profile + magazine article on P1", "live": true },
+    { "rank": 4, "city": "San Diego", "state": "CA", "slug": "san-diego", "tier": "A", "searchVolume": 650, "competition": 6, "opportunityScore": 108.3, "notes": "locallywell.com (small dir) at organic #4", "live": true },
+    { "rank": 5, "city": "Austin", "state": "TX", "slug": "austin", "tier": "A", "searchVolume": 600, "competition": 6, "opportunityScore": 100.0, "notes": "Reddit + Yelp dominate P1", "live": true },
+    { "rank": 6, "city": "New York", "state": "NY", "slug": "new-york", "tier": "B", "searchVolume": 760, "competition": 8, "opportunityScore": 95.0, "notes": "IR vol dominates (720); 2018 Goop article beatable", "live": true },
+    { "rank": 7, "city": "Tampa", "state": "FL", "slug": "tampa", "tier": "B", "searchVolume": 370, "competition": 4, "opportunityScore": 92.5, "notes": "Sweatology CLOSED Feb 2026 still on P1 - gap!", "live": false },
+    { "rank": 8, "city": "Las Vegas", "state": "NV", "slug": "las-vegas", "tier": "B", "searchVolume": 530, "competition": 6, "opportunityScore": 88.3, "notes": "Reddit r/Vegas + retail spa site on P1", "live": false },
+    { "rank": 9, "city": "Minneapolis", "state": "MN", "slug": "minneapolis", "tier": "B", "searchVolume": 350, "competition": 4, "opportunityScore": 87.5, "notes": "City gov page + tourism board on P1", "live": false },
+    { "rank": 10, "city": "Nashville", "state": "TN", "slug": "nashville", "tier": "B", "searchVolume": 400, "competition": 5, "opportunityScore": 80.0, "notes": "Reddit thread + thin guides on P1", "live": false },
+    { "rank": 11, "city": "Dallas", "state": "TX", "slug": "dallas", "tier": "B", "searchVolume": 470, "competition": 6, "opportunityScore": 78.3, "notes": "Facebook group + gym amenity page on P1", "live": false },
+    { "rank": 12, "city": "Seattle", "state": "WA", "slug": "seattle", "tier": "B", "searchVolume": 430, "competition": 6, "opportunityScore": 71.7, "notes": "Video carousel dominant; Reddit beatable", "live": false },
+    { "rank": 13, "city": "Salt Lake City", "state": "UT", "slug": "salt-lake-city", "tier": "B", "searchVolume": 280, "competition": 4, "opportunityScore": 70.0, "notes": "Reddit + 2 retail sites on IR page", "live": false },
+    { "rank": 14, "city": "Portland", "state": "OR", "slug": "portland", "tier": "C", "searchVolume": 340, "competition": 5, "opportunityScore": 68.0, "notes": "2023 OregonLive article; Portland ME contaminates SERP", "live": false },
+    { "rank": 15, "city": "Boston", "state": "MA", "slug": "boston", "tier": "C", "searchVolume": 400, "competition": 6, "opportunityScore": 66.7, "notes": "BostonMoms article + old Reddit thread beatable", "live": false },
+    { "rank": 16, "city": "Phoenix", "state": "AZ", "slug": "phoenix", "tier": "C", "searchVolume": 330, "competition": 5, "opportunityScore": 66.0, "notes": "Reddit discussions on P1; Optimyze dominates IR", "live": false },
+    { "rank": 17, "city": "Atlanta", "state": "GA", "slug": "atlanta", "tier": "C", "searchVolume": 380, "competition": 6, "opportunityScore": 63.3, "notes": "3yr-old Reddit + retailer/showroom on P1", "live": false },
+    { "rank": 18, "city": "Miami", "state": "FL", "slug": "miami", "tier": "C", "searchVolume": 370, "competition": 7, "opportunityScore": 52.9, "notes": "Strong established studios", "live": false },
+    { "rank": 19, "city": "Los Angeles", "state": "CA", "slug": "los-angeles", "tier": "C", "searchVolume": 420, "competition": 8, "opportunityScore": 52.5, "notes": "IcePass holds all 3 CP local pack slots", "live": true },
+    { "rank": 20, "city": "San Francisco", "state": "CA", "slug": "san-francisco", "tier": "C", "searchVolume": 320, "competition": 8, "opportunityScore": 40.0, "notes": "Competitive wellness market (ESTIMATED)", "live": false }
+  ],
+  "tierStrategy": {
+    "A": "Launch first (Opp >= 100)",
+    "B": "Strong upside (Opp 75-99)",
+    "C": "Harder entry (Opp < 75) - hold until domain has authority"
+  },
+  "pageTemplateNotes": [
+    "Target both keywords on each city page",
+    "Local map embed + filterable listings + neighbourhood context",
+    "Schema.org LocalBusiness markup on every listing card",
+    "Build Tier A first; hold Tier C until domain has authority"
+  ]
+}

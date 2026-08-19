@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+import listingsData from '../data/listings.json';
+
+const title = 'ContrastMap KPI Dashboard';
+const description = 'Growth metrics and KPIs for ContrastMap.';
+const canonical = 'https://contrastmap.com/dashboard';
+
+const listings = listingsData.listings;
+const total = listings.length;
+const active = listings.filter(l => l.status === 'active').length;
+const featured = listings.filter(l => l.editorial.featured).length;
+const verified = listings.filter(l => l.editorial.verified).length;
+const claimed = listings.filter(l => l.ownership.claimed).length;
+
+const cityCounts = {};
+for (const l of listings) {
+  cityCounts[l.location.city] = (cityCounts[l.location.city] || 0) + 1;
+}
+const sortedCities = Object.entries(cityCounts).sort((a, b) => b[1] - a[1]);
+const maxCityCount = sortedCities[0]?.[1] || 1;
+
+// Amenity breakdown
+const amenityData = [
+  { label: 'Cold Plunge', count: listings.filter(l => l.amenities.coldPlunge).length, color: '#0EA5E9' },
+  { label: 'Infrared Sauna', count: listings.filter(l => l.amenities.infraredSauna).length, color: '#F97316' },
+  { label: 'Traditional Sauna', count: listings.filter(l => l.amenities.traditionalSauna).length, color: '#EA580C' },
+  { label: 'Contrast Therapy', count: listings.filter(l => l.amenities.contrastTherapyMarketed).length, color: '#8B5CF6' },
+  { label: 'Red Light', count: listings.filter(l => l.amenities.redLightTherapy).length, color: '#EF4444' },
+  { label: 'Compression', count: listings.filter(l => l.amenities.compressionTherapy).length, color: '#10B981' },
+  { label: 'Float Tank', count: listings.filter(l => l.amenities.floatTank).length, color: '#6366F1' },
+];
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <span id="top"></span>
+
+  <section style="max-width:var(--maxw);margin:0 auto;padding:40px 40px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px">
+      <div>
+        <span class="eyebrow" style="color:var(--cold-2)">Growth metrics</span>
+        <h1 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.02em;margin-top:8px">KPI Dashboard</h1>
+      </div>
+      <a href="/" class="btn-pill" style="font-size:.86rem">← Back to site</a>
+    </div>
+
+    <!-- Top metrics -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px">
+      <div style="border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--white)">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Total listings</div>
+        <div style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:var(--ink);margin-top:4px">{total}</div>
+        <div style="font-size:.78rem;color:#16a34a;margin-top:4px">&#9650; +{total - 20} since launch</div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--white)">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Active cities</div>
+        <div style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:var(--ink);margin-top:4px">{sortedCities.length}</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px">of 10 MVP target</div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--white)">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Featured</div>
+        <div style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:var(--hot-2);margin-top:4px">{featured}</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px">monetization ready</div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--white)">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Claimed</div>
+        <div style="font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:var(--ink);margin-top:4px">{claimed}</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:4px">owner-managed</div>
+      </div>
+    </div>
+
+    <!-- City chart -->
+    <div style="border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--white);margin-bottom:24px">
+      <h2 style="font-family:var(--font-d);font-weight:600;font-size:1.1rem;margin:0 0 20px">Listings by city</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        {sortedCities.map(([city, count]) => (
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-family:var(--font-d);font-size:.9rem;font-weight:500;min-width:110px">{city}</span>
+            <div style="flex:1;height:28px;background:var(--panel);border-radius:6px;overflow:hidden">
+              <div style={`height:100%;width:${(count / maxCityCount * 100)}%;background:linear-gradient(90deg,#0EA5E9,#F97316);border-radius:6px;transition:width .3s`}></div>
+            </div>
+            <span style="font-family:var(--font-d);font-size:.9rem;font-weight:700;min-width:36px;text-align:right">{count}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Amenity chart -->
+    <div style="border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--white);margin-bottom:24px">
+      <h2 style="font-family:var(--font-d);font-weight:600;font-size:1.1rem;margin:0 0 20px">Listings by amenity</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        {amenityData.map(a => (
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-family:var(--font-d);font-size:.9rem;font-weight:500;min-width:140px">{a.label}</span>
+            <div style="flex:1;height:28px;background:var(--panel);border-radius:6px;overflow:hidden">
+              <div style={`height:100%;width:${(a.count / total * 100)}%;background:${a.color};border-radius:6px;transition:width .3s`}></div>
+            </div>
+            <span style="font-family:var(--font-d);font-size:.9rem;font-weight:700;min-width:36px;text-align:right">{a.count}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Placeholder metrics for post-deploy -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+      <div style="border:1px dashed var(--line);border-radius:12px;padding:24px;background:var(--panel);text-align:center">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Organic sessions</div>
+        <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--faint);margin-top:4px">—</div>
+        <div style="font-size:.76rem;color:var(--muted);margin-top:4px">Connect GA4</div>
+      </div>
+      <div style="border:1px dashed var(--line);border-radius:12px;padding:24px;background:var(--panel);text-align:center">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Indexed pages</div>
+        <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--faint);margin-top:4px">—</div>
+        <div style="font-size:.76rem;color:var(--muted);margin-top:4px">Connect GSC</div>
+      </div>
+      <div style="border:1px dashed var(--line);border-radius:12px;padding:24px;background:var(--panel);text-align:center">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Email subscribers</div>
+        <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--faint);margin-top:4px">—</div>
+        <div style="font-size:.76rem;color:var(--muted);margin-top:4px">Connect newsletter</div>
+      </div>
+      <div style="border:1px dashed var(--line);border-radius:12px;padding:24px;background:var(--panel);text-align:center">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Monthly revenue</div>
+        <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--faint);margin-top:4px">—</div>
+        <div style="font-size:.76rem;color:var(--muted);margin-top:4px">Connect Stripe</div>
+      </div>
+      <div style="border:1px dashed var(--line);border-radius:12px;padding:24px;background:var(--panel);text-align:center">
+        <div style="font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Referring domains</div>
+        <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--faint);margin-top:4px">—</div>
+        <div style="font-size:.76rem;color:var(--muted);margin-top:4px">Connect Ahrefs/SE Ranking</div>
+      </div>
+    </div>
+
+    <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px">Dashboard updated on build. Real-time metrics will appear after analytics integration.</p>
+  </section>
+</Base>

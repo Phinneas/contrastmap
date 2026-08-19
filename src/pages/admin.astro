@@ -1,0 +1,207 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+import listingsData from '../data/listings.json';
+
+const title = 'ContrastMap Admin Dashboard';
+const description = 'Internal dashboard for ContrastMap listing management.';
+const canonical = 'https://contrastmap.com/admin';
+
+const listings = listingsData.listings;
+
+// Stats
+const total = listings.length;
+const active = listings.filter(l => l.status === 'active').length;
+const featured = listings.filter(l => l.editorial.featured).length;
+const verified = listings.filter(l => l.editorial.verified).length;
+const claimed = listings.filter(l => l.ownership.claimed).length;
+
+// Per city
+const cityCounts = {};
+for (const l of listings) {
+  cityCounts[l.location.city] = (cityCounts[l.location.city] || 0) + 1;
+}
+const sortedCities = Object.entries(cityCounts).sort((a, b) => b[1] - a[1]);
+const maxCityCount = sortedCities[0]?.[1] || 1;
+
+// Per amenity
+const amenityCounts = {
+  'Cold Plunge': listings.filter(l => l.amenities.coldPlunge).length,
+  'Infrared Sauna': listings.filter(l => l.amenities.infraredSauna).length,
+  'Traditional Sauna': listings.filter(l => l.amenities.traditionalSauna).length,
+  'Contrast Therapy': listings.filter(l => l.amenities.contrastTherapyMarketed).length,
+  'Red Light': listings.filter(l => l.amenities.redLightTherapy).length,
+  'Compression': listings.filter(l => l.amenities.compressionTherapy).length,
+  'Float Tank': listings.filter(l => l.amenities.floatTank).length,
+};
+
+// Recently added (last 30 days based on audit.addedDate)
+const now = new Date();
+const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+const recent = listings.filter(l => {
+  try { return new Date(l.audit.addedDate) > thirtyDaysAgo; } catch { return false; }
+}).sort((a, b) => {
+  try { return new Date(b.audit.addedDate) - new Date(a.audit.addedDate); } catch { return 0; }
+}).slice(0, 10);
+
+// Data quality
+const withPhone = listings.filter(l => l.contact.phone).length;
+const withWebsite = listings.filter(l => l.contact.website).length;
+const withPhotos = listings.filter(l => l.media.photos && l.media.photos.length > 0).length;
+const withHours = listings.filter(l => {
+  return Object.values(l.hours || {}).some(d => d && !d.closed && d.open);
+}).length;
+---
+
+<Base title={title} description={description} canonical={canonical}>
+  <span id="top"></span>
+
+  <section class="admin-section">
+    <div class="admin-header">
+      <div>
+        <span class="eyebrow" style="color:var(--cold-2)">Internal</span>
+        <h1 class="admin-title">Admin Dashboard</h1>
+      </div>
+      <a href="/" class="btn-pill" style="font-size:.86rem">← Back to site</a>
+    </div>
+
+    <!-- Key metrics -->
+    <div class="admin-metrics">
+      <div class="admin-metric-card">
+        <div class="admin-metric-label">Total listings</div>
+        <div class="admin-metric-value">{total}</div>
+      </div>
+      <div class="admin-metric-card">
+        <div class="admin-metric-label">Active</div>
+        <div class="admin-metric-value" style="color:#16a34a">{active}</div>
+      </div>
+      <div class="admin-metric-card">
+        <div class="admin-metric-label">Featured</div>
+        <div class="admin-metric-value" style="color:var(--hot-2)">{featured}</div>
+      </div>
+      <div class="admin-metric-card">
+        <div class="admin-metric-label">Verified</div>
+        <div class="admin-metric-value" style="color:var(--cold-2)">{verified}</div>
+      </div>
+      <div class="admin-metric-card">
+        <div class="admin-metric-label">Claimed</div>
+        <div class="admin-metric-value">{claimed}</div>
+      </div>
+    </div>
+
+    <!-- Two columns -->
+    <div class="admin-two-col">
+      <!-- City breakdown -->
+      <div class="admin-panel">
+        <h2 class="admin-panel-title">Listings by city</h2>
+        <div class="admin-bar-list">
+          {sortedCities.map(([city, count]) => (
+            <div class="admin-bar-row">
+              <span class="admin-bar-label">{city}</span>
+              <div class="admin-bar-track">
+                <div class="admin-bar-fill" style={`width:${(count / maxCityCount * 100)}%`}></div>
+              </div>
+              <span class="admin-bar-count">{count}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Amenity breakdown -->
+      <div class="admin-panel">
+        <h2 class="admin-panel-title">Listings by amenity</h2>
+        <div class="admin-bar-list">
+          {Object.entries(amenityCounts).map(([amenity, count]) => (
+            <div class="admin-bar-row">
+              <span class="admin-bar-label" style="min-width:130px">{amenity}</span>
+              <div class="admin-bar-track">
+                <div class="admin-bar-fill" style={`width:${(count / total * 100)}%`}></div>
+              </div>
+              <span class="admin-bar-count">{count}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Data quality -->
+    <div class="admin-panel" style="margin-top:24px">
+      <h2 class="admin-panel-title">Data quality</h2>
+      <div class="admin-dq-grid">
+        <div class="admin-dq-card">
+          <div class="admin-dq-label">Has phone</div>
+          <div class="admin-dq-value">{withPhone}/{total} ({Math.round(withPhone/total*100)}%)</div>
+        </div>
+        <div class="admin-dq-card">
+          <div class="admin-dq-label">Has website</div>
+          <div class="admin-dq-value">{withWebsite}/{total} ({Math.round(withWebsite/total*100)}%)</div>
+        </div>
+        <div class="admin-dq-card">
+          <div class="admin-dq-label">Has photos</div>
+          <div class="admin-dq-value">{withPhotos}/{total} ({Math.round(withPhotos/total*100)}%)</div>
+        </div>
+        <div class="admin-dq-card">
+          <div class="admin-dq-label">Has hours</div>
+          <div class="admin-dq-value">{withHours}/{total} ({Math.round(withHours/total*100)}%)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recently added -->
+    <div class="admin-panel" style="margin-top:24px">
+      <h2 class="admin-panel-title">Recently added</h2>
+      {recent.length === 0 ? (
+        <p style="color:var(--muted);font-size:.9rem">No listings added in the last 30 days.</p>
+      ) : (
+        <div class="admin-recent-list">
+          {recent.map(l => (
+            <div class="admin-recent-row">
+              <div>
+                <span class="admin-recent-name">{l.name}</span>
+                <span class="admin-recent-city">{l.location.city}, {l.location.state}</span>
+              </div>
+              <span class="admin-recent-date">{l.audit.addedDate}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- Placeholder for future metrics -->
+    <div class="admin-placeholder">
+      <p>GA4 and Google Search Console metrics will appear here after deployment and analytics setup.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+.admin-section { max-width: var(--maxw); margin: 0 auto; padding: 40px 40px; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+.admin-title { font-family: var(--font-d); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.02em; margin-top: 8px; }
+.admin-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.admin-metric-card { border: 1px solid var(--line); border-radius: 12px; padding: 20px; background: var(--white); }
+.admin-metric-label { font-family: var(--font-d); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.admin-metric-value { font-family: var(--font-d); font-size: 2rem; font-weight: 700; color: var(--ink); margin-top: 4px; }
+.admin-two-col { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 800px) { .admin-two-col { grid-template-columns: 1fr 1fr; } }
+.admin-panel { border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: var(--white); }
+.admin-panel-title { font-family: var(--font-d); font-weight: 600; font-size: 1.1rem; margin: 0 0 16px; }
+.admin-bar-list { display: flex; flex-direction: column; gap: 10px; }
+.admin-bar-row { display: flex; align-items: center; gap: 12px; }
+.admin-bar-label { font-family: var(--font-d); font-size: .9rem; font-weight: 500; min-width: 100px; }
+.admin-bar-track { flex: 1; height: 24px; background: var(--panel); border-radius: 6px; overflow: hidden; }
+.admin-bar-fill { height: 100%; background: var(--grad); border-radius: 6px; }
+.admin-bar-count { font-family: var(--font-d); font-size: .9rem; font-weight: 600; min-width: 30px; text-align: right; }
+.admin-dq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.admin-dq-card { padding: 14px; background: var(--panel); border-radius: 8px; }
+.admin-dq-label { font-size: .78rem; color: var(--muted); }
+.admin-dq-value { font-family: var(--font-d); font-weight: 600; font-size: 1.1rem; }
+.admin-recent-list { display: flex; flex-direction: column; gap: 8px; }
+.admin-recent-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: var(--panel); border-radius: 8px; }
+.admin-recent-name { font-family: var(--font-d); font-weight: 600; font-size: .92rem; }
+.admin-recent-city { font-size: .82rem; color: var(--muted); margin-left: 8px; }
+.admin-recent-date { font-size: .8rem; color: var(--muted); }
+.admin-placeholder { border: 1px dashed var(--line); border-radius: 12px; padding: 24px; background: var(--panel); margin-top: 24px; text-align: center; }
+.admin-placeholder p { color: var(--muted); font-size: .9rem; margin: 0; }
+</style>
+
