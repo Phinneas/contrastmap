@@ -13,6 +13,10 @@ export function getStaticPaths() {
     'chicago': { name: 'Chicago', state: 'IL', lat: 41.8781, lng: -87.6298, zoom: 11 },
     'san-diego': { name: 'San Diego', state: 'CA', lat: 32.7157, lng: -117.1611, zoom: 11 },
     'houston': { name: 'Houston', state: 'TX', lat: 29.7604, lng: -95.3698, zoom: 11 },
+    'tampa': { name: 'Tampa', state: 'FL', lat: 27.9506, lng: -82.4572, zoom: 11 },
+    'las-vegas': { name: 'Las Vegas', state: 'NV', lat: 36.1699, lng: -115.1398, zoom: 11 },
+    'minneapolis': { name: 'Minneapolis', state: 'MN', lat: 44.9778, lng: -93.2650, zoom: 11 },
+    'nashville': { name: 'Nashville', state: 'TN', lat: 36.1627, lng: -86.7816, zoom: 11 },
   };
   return Object.entries(CITY_MAP).map(([slug, info]) => ({
     params: { city: slug },
@@ -31,6 +35,10 @@ const CITY_EDITORIAL = {
   'chicago': 'Chicago\u2019s wellness scene has embraced contrast therapy with characteristically Midwestern pragmatism. From West Loop infrared studios to Lincoln Park recovery clubs, the city offers year-round indoor options for every budget.',
   'san-diego': 'San Diego\u2019s outdoor lifestyle pairs naturally with contrast therapy. From coastal sauna-and-plunge studios to inland recovery centers, America\u2019s Finest City makes it easy to combine cold exposure with beach living.',
   'houston': 'Houston\u2019s heat makes cold plunge a natural fit. From Montrose wellness studios to Memorial recovery centers, the city\u2019s contrast therapy scene is growing fast, with options ranging from no-frills ice baths to full-service spa experiences.',
+  'tampa': 'Tampa\u2019s warm climate makes cold plunge refreshing year-round. The city\u2019s wellness scene is emerging, with a growing number of studios offering contrast therapy.',
+  'las-vegas': 'Las Vegas has a developing contrast therapy scene, with wellness studios and recovery centers catering to both residents and visitors seeking recovery and relaxation.',
+  'minneapolis': 'Minneapolis has a strong sauna tradition influenced by Nordic heritage, making it a natural fit for contrast therapy. The long winters make indoor wellness especially appealing.',
+  'nashville': 'Nashville\u2019s wellness scene is growing, with an increasing number of studios offering cold plunge and sauna for recovery and contrast therapy.',
 };
 const cityEditorial = CITY_EDITORIAL[citySlug] || '';
 
