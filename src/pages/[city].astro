@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import '../styles/directory.css';
 import listingsData from '../data/listings.json';
 import cityEditorialData from '../data/city-editorial.json';
+import { computeListingConfidence } from '../lib/confidence-score';
 
 export function getStaticPaths() {
   const CITY_MAP = {
@@ -84,6 +85,7 @@ const cityListings = listingsData.listings
       blurb: l.description,
       verified: l.editorial.verified,
       featured: l.editorial.featured,
+      confidence: computeListingConfidence(l).total,
       lat: l.location.coordinates?.lat ?? null,
       lng: l.location.coordinates?.lng ?? null,
     };
@@ -112,6 +114,7 @@ const itemListJsonLd = JSON.stringify({
       '@type': 'HealthAndBeautyBusiness',
       name: l.name,
       url: `https://contrastmap.com/${citySlug}/${l.slug}`,
+      listingConfidence: l.confidence,
       ...(l.lat ? { geo: { '@type': 'GeoCoordinates', latitude: l.lat, longitude: l.lng } } : {}),
     },
   })),
@@ -382,6 +385,10 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN || '';
           <div class="pv-meta">
             ${starHTML(l.rating, l.reviews)}
             <span class="price">${esc(l.priceNote || '')}</span>
+            <span class="conf-pill" title="Listing confidence — data completeness &amp; verification recency, not a customer rating">
+              <span class="conf-pill-bar"><span style="width:${l.confidence}%"></span></span>
+              Confidence ${l.confidence}
+            </span>
           </div>
         </div>
         </a>

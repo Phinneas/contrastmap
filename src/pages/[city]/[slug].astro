@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import '../../styles/directory.css';
 import listingsData from '../../data/listings.json';
+import { computeListingConfidence } from '../../lib/confidence-score';
 
 export function getStaticPaths() {
   const CITY_SLUG_MAP = { 'Austin': 'austin', 'Los Angeles': 'los-angeles', 'New York': 'new-york', 'Denver': 'denver', 'Chicago': 'chicago', 'San Diego': 'san-diego', 'Houston': 'houston', 'Tampa': 'tampa', 'Las Vegas': 'las-vegas', 'Minneapolis': 'minneapolis', 'Nashville': 'nashville' };
@@ -18,6 +19,10 @@ const CITY_SLUG_MAP = { 'Austin': 'austin', 'Los Angeles': 'los-angeles', 'New Y
 const { listing } = Astro.props;
 const citySlug = CITY_SLUG_MAP[listing.location.city];
 const cityName = listing.location.city;
+
+// Listing Confidence: data-completeness + verification-recency score (NOT a
+// customer rating of the business). Computed at build time from Listing fields.
+const confidence = computeListingConfidence(listing);
 
 // --- Build JSON-LD LocalBusiness schema ---
 const PRICE_TIERS = ['$', '$$', '$$$', '$$$$'];
@@ -230,6 +235,14 @@ if (listing.amenities.floatTank) serviceLabels.push('Float Tank');
             <div class="info-row">
               <span class="info-k">Last verified</span>
               <span class="info-v">{listing.audit.lastVerifiedDate}</span>
+            </div>
+            <div class="conf-block">
+              <div class="conf-row">
+                <span class="info-k">Listing confidence</span>
+                <span class="conf-val">{confidence.total}<small>/100</small></span>
+              </div>
+              <div class="conf-bar" aria-hidden="true"><span style={`width:${confidence.total}%`}></span></div>
+              <p class="conf-caption">Data completeness &amp; verification recency &mdash; not a customer rating.</p>
             </div>
           </div>
         </div>

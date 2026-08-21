@@ -1,0 +1,140 @@
+---
+import Article from '../../layouts/Article.astro';
+
+const title = 'The Cold Plunge Chiller Reliability Index (Methodology + Initial Findings) | ContrastMap';
+const description = 'An independent reliability index for cold plunge chillers. Methodology, initial findings from secondary sources, and what nobody else has published before.';
+const canonical = 'https://contrastmap.com/learn/cold-plunge-chiller-reliability-index';
+---
+
+<Article title={title} description={description} canonical={canonical}>
+  <span id="top"></span>
+
+  <div class="wrap ahead">
+    <div class="crumb"><a href="/">Home</a> &rsaquo; <a href="/#journal">Learn</a> &rsaquo; Chiller Reliability Index</div>
+    <span class="eyebrow">Our research</span>
+    <h1 class="title">The Cold Plunge Chiller Reliability Index</h1>
+    <p class="dek">Methodology and initial findings. Circulation failures beat cooling failures — and warranty response time is the recurring complaint across every brand.</p>
+    <div class="byline">
+      <span class="who">By the ContrastMap Editorial Team</span>
+      <span class="sep"></span>
+      <span class="rev">&#10003; Medically reviewed</span>
+      <span class="sep"></span>
+      <span>Updated August 2026</span>
+      <span class="sep"></span>
+      <span>9 min read</span>
+    </div>
+
+    <div class="hero-split" aria-hidden="true">
+      <div class="side cold" style="grid-column:1/-1">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c-3 4.2-4.5 7-4.5 9.5A4.5 4.5 0 0 0 12 16a4.5 4.5 0 0 0 4.5-4.5C16.5 9 15 6.2 12 2z"/></svg></div>
+        <span class="lbl">Chiller reliability</span>
+        <div class="tmp">Index</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap layout">
+    <aside class="toc">
+      <h5>On this page</h5>
+      <a href="#why">Why this page exists</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#findings">Initial findings</a>
+      <a href="#missing">What's still missing</a>
+      <a href="#next">What comes next</a>
+    </aside>
+
+    <article class="prose">
+      <details class="toc-mobile">
+        <summary>On this page</summary>
+        <ol>
+          <li><a href="#why">Why this page exists</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+          <li><a href="#findings">Initial findings</a></li>
+          <li><a href="#missing">What's still missing</a></li>
+          <li><a href="#next">What comes next</a></li>
+        </ol>
+      </details>
+
+      <p class="lead"><strong>Across the failure reports we could independently verify, "chiller stops circulating" (pump, filter, or hose-flow failures) is reported far more often than "chiller stops cooling" (compressor/refrigerant failure)</strong> — and warranty response time, not failure rate alone, is the recurring complaint across every brand with public complaint data. That's the headline finding from this first pass. The rest of this page lays out exactly how we built it, what's still missing, and why no one else has published anything like it yet.</p>
+
+      <h2 id="why">Why this page exists</h2>
+      <p class="sub">Because AI answers cite a single blog post as if it were data.</p>
+
+      <p>Ask an AI assistant which cold plunge chiller is most reliable, and you'll get an answer — usually something like "Active Aqua is considered the gold standard for reliability." That claim is repeated constantly. It also traces back, every time we checked, to a single enthusiast's personal recommendation on one DIY blog — not to any aggregated failure-rate data. Real failure reports exist in volume: DIY Cold Plunge's own comparison notes, a longitudinal YouTube reviewer who has personally owned and failed with more than a dozen units, GearJunkie's product testing, a professional athlete's multi-year ownership account, and scattered ComplaintsBoard and Reddit threads. Nobody had pulled them into one place with a stated method before now.</p>
+
+      <h2 id="methodology">Methodology</h2>
+      <p class="sub">What counts, how we categorized it, and what this pass is (and isn't).</p>
+
+      <p><strong>What counts as a "failure report."</strong> We only counted reports that specified: (a) the brand and model, (b) what specifically stopped working, and (c) roughly how long the unit had been in service before the issue. Vague "mine broke" comments with no specifics were excluded.</p>
+
+      <p><strong>Failure categories.</strong> We split failures into two buckets, because conflating them badly distorts the reliability picture:</p>
+
+      <ul>
+        <li><strong>Circulation failures</strong> — pump stoppage, filter clogs, hose kinks/airlocks, flow-rate drop-off. Usually user-fixable, usually doesn't require a warranty claim.</li>
+        <li><strong>Cooling failures</strong> — compressor or refrigerant-system failure, the unit runs but doesn't cool, or arrives non-functional (DOA). Usually requires manufacturer service or replacement.</li>
+      </ul>
+
+      <p><strong>Sources included in this pass (secondary data — see limitations below).</strong> DIY Cold Plunge's brand-by-brand owner notes; a YouTube reviewer's multi-unit longitudinal ownership account ("After 18+ Cold Plunge Reviews"); GearJunkie's Eternal Ice HD Pro review; a professional athlete's (Cris Cyborg) documented multi-year Plunge ownership account, including a DOA unit and a subsequent compressor failure; public ComplaintsBoard threads; r/coldplunge threads referencing specific brand/model failures.</p>
+
+      <div class="call evidence">
+        <div class="h">&#10003; What this round is, and isn't</div>
+        <p>This is a <strong>seed dataset built from publicly available secondary reports</strong>, not yet from our own first-party owner survey. We're publishing the methodology and this interim pass now, rather than waiting, because the current AI-generated answers on this topic are themselves relying on unaggregated anecdote — a transparently-sourced seed index is a more honest starting point than the single-blogger folk wisdom currently circulating. This page will be updated with first-party survey results as that data comes in, and the version history will stay visible.</p>
+      </div>
+
+      <h2 id="findings">Initial findings (seed data, secondary-sourced)</h2>
+      <p class="sub">Every reported failure we could independently verify.</p>
+
+      <div class="tbl-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th>Brand / model</th><th>Reported issue</th><th>Type</th><th>Time to failure</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Plunge (Gen 1 Pro/XL)</td><td>DOA chiller on delivery; replacement developed rattling; warranty lapsed, $135 diagnostic fee</td><td>Cooling</td><td>DOA at delivery; recurrence at ~3 years</td><td>Cris Cyborg ownership account</td></tr>
+            <tr><td>Plunge (various)</td><td>Leaking at chiller connections, traced to shipping damage</td><td>Cooling/seal</td><td>At delivery</td><td>YouTube reviewer field reports</td></tr>
+            <tr><td>Generic all-in-one (unnamed overseas)</td><td>Repeated total failures across multiple units from same company</td><td>Cooling</td><td>Weeks to months, recurring</td><td>DIY Cold Plunge; YouTube longitudinal reviewer</td></tr>
+            <tr><td>Active Aqua</td><td>No reported failures across multiple long-term users cited</td><td>&mdash;</td><td>N/A (no failures reported in sources reviewed)</td><td>DIY Cold Plunge; YouTube longitudinal reviewer</td></tr>
+            <tr><td>Rocita</td><td>"More lemons in the bunch" per community feedback, though individual long-term users report no issues</td><td>Unclear/mixed</td><td>Not specified</td><td>DIY Cold Plunge owner notes</td></tr>
+            <tr><td>Vevor</td><td>Functional but questioned long-term durability; fittings described as difficult to configure</td><td>Setup/circulation</td><td>Not specified (anticipatory concern)</td><td>DIY Cold Plunge owner notes</td></tr>
+            <tr><td>Various (unspecified)</td><td>Water-flow drop-off from clogged pre-filters (hair/debris)</td><td>Circulation</td><td>Ongoing/recurring, not a hard failure</td><td>Multiple YouTube reviewers</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Reading this table honestly:</strong> the "no reported failures" rows (Active Aqua) reflect an absence of failure reports in the sources we reviewed, not a confirmed low failure rate — it's the same limitation every existing reliability claim about this brand has, we're just being explicit about it instead of stating it as settled fact.</p>
+
+      <h2 id="missing">What's still missing</h2>
+      <p class="sub">Three gaps the first-party survey will close.</p>
+
+      <ul>
+        <li><strong>Sample size and base rates.</strong> We don't yet know how many total units of each brand are in circulation, so we can't calculate a true failure <em>rate</em> — only a count of reported failures. A brand with zero reported failures in our sources may simply have fewer total owners posting online, not a genuinely lower failure rate.</li>
+        <li><strong>Warranty response time, quantified.</strong> Multiple sources describe multi-week waits and unclear diagnostic processes, but nobody has systematically tracked response time in days across brands. This is one of the highest-value additions the first-party survey should capture.</li>
+        <li><strong>Climate and usage-pattern variables.</strong> Failure likelihood plausibly varies with continuous vs. cycled operation, indoor vs. outdoor installation, and ambient temperature — none of which is controlled for in the secondary sources above.</li>
+      </ul>
+
+      <h2 id="next">What comes next</h2>
+      <p class="sub">The first-party owner survey is in progress.</p>
+
+      <p>The primary owner survey (in progress) is designed to close these three gaps directly: it asks for brand/model, installation environment, usage pattern, failure type (using the same circulation/cooling split established here), time-to-failure, and warranty response time in days. Once that data is in, this page will be rebuilt around first-party numbers, with this secondary-sourced pass kept visible as the starting methodology, not deleted.</p>
+
+      <div class="finale">
+        <h2>Try before you buy</h2>
+        <p>Test cold plunge setups at a studio near you before investing in home equipment.</p>
+        <a href="/austin" class="btn btn-grad">Browse studios on ContrastMap &rarr;</a>
+      </div>
+
+      <div class="refs">
+        <h4>Sources</h4>
+        <ol>
+          <li>DIY Cold Plunge blog (diycoldplunge.com)</li>
+          <li>YouTube — "After 18+ Cold Plunge Reviews, This is the Best (so far)"</li>
+          <li>GearJunkie, Eternal Ice HD Pro review</li>
+          <li>criscyborg.com, Plunge Cold Tub ownership review</li>
+          <li>ComplaintsBoard, Plunge XL thread</li>
+          <li>r/coldplunge community threads</li>
+          <li>Compiled from organic and AI Overview citation research, August 2026</li>
+        </ol>
+      </div>
+    </article>
+  </div>
+</Article>

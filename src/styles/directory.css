@@ -184,3 +184,21 @@
 .city-card .cc-body h3{font-size:1.15rem}
 .city-card .cc-body p{font-size:.86rem;color:var(--ink-2);margin-top:6px}
 .city-card .cc-body .cc-link{margin-top:14px;font-family:var(--font-d);font-weight:600;font-size:.9rem;color:var(--cold-2);display:inline-flex;align-items:center;gap:6px}
+
+/* ===== Listing Confidence (data-completeness score, NOT a customer rating) ===== */
+/* Neutral slate styling everywhere — intentionally NOT gold/orange so it cannot
+   be read as a satisfaction rating of the business. */
+
+/* Collection-card pill (inside .pv-meta) */
+.conf-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-d);font-weight:600;font-size:.7rem;color:var(--ink-2);background:#EEF2F6;border:1px solid var(--line);padding:3px 8px;border-radius:999px;white-space:nowrap;flex:none}
+.conf-pill-bar{display:inline-block;width:26px;height:5px;border-radius:999px;background:#E2E8F0;overflow:hidden;flex:none}
+.conf-pill-bar span{display:block;height:100%;background:#64748B}
+
+/* Detail-page "At a glance" block (inside .info-card) */
+.conf-block{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2)}
+.conf-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.conf-val{font-family:var(--font-d);font-weight:700;font-size:1.1rem;color:var(--ink)}
+.conf-val small{font-size:.7rem;color:var(--muted);font-weight:500}
+.conf-bar{height:7px;border-radius:999px;background:var(--panel);overflow:hidden;margin-top:8px}
+.conf-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#94A3B8,#475569)}
+.conf-caption{font-size:.74rem;color:var(--muted);margin:8px 0 0;line-height:1.4}
