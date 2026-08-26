@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import '../styles/global.css';
 import listingsData from '../data/listings.json';
 import catalogRaw from '../data/catalog.json';
+import { STATES } from '../lib/states';
 
 // City data for search routing
 const CITY_SLUGS = {
@@ -96,6 +97,12 @@ const articles = [
 ];
 ---
 
+<style>
+  .lp-geo-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-d);font-weight:600;font-size:.9rem;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink-2);cursor:pointer;transition:all .15s;white-space:nowrap}
+  .lp-geo-btn:hover{border-color:var(--cold-2);color:var(--cold-2)}
+  .lp-geo-btn svg{flex:none}
+</style>
+
 <Base>
   <span id="top"></span>
 
@@ -107,7 +114,7 @@ const articles = [
       <p class="subhead">The friendliest way to find a sauna or cold plunge nearby — and everything you need to build the ritual at home.</p>
 
       <form class="lp-searchbar" id="heroSearch" autocomplete="off">
-        <input type="text" id="heroCity" placeholder="City or zip code" />
+        <input type="text" id="heroCity" placeholder="Enter your city or zip code" />
         <select id="heroType" aria-label="Studio type">
           <option value="">Any type</option>
           <option value="cold-plunge">Cold plunge</option>
@@ -115,6 +122,10 @@ const articles = [
           <option value="contrast-therapy">Both</option>
         </select>
         <button type="submit">Search</button>
+        <button type="button" id="heroGeo" class="lp-geo-btn" title="Use my location">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+          <span>Near me</span>
+        </button>
       </form>
 
       <div class="lp-trust">
@@ -221,6 +232,14 @@ const articles = [
       <a href="/las-vegas" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Las Vegas</a>
       <a href="/minneapolis" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Minneapolis</a>
       <a href="/nashville" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Nashville</a>
+    </div>
+    <div style="margin-top:20px">
+      <span class="eyebrow" style="color:var(--hot-2);font-size:.68rem">Browse by state</span>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px">
+        {STATES.map((s) => (
+          <a href={`/states/${s.slug}`} style="font-family:var(--font-d);font-size:.84rem;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--white);color:var(--ink-2);border:1px solid var(--line)">{s.name}</a>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -332,20 +351,45 @@ const articles = [
     if (heroSearch) {
       heroSearch.addEventListener('submit', e => {
         e.preventDefault();
-        const input = document.getElementById('heroCity').value.trim().toLowerCase();
+        const raw = document.getElementById('heroCity').value.trim();
+        const input = raw.toLowerCase();
         const type = document.getElementById('heroType').value;
-        // Match city input to available city slugs
+        const amenity = type ? `&amenity=${encodeURIComponent(type)}` : '';
+        // 5-digit zip -> proximity search
+        if (/^\d{5}$/.test(raw)) {
+          window.location.href = `/search?zip=${raw}${amenity}`;
+          return;
+        }
+        // city name -> city page
         const cityMatch = Object.keys(CITY_SLUGS).find(c => c.includes(input) || input.includes(c));
         if (cityMatch) {
-          const slug = CITY_SLUGS[cityMatch];
-          const params = new URLSearchParams();
-          if (type) params.set('amenity', type);
-          const qs = params.toString();
-          window.location.href = '/' + slug + (qs ? '?' + qs : '');
+          window.location.href = '/' + CITY_SLUGS[cityMatch] + (type ? `?amenity=${encodeURIComponent(type)}` : '');
         } else {
-          document.getElementById('heroCity').focus();
-          document.getElementById('heroCity').style.borderColor = '#F97316';
+          const el = document.getElementById('heroCity');
+          el.focus();
+          el.style.borderColor = '#F97316';
+          el.placeholder = 'Try a city or 5-digit zip';
         }
+      });
+    }
+
+    const heroGeo = document.getElementById('heroGeo');
+    if (heroGeo && navigator.geolocation) {
+      heroGeo.addEventListener('click', () => {
+        heroGeo.querySelector('span').textContent = 'Locating\u2026';
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lat = pos.coords.latitude.toFixed(4);
+            const lng = pos.coords.longitude.toFixed(4);
+            const type = document.getElementById('heroType').value;
+            window.location.href = `/search?lat=${lat}&lng=${lng}${type ? '&amenity=' + encodeURIComponent(type) : ''}`;
+          },
+          () => {
+            heroGeo.querySelector('span').textContent = 'Near me';
+            alert('Could not get your location. Enter a zip code instead.');
+          },
+          { timeout: 10000 }
+        );
       });
     }
 

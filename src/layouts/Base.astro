@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   canonical?: string;
   ogType?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   description = 'ContrastMap is the directory for contrast therapy — find cold plunge and infrared sauna studios near you, and shop the best home tubs and saunas.',
   canonical,
   ogType = 'website',
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -20,9 +22,11 @@ const {
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="google-adsense-account" content="ca-pub-5424097145643842" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex,follow" />}
   {canonical && <link rel="canonical" href={canonical} />}
   <meta property="og:type" content={ogType} />
   <meta property="og:title" content={title} />

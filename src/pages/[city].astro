@@ -4,6 +4,7 @@ import '../styles/directory.css';
 import listingsData from '../data/listings.json';
 import cityEditorialData from '../data/city-editorial.json';
 import { computeListingConfidence } from '../lib/confidence-score';
+import { STATE_BY_ABBR } from '../lib/states';
 
 export function getStaticPaths() {
   const CITY_MAP = {
@@ -26,6 +27,7 @@ export function getStaticPaths() {
 }
 
 const { citySlug, cityName, cityState, cityCenter } = Astro.props;
+const stateInfo = STATE_BY_ABBR[cityState];
 
 // Editorial content per city
 const CITY_EDITORIAL = {
@@ -130,7 +132,7 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN || '';
   <!-- City hero -->
   <section class="dir-hero">
     <div class="wrap">
-      <div class="crumb"><a href="/">Home</a> &rsaquo; <span>{cityName}</span></div>
+      <div class="crumb"><a href="/">Home</a> &rsaquo; <a href={`/states/${stateInfo.slug}`}>{stateInfo.name}</a> &rsaquo; <span>{cityName}</span></div>
       <h1>Cold Plunge &amp; Infrared Sauna in {cityName}, {cityState}</h1>
       <p class="dir-hero-intro">{cityEditorial}</p>
       <div class="city-stats">

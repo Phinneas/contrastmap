@@ -16,8 +16,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 30.2672,
-          "lng": -97.7251
+          "lat": 30.279676,
+          "lng": -97.720231
         },
         "neighborhood": "East Austin"
       },
@@ -200,8 +200,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 30.2436,
-          "lng": -97.7654
+          "lat": 30.268072,
+          "lng": -97.742806
         },
         "neighborhood": "South Austin"
       },
@@ -292,8 +292,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 30.2521,
-          "lng": -97.7521
+          "lat": 30.249038,
+          "lng": -97.755611
         },
         "neighborhood": "Bouldin Creek"
       },
@@ -385,8 +385,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 30.2415,
-          "lng": -97.7893
+          "lat": 30.268072,
+          "lng": -97.742806
         },
         "neighborhood": "South Lamar"
       },
@@ -568,8 +568,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 30.242,
-          "lng": -97.785
+          "lat": 30.268072,
+          "lng": -97.742806
         },
         "neighborhood": "South Lamar"
       },
@@ -751,8 +751,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 33.9759,
-          "lng": -118.4213
+          "lat": 34.048051,
+          "lng": -118.254187
         },
         "neighborhood": "Playa Vista"
       },
@@ -844,8 +844,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 34.1385,
-          "lng": -118.389
+          "lat": 34.11317,
+          "lng": -118.219109
         },
         "neighborhood": "Studio City"
       },
@@ -1119,8 +1119,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 34.0923,
-          "lng": -118.3287
+          "lat": 34.09823,
+          "lng": -118.32968
         },
         "neighborhood": "Hollywood"
       },
@@ -1302,8 +1302,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 40.7264,
-          "lng": -73.9921
+          "lat": 40.788577,
+          "lng": -73.966064
         },
         "neighborhood": "NoHo"
       },
@@ -1484,8 +1484,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 40.7449,
-          "lng": -73.9875
+          "lat": 40.788577,
+          "lng": -73.966064
         },
         "neighborhood": "NoMad"
       },
@@ -1668,8 +1668,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 40.7405,
-          "lng": -73.9889
+          "lat": 40.788577,
+          "lng": -73.966064
         },
         "neighborhood": "Flatiron"
       },
@@ -1759,8 +1759,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 40.7359,
-          "lng": -74.0051
+          "lat": 40.788577,
+          "lng": -73.966064
         },
         "neighborhood": "West Village"
       },
@@ -1849,8 +1849,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.300408,
+          "lng": -97.719927
         },
         "neighborhood": null
       },
@@ -1948,8 +1948,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.360607,
+          "lng": -97.789563
         },
         "neighborhood": null
       },
@@ -2046,8 +2046,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.25286,
+          "lng": -97.71077
         },
         "neighborhood": null
       },
@@ -2143,8 +2143,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.263401,
+          "lng": -97.69607
         },
         "neighborhood": null
       },
@@ -2242,8 +2242,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.25055,
+          "lng": -97.76631
         },
         "neighborhood": null
       },
@@ -2341,8 +2341,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.37392,
+          "lng": -97.74091
         },
         "neighborhood": null
       },
@@ -2440,8 +2440,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.357423,
+          "lng": -97.757159
         },
         "neighborhood": null
       },
@@ -2525,8 +2525,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.292008,
+          "lng": -97.662199
         },
         "neighborhood": null
       },
@@ -2608,8 +2608,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.240641,
+          "lng": -97.786051
         },
         "neighborhood": null
       },
@@ -2707,8 +2707,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.265243,
+          "lng": -97.738391
         },
         "neighborhood": null
       },
@@ -2792,8 +2792,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.46219,
+          "lng": -97.79721
         },
         "neighborhood": null
       },
@@ -2891,8 +2891,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.26659,
+          "lng": -97.752714
         },
         "neighborhood": null
       },
@@ -2991,8 +2991,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.452273,
+          "lng": -97.826951
         },
         "neighborhood": null
       },
@@ -3088,8 +3088,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.274596,
+          "lng": -97.702573
         },
         "neighborhood": null
       },
@@ -3173,8 +3173,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.206471,
+          "lng": -97.747445
         },
         "neighborhood": null
       },
@@ -3258,8 +3258,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.231225,
+          "lng": -97.821547
         },
         "neighborhood": null
       },
@@ -3341,8 +3341,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.44616,
+          "lng": -97.73348
         },
         "neighborhood": null
       },
@@ -3424,8 +3424,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.224532,
+          "lng": -97.954467
         },
         "neighborhood": null
       },
@@ -3519,8 +3519,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.396525,
+          "lng": -97.726195
         },
         "neighborhood": null
       },
@@ -3617,8 +3617,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.399133,
+          "lng": -97.74811
         },
         "neighborhood": null
       },
@@ -3717,8 +3717,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.223783,
+          "lng": -97.838824
         },
         "neighborhood": null
       },
@@ -3817,8 +3817,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.298747,
+          "lng": -97.704385
         },
         "neighborhood": null
       },
@@ -3918,8 +3918,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.26323,
+          "lng": -97.75717
         },
         "neighborhood": null
       },
@@ -4018,8 +4018,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.20647,
+          "lng": -97.80584
         },
         "neighborhood": null
       },
@@ -4117,8 +4117,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.236294,
+          "lng": -97.853686
         },
         "neighborhood": null
       },
@@ -4200,8 +4200,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.268072,
+          "lng": -97.742806
         },
         "neighborhood": null
       },
@@ -4283,8 +4283,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.205475,
+          "lng": -97.981466
         },
         "neighborhood": null
       },
@@ -4383,8 +4383,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.29179,
+          "lng": -97.72319
         },
         "neighborhood": null
       },
@@ -4482,8 +4482,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.268947,
+          "lng": -97.757045
         },
         "neighborhood": null
       },
@@ -4565,8 +4565,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.398624,
+          "lng": -97.744402
         },
         "neighborhood": null
       },
@@ -4663,8 +4663,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 30.268903,
+          "lng": -97.744299
         },
         "neighborhood": null
       },
@@ -4748,8 +4748,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.98014,
+          "lng": -87.700395
         },
         "neighborhood": null
       },
@@ -4843,8 +4843,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.897694,
+          "lng": -87.643794
         },
         "neighborhood": null
       },
@@ -4942,8 +4942,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.720917,
+          "lng": -87.671005
         },
         "neighborhood": null
       },
@@ -5037,8 +5037,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.932117,
+          "lng": -87.668151
         },
         "neighborhood": null
       },
@@ -5134,8 +5134,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.903482,
+          "lng": -87.675522
         },
         "neighborhood": null
       },
@@ -5233,8 +5233,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.929795,
+          "lng": -87.655261
         },
         "neighborhood": null
       },
@@ -5333,8 +5333,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.894006,
+          "lng": -87.618602
         },
         "neighborhood": null
       },
@@ -5430,8 +5430,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.909652,
+          "lng": -87.634384
         },
         "neighborhood": null
       },
@@ -5516,8 +5516,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.888654,
+          "lng": -87.627566
         },
         "neighborhood": null
       },
@@ -5615,8 +5615,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.895062,
+          "lng": -87.65371
         },
         "neighborhood": null
       },
@@ -5714,8 +5714,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.910783,
+          "lng": -87.669907
         },
         "neighborhood": null
       },
@@ -5811,8 +5811,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.88691,
+          "lng": -87.655909
         },
         "neighborhood": null
       },
@@ -5910,8 +5910,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.896217,
+          "lng": -87.639024
         },
         "neighborhood": null
       },
@@ -6008,8 +6008,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.894579,
+          "lng": -87.633025
         },
         "neighborhood": null
       },
@@ -6105,8 +6105,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.691339,
+          "lng": -87.702243
         },
         "neighborhood": null
       },
@@ -6202,8 +6202,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.954005,
+          "lng": -87.748721
         },
         "neighborhood": null
       },
@@ -6301,8 +6301,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.92476,
+          "lng": -87.648272
         },
         "neighborhood": null
       },
@@ -6384,8 +6384,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.791796,
+          "lng": -87.703335
         },
         "neighborhood": null
       },
@@ -6467,8 +6467,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.850062,
+          "lng": -87.638872
         },
         "neighborhood": null
       },
@@ -6566,8 +6566,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.896368,
+          "lng": -87.628811
         },
         "neighborhood": null
       },
@@ -6649,8 +6649,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.963904,
+          "lng": -87.674916
         },
         "neighborhood": null
       },
@@ -6732,8 +6732,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.941334,
+          "lng": -87.654433
         },
         "neighborhood": null
       },
@@ -6822,8 +6822,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.924561,
+          "lng": -87.646699
         },
         "neighborhood": null
       },
@@ -6923,8 +6923,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.880498,
+          "lng": -87.630273
         },
         "neighborhood": null
       },
@@ -7019,8 +7019,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.942429,
+          "lng": -87.644647
         },
         "neighborhood": null
       },
@@ -7118,8 +7118,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.721226,
+          "lng": -87.676806
         },
         "neighborhood": null
       },
@@ -7218,8 +7218,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.927549,
+          "lng": -87.641435
         },
         "neighborhood": null
       },
@@ -7319,8 +7319,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.891353,
+          "lng": -87.623357
         },
         "neighborhood": null
       },
@@ -7404,8 +7404,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.884952,
+          "lng": -87.639691
         },
         "neighborhood": null
       },
@@ -7504,8 +7504,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.908842,
+          "lng": -87.634329
         },
         "neighborhood": null
       },
@@ -7603,8 +7603,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.881588,
+          "lng": -87.650354
         },
         "neighborhood": null
       },
@@ -7702,8 +7702,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.881312,
+          "lng": -87.657836
         },
         "neighborhood": null
       },
@@ -7799,8 +7799,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.849339,
+          "lng": -87.638679
         },
         "neighborhood": null
       },
@@ -7898,8 +7898,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 41.886575,
+          "lng": -87.67821
         },
         "neighborhood": null
       },
@@ -7993,8 +7993,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.718892,
+          "lng": -104.896477
         },
         "neighborhood": null
       },
@@ -8086,8 +8086,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.703484,
+          "lng": -104.98023
         },
         "neighborhood": null
       },
@@ -8181,8 +8181,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.703508,
+          "lng": -104.889822
         },
         "neighborhood": null
       },
@@ -8278,8 +8278,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.760192,
+          "lng": -105.007147
         },
         "neighborhood": null
       },
@@ -8375,8 +8375,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.765275,
+          "lng": -104.986151
         },
         "neighborhood": null
       },
@@ -8460,8 +8460,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.772183,
+          "lng": -104.970768
         },
         "neighborhood": null
       },
@@ -8559,8 +8559,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.67887,
+          "lng": -104.920603
         },
         "neighborhood": null
       },
@@ -8644,8 +8644,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.676124,
+          "lng": -104.914302
         },
         "neighborhood": null
       },
@@ -8743,8 +8743,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.6683,
+          "lng": -104.913694
         },
         "neighborhood": null
       },
@@ -8828,8 +8828,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.749942,
+          "lng": -104.998424
         },
         "neighborhood": null
       },
@@ -8927,8 +8927,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.697671,
+          "lng": -104.881142
         },
         "neighborhood": null
       },
@@ -9020,8 +9020,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.758298,
+          "lng": -105.014072
         },
         "neighborhood": null
       },
@@ -9105,8 +9105,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.752733,
+          "lng": -105.015
         },
         "neighborhood": null
       },
@@ -9204,8 +9204,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.741871,
+          "lng": -104.986507
         },
         "neighborhood": null
       },
@@ -9289,8 +9289,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.734355,
+          "lng": -104.989885
         },
         "neighborhood": null
       },
@@ -9386,8 +9386,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.75044,
+          "lng": -105.000543
         },
         "neighborhood": null
       },
@@ -9485,8 +9485,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.70054,
+          "lng": -104.998048
         },
         "neighborhood": null
       },
@@ -9572,8 +9572,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.770335,
+          "lng": -104.973144
         },
         "neighborhood": null
       },
@@ -9669,8 +9669,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.738672,
+          "lng": -104.975432
         },
         "neighborhood": null
       },
@@ -9758,8 +9758,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.763567,
+          "lng": -105.010829
         },
         "neighborhood": null
       },
@@ -9845,8 +9845,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.705953,
+          "lng": -104.921534
         },
         "neighborhood": null
       },
@@ -9944,8 +9944,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.710204,
+          "lng": -104.930605
         },
         "neighborhood": null
       },
@@ -10029,8 +10029,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.717599,
+          "lng": -104.947907
         },
         "neighborhood": null
       },
@@ -10114,8 +10114,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.74021,
+          "lng": -105.03425
         },
         "neighborhood": null
       },
@@ -10199,8 +10199,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.625532,
+          "lng": -104.89874
         },
         "neighborhood": null
       },
@@ -10298,8 +10298,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.759499,
+          "lng": -105.011251
         },
         "neighborhood": null
       },
@@ -10397,8 +10397,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.770595,
+          "lng": -104.909371
         },
         "neighborhood": null
       },
@@ -10494,8 +10494,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.763954,
+          "lng": -104.978726
         },
         "neighborhood": null
       },
@@ -10591,8 +10591,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.759534,
+          "lng": -105.025813
         },
         "neighborhood": null
       },
@@ -10676,8 +10676,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.759656,
+          "lng": -104.973101
         },
         "neighborhood": null
       },
@@ -10761,8 +10761,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.776091,
+          "lng": -105.043636
         },
         "neighborhood": null
       },
@@ -10860,8 +10860,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.725257,
+          "lng": -104.987918
         },
         "neighborhood": null
       },
@@ -10959,8 +10959,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.759534,
+          "lng": -105.025813
         },
         "neighborhood": null
       },
@@ -11056,8 +11056,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.76424,
+          "lng": -104.981022
         },
         "neighborhood": null
       },
@@ -11151,8 +11151,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.683733,
+          "lng": -104.937651
         },
         "neighborhood": null
       },
@@ -11244,8 +11244,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.749795,
+          "lng": -105.022438
         },
         "neighborhood": null
       },
@@ -11343,8 +11343,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.683306,
+          "lng": -104.880261
         },
         "neighborhood": null
       },
@@ -11432,8 +11432,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.761204,
+          "lng": -105.015582
         },
         "neighborhood": null
       },
@@ -11521,8 +11521,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.755219,
+          "lng": -105.002326
         },
         "neighborhood": null
       },
@@ -11620,8 +11620,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.727131,
+          "lng": -104.983122
         },
         "neighborhood": null
       },
@@ -11719,8 +11719,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.743069,
+          "lng": -104.97179
         },
         "neighborhood": null
       },
@@ -11804,8 +11804,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.71887,
+          "lng": -104.95118
         },
         "neighborhood": null
       },
@@ -11889,8 +11889,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.73082,
+          "lng": -104.9865
         },
         "neighborhood": null
       },
@@ -11988,8 +11988,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.74769,
+          "lng": -104.99915
         },
         "neighborhood": null
       },
@@ -12087,8 +12087,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.678095,
+          "lng": -104.987876
         },
         "neighborhood": null
       },
@@ -12172,8 +12172,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.761897,
+          "lng": -105.016367
         },
         "neighborhood": null
       },
@@ -12257,8 +12257,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.749727,
+          "lng": -104.992001
         },
         "neighborhood": null
       },
@@ -12356,8 +12356,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.691787,
+          "lng": -104.987756
         },
         "neighborhood": null
       },
@@ -12442,8 +12442,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.678453,
+          "lng": -104.925197
         },
         "neighborhood": null
       },
@@ -12538,8 +12538,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.654074,
+          "lng": -104.897976
         },
         "neighborhood": null
       },
@@ -12623,8 +12623,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.749845,
+          "lng": -104.991932
         },
         "neighborhood": null
       },
@@ -12722,8 +12722,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.759242,
+          "lng": -104.899794
         },
         "neighborhood": null
       },
@@ -12819,8 +12819,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.672051,
+          "lng": -104.987896
         },
         "neighborhood": null
       },
@@ -12918,8 +12918,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.76945,
+          "lng": -104.974505
         },
         "neighborhood": null
       },
@@ -13007,8 +13007,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.683097,
+          "lng": -104.987178
         },
         "neighborhood": null
       },
@@ -13096,8 +13096,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.721192,
+          "lng": -104.957436
         },
         "neighborhood": null
       },
@@ -13195,8 +13195,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 39.68111,
+          "lng": -105.05511
         },
         "neighborhood": null
       },
@@ -13294,8 +13294,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.955352,
+          "lng": -95.536493
         },
         "neighborhood": null
       },
@@ -13393,8 +13393,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.782834,
+          "lng": -95.476788
         },
         "neighborhood": null
       },
@@ -13488,8 +13488,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.729354,
+          "lng": -95.454936
         },
         "neighborhood": null
       },
@@ -13585,8 +13585,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.738925,
+          "lng": -95.413441
         },
         "neighborhood": null
       },
@@ -13683,8 +13683,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.740889,
+          "lng": -95.41973
         },
         "neighborhood": null
       },
@@ -13783,8 +13783,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.75663,
+          "lng": -95.627933
         },
         "neighborhood": null
       },
@@ -13867,8 +13867,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.722936,
+          "lng": -95.567888
         },
         "neighborhood": null
       },
@@ -13962,8 +13962,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.742362,
+          "lng": -95.369581
         },
         "neighborhood": null
       },
@@ -14058,8 +14058,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.74711,
+          "lng": -95.371055
         },
         "neighborhood": null
       },
@@ -14143,8 +14143,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.752845,
+          "lng": -95.405761
         },
         "neighborhood": null
       },
@@ -14243,8 +14243,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.783584,
+          "lng": -95.608785
         },
         "neighborhood": null
       },
@@ -14340,8 +14340,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.759846,
+          "lng": -95.39884
         },
         "neighborhood": null
       },
@@ -14438,8 +14438,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.750686,
+          "lng": -95.44946
         },
         "neighborhood": null
       },
@@ -14533,8 +14533,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.69659,
+          "lng": -95.52048
         },
         "neighborhood": null
       },
@@ -14630,8 +14630,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.74539,
+          "lng": -95.466436
         },
         "neighborhood": null
       },
@@ -14726,8 +14726,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.923288,
+          "lng": -95.202399
         },
         "neighborhood": null
       },
@@ -14823,8 +14823,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.584234,
+          "lng": -95.147236
         },
         "neighborhood": null
       },
@@ -14920,8 +14920,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.763231,
+          "lng": -95.340372
         },
         "neighborhood": null
       },
@@ -15017,8 +15017,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.767992,
+          "lng": -95.624732
         },
         "neighborhood": null
       },
@@ -15114,8 +15114,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.78013,
+          "lng": -95.39837
         },
         "neighborhood": null
       },
@@ -15211,8 +15211,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.783644,
+          "lng": -95.706726
         },
         "neighborhood": null
       },
@@ -15308,8 +15308,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.778741,
+          "lng": -95.545858
         },
         "neighborhood": null
       },
@@ -15405,8 +15405,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.815203,
+          "lng": -95.141284
         },
         "neighborhood": null
       },
@@ -15502,8 +15502,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.55423,
+          "lng": -95.12183
         },
         "neighborhood": null
       },
@@ -15587,8 +15587,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.995422,
+          "lng": -95.573292
         },
         "neighborhood": null
       },
@@ -15688,8 +15688,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.705463,
+          "lng": -95.438088
         },
         "neighborhood": null
       },
@@ -15789,8 +15789,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.75762,
+          "lng": -95.401929
         },
         "neighborhood": null
       },
@@ -15973,8 +15973,8 @@
         "postalCode": "77002",
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.75475,
+          "lng": -95.366264
         },
         "neighborhood": null
       },
@@ -16056,8 +16056,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.755886,
+          "lng": -95.394453
         },
         "neighborhood": null
       },
@@ -16151,8 +16151,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.675416,
+          "lng": -95.336577
         },
         "neighborhood": null
       },
@@ -16250,8 +16250,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.771666,
+          "lng": -95.40987
         },
         "neighborhood": null
       },
@@ -16350,8 +16350,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.706415,
+          "lng": -95.556224
         },
         "neighborhood": null
       },
@@ -16449,8 +16449,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.725096,
+          "lng": -95.421233
         },
         "neighborhood": null
       },
@@ -16550,8 +16550,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.937565,
+          "lng": -95.176603
         },
         "neighborhood": null
       },
@@ -16649,8 +16649,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.779984,
+          "lng": -95.45744
         },
         "neighborhood": null
       },
@@ -16746,8 +16746,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.735994,
+          "lng": -95.38472
         },
         "neighborhood": null
       },
@@ -16831,8 +16831,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.770522,
+          "lng": -95.345534
         },
         "neighborhood": null
       },
@@ -16914,8 +16914,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.756444,
+          "lng": -95.403478
         },
         "neighborhood": null
       },
@@ -17014,8 +17014,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.734353,
+          "lng": -95.421717
         },
         "neighborhood": null
       },
@@ -17115,8 +17115,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.807681,
+          "lng": -95.174215
         },
         "neighborhood": null
       },
@@ -17212,8 +17212,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 29.724255,
+          "lng": -95.390087
         },
         "neighborhood": null
       },
@@ -17311,8 +17311,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.062146,
+          "lng": -118.306281
         },
         "neighborhood": null
       },
@@ -17404,8 +17404,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.060775,
+          "lng": -118.306312
         },
         "neighborhood": null
       },
@@ -17503,8 +17503,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.263274,
+          "lng": -118.52526
         },
         "neighborhood": null
       },
@@ -17604,8 +17604,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.101037,
+          "lng": -118.325782
         },
         "neighborhood": null
       },
@@ -17702,8 +17702,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.063223,
+          "lng": -118.298574
         },
         "neighborhood": null
       },
@@ -17801,8 +17801,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.069296,
+          "lng": -118.307057
         },
         "neighborhood": null
       },
@@ -17900,8 +17900,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.052629,
+          "lng": -118.255924
         },
         "neighborhood": null
       },
@@ -18000,8 +18000,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.115285,
+          "lng": -118.264267
         },
         "neighborhood": null
       },
@@ -18099,8 +18099,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.051338,
+          "lng": -118.367114
         },
         "neighborhood": null
       },
@@ -18199,8 +18199,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 33.999357,
+          "lng": -118.441492
         },
         "neighborhood": null
       },
@@ -18298,8 +18298,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.032106,
+          "lng": -118.454011
         },
         "neighborhood": null
       },
@@ -18397,8 +18397,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.045779,
+          "lng": -118.259376
         },
         "neighborhood": null
       },
@@ -18494,8 +18494,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.077778,
+          "lng": -118.26506
         },
         "neighborhood": null
       },
@@ -18579,8 +18579,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.058687,
+          "lng": -118.418968
         },
         "neighborhood": null
       },
@@ -18680,8 +18680,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.053826,
+          "lng": -118.32005
         },
         "neighborhood": null
       },
@@ -18779,8 +18779,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.04796,
+          "lng": -118.463009
         },
         "neighborhood": null
       },
@@ -18879,8 +18879,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.104694,
+          "lng": -118.272944
         },
         "neighborhood": null
       },
@@ -18978,8 +18978,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.026907,
+          "lng": -118.406082
         },
         "neighborhood": null
       },
@@ -19071,8 +19071,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 34.07629,
+          "lng": -118.35578
         },
         "neighborhood": null
       },
@@ -19170,8 +19170,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.738012,
+          "lng": -117.056037
         },
         "neighborhood": null
       },
@@ -19255,8 +19255,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.767839,
+          "lng": -117.137304
         },
         "neighborhood": null
       },
@@ -19348,8 +19348,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.773962,
+          "lng": -117.155023
         },
         "neighborhood": null
       },
@@ -19445,8 +19445,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.72741,
+          "lng": -117.159994
         },
         "neighborhood": null
       },
@@ -19542,8 +19542,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.791235,
+          "lng": -117.203517
         },
         "neighborhood": null
       },
@@ -19637,8 +19637,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.767839,
+          "lng": -117.137304
         },
         "neighborhood": null
       },
@@ -19732,8 +19732,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.747644,
+          "lng": -117.160691
         },
         "neighborhood": null
       },
@@ -19831,8 +19831,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 33.012538,
+          "lng": -117.077811
         },
         "neighborhood": null
       },
@@ -19932,8 +19932,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.756129,
+          "lng": -117.220953
         },
         "neighborhood": null
       },
@@ -20031,8 +20031,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.725997,
+          "lng": -117.159983
         },
         "neighborhood": null
       },
@@ -20130,8 +20130,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.750059,
+          "lng": -117.17094
         },
         "neighborhood": null
       },
@@ -20229,8 +20229,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.794585,
+          "lng": -117.253768
         },
         "neighborhood": null
       },
@@ -20329,8 +20329,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.733181,
+          "lng": -117.160068
         },
         "neighborhood": null
       },
@@ -20429,8 +20429,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.749661,
+          "lng": -117.205677
         },
         "neighborhood": null
       },
@@ -20512,8 +20512,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.721869,
+          "lng": -117.230571
         },
         "neighborhood": null
       },
@@ -20611,8 +20611,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.802975,
+          "lng": -117.140065
         },
         "neighborhood": null
       },
@@ -20712,8 +20712,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.748727,
+          "lng": -117.146728
         },
         "neighborhood": null
       },
@@ -20807,8 +20807,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.789497,
+          "lng": -117.100154
         },
         "neighborhood": null
       },
@@ -20906,8 +20906,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.748847,
+          "lng": -117.139165
         },
         "neighborhood": null
       },
@@ -21001,8 +21001,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.819035,
+          "lng": -117.183825
         },
         "neighborhood": null
       },
@@ -21101,8 +21101,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.751675,
+          "lng": -117.215157
         },
         "neighborhood": null
       },
@@ -21198,8 +21198,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.825623,
+          "lng": -117.228446
         },
         "neighborhood": null
       },
@@ -21295,8 +21295,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.753797,
+          "lng": -117.205822
         },
         "neighborhood": null
       },
@@ -21392,8 +21392,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.79174,
+          "lng": -117.020377
         },
         "neighborhood": null
       },
@@ -21491,8 +21491,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 32.81521,
+          "lng": -117.153322
         },
         "neighborhood": null
       },
@@ -21590,8 +21590,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.091607,
+          "lng": -115.175008
         },
         "neighborhood": null
       },
@@ -21685,8 +21685,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.239704,
+          "lng": -115.248821
         },
         "neighborhood": null
       },
@@ -21783,8 +21783,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.158228,
+          "lng": -115.252019
         },
         "neighborhood": null
       },
@@ -21882,8 +21882,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.113126,
+          "lng": -115.207514
         },
         "neighborhood": null
       },
@@ -21981,8 +21981,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.011263,
+          "lng": -115.17517
         },
         "neighborhood": null
       },
@@ -22080,8 +22080,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.115792,
+          "lng": -115.298708
         },
         "neighborhood": null
       },
@@ -22179,8 +22179,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.142532,
+          "lng": -115.142399
         },
         "neighborhood": null
       },
@@ -22264,8 +22264,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.03157,
+          "lng": -115.118938
         },
         "neighborhood": null
       },
@@ -22363,8 +22363,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.140925,
+          "lng": -115.242453
         },
         "neighborhood": null
       },
@@ -22460,8 +22460,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.071834,
+          "lng": -115.280338
         },
         "neighborhood": null
       },
@@ -22557,8 +22557,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.027909,
+          "lng": -115.11589
         },
         "neighborhood": null
       },
@@ -22656,8 +22656,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.102429,
+          "lng": -115.173103
         },
         "neighborhood": null
       },
@@ -22751,8 +22751,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.100444,
+          "lng": -115.314166
         },
         "neighborhood": null
       },
@@ -22848,8 +22848,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.127351,
+          "lng": -115.279938
         },
         "neighborhood": null
       },
@@ -22947,8 +22947,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.114729,
+          "lng": -115.306309
         },
         "neighborhood": null
       },
@@ -23047,8 +23047,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.115364,
+          "lng": -115.110525
         },
         "neighborhood": null
       },
@@ -23146,8 +23146,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.99019,
+          "lng": -93.242291
         },
         "neighborhood": null
       },
@@ -23239,8 +23239,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.948162,
+          "lng": -93.302436
         },
         "neighborhood": null
       },
@@ -23339,8 +23339,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.993572,
+          "lng": -93.277246
         },
         "neighborhood": null
       },
@@ -23438,8 +23438,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.981516,
+          "lng": -93.269363
         },
         "neighborhood": null
       },
@@ -23537,8 +23537,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.985665,
+          "lng": -93.27019
         },
         "neighborhood": null
       },
@@ -23632,8 +23632,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.94888,
+          "lng": -93.230857
         },
         "neighborhood": null
       },
@@ -23717,8 +23717,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.988948,
+          "lng": -93.240259
         },
         "neighborhood": null
       },
@@ -23816,8 +23816,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.914831,
+          "lng": -93.236948
         },
         "neighborhood": null
       },
@@ -23901,8 +23901,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.910755,
+          "lng": -93.315383
         },
         "neighborhood": null
       },
@@ -23986,8 +23986,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.989821,
+          "lng": -93.255571
         },
         "neighborhood": null
       },
@@ -24083,8 +24083,8 @@
         "postalCode": "55402",
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.976082,
+          "lng": -93.275999
         },
         "neighborhood": null
       },
@@ -24179,8 +24179,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.91257,
+          "lng": -93.291434
         },
         "neighborhood": null
       },
@@ -24264,8 +24264,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.987548,
+          "lng": -93.256602
         },
         "neighborhood": null
       },
@@ -24361,8 +24361,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 45.000638,
+          "lng": -93.266427
         },
         "neighborhood": null
       },
@@ -24460,8 +24460,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.946279,
+          "lng": -93.32244
         },
         "neighborhood": null
       },
@@ -24557,8 +24557,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.921915,
+          "lng": -93.326941
         },
         "neighborhood": null
       },
@@ -24657,8 +24657,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.976727,
+          "lng": -93.258529
         },
         "neighborhood": null
       },
@@ -24754,8 +24754,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.937573,
+          "lng": -93.262921
         },
         "neighborhood": null
       },
@@ -24839,8 +24839,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 44.981516,
+          "lng": -93.269363
         },
         "neighborhood": null
       },
@@ -24924,8 +24924,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.108796,
+          "lng": -86.811361
         },
         "neighborhood": null
       },
@@ -25024,8 +25024,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.104444,
+          "lng": -86.816667
         },
         "neighborhood": null
       },
@@ -25121,8 +25121,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.087959,
+          "lng": -86.696557
         },
         "neighborhood": null
       },
@@ -25206,8 +25206,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.10981,
+          "lng": -86.726285
         },
         "neighborhood": null
       },
@@ -25291,8 +25291,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.17567,
+          "lng": -86.751399
         },
         "neighborhood": null
       },
@@ -25390,8 +25390,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.127518,
+          "lng": -86.788899
         },
         "neighborhood": null
       },
@@ -25487,8 +25487,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.185445,
+          "lng": -86.75478
         },
         "neighborhood": null
       },
@@ -25582,8 +25582,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.139425,
+          "lng": -86.763341
         },
         "neighborhood": null
       },
@@ -25679,8 +25679,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.19397,
+          "lng": -86.75399
         },
         "neighborhood": null
       },
@@ -25776,8 +25776,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.149108,
+          "lng": -86.795598
         },
         "neighborhood": null
       },
@@ -25873,8 +25873,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.126277,
+          "lng": -86.8463
         },
         "neighborhood": null
       },
@@ -25974,8 +25974,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.170375,
+          "lng": -86.676259
         },
         "neighborhood": null
       },
@@ -26073,8 +26073,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.175928,
+          "lng": -86.758389
         },
         "neighborhood": null
       },
@@ -26172,8 +26172,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.151109,
+          "lng": -86.778715
         },
         "neighborhood": null
       },
@@ -26273,8 +26273,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.18362,
+          "lng": -86.75006
         },
         "neighborhood": null
       },
@@ -26370,8 +26370,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.097783,
+          "lng": -86.871872
         },
         "neighborhood": null
       },
@@ -26469,8 +26469,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.12274,
+          "lng": -86.790611
         },
         "neighborhood": null
       },
@@ -26568,8 +26568,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.150187,
+          "lng": -86.780053
         },
         "neighborhood": null
       },
@@ -26667,8 +26667,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.156975,
+          "lng": -86.789199
         },
         "neighborhood": null
       },
@@ -26753,8 +26753,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.174355,
+          "lng": -86.750477
         },
         "neighborhood": null
       },
@@ -26852,8 +26852,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.158309,
+          "lng": -86.784849
         },
         "neighborhood": null
       },
@@ -26951,8 +26951,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.15235,
+          "lng": -86.79347
         },
         "neighborhood": null
       },
@@ -27052,8 +27052,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.109797,
+          "lng": -86.730335
         },
         "neighborhood": null
       },
@@ -27137,8 +27137,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.150487,
+          "lng": -86.780454
         },
         "neighborhood": null
       },
@@ -27236,8 +27236,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.101279,
+          "lng": -86.81933
         },
         "neighborhood": null
       },
@@ -27336,8 +27336,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 36.140534,
+          "lng": -86.772886
         },
         "neighborhood": null
       },
@@ -27436,8 +27436,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.956256,
+          "lng": -82.431421
         },
         "neighborhood": null
       },
@@ -27536,8 +27536,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 28.139241,
+          "lng": -82.358948
         },
         "neighborhood": null
       },
@@ -27636,8 +27636,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.948638,
+          "lng": -82.471195
         },
         "neighborhood": null
       },
@@ -27733,8 +27733,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.95517,
+          "lng": -82.447191
         },
         "neighborhood": null
       },
@@ -27832,8 +27832,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 28.078779,
+          "lng": -82.506298
         },
         "neighborhood": null
       },
@@ -27927,8 +27927,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.925023,
+          "lng": -82.515436
         },
         "neighborhood": null
       },
@@ -28024,8 +28024,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.985843,
+          "lng": -82.459151
         },
         "neighborhood": null
       },
@@ -28121,8 +28121,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.931271,
+          "lng": -82.509588
         },
         "neighborhood": null
       },
@@ -28220,8 +28220,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.932721,
+          "lng": -82.506456
         },
         "neighborhood": null
       },
@@ -28320,8 +28320,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 28.057251,
+          "lng": -82.62371
         },
         "neighborhood": null
       },
@@ -28421,8 +28421,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.996739,
+          "lng": -82.391352
         },
         "neighborhood": null
       },
@@ -28520,8 +28520,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.944213,
+          "lng": -82.468782
         },
         "neighborhood": null
       },
@@ -28619,8 +28619,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.959737,
+          "lng": -82.444076
         },
         "neighborhood": null
       },
@@ -28717,8 +28717,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.991451,
+          "lng": -82.575804
         },
         "neighborhood": null
       },
@@ -28814,8 +28814,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.94163,
+          "lng": -82.471887
         },
         "neighborhood": null
       },
@@ -28912,8 +28912,8 @@
         "postalCode": null,
         "country": "US",
         "coordinates": {
-          "lat": 0,
-          "lng": 0
+          "lat": 27.95267,
+          "lng": -82.385157
         },
         "neighborhood": null
       },

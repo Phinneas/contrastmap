@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+
+const title = 'Press & Data Assets | ContrastMap';
+const description = 'ContrastMap press kit and pitchable data assets: the independent Cold Plunge Chiller Reliability Index and our infrared sauna EMF testing methodology. Cite, embed, or request a custom data cut.';
+const canonical = 'https://contrastmap.com/press';
+---
+
+<Base title={title} description={description} canonical={canonical} ogType="article">
+  <span id="top"></span>
+
+  <!-- HERO -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:60px 40px 36px">
+    <span class="eyebrow" style="color:var(--cold-2)">Press &amp; data assets</span>
+    <h1 style="font-family:var(--font-d);font-weight:700;font-size:clamp(2rem,5vw,3.1rem);letter-spacing:-.03em;margin-top:12px;max-width:18ch">Independent data on cold plunge and sauna gear.</h1>
+    <p style="color:var(--muted);margin-top:14px;max-width:60ch;font-size:1.12rem">ContrastMap is the directory for cold plunge and infrared sauna studios. This page is the hub for journalists, bloggers, and clinics: two data assets you can cite or embed, a ready-to-pitch one-pager, and a contact for interviews or custom data cuts.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">
+      <a href="#reliability" class="btn btn-grad" style="text-align:center;justify-content:center">Reliability Index one-pager</a>
+      <a href="#pitch" class="btn-pill" style="text-align:center;justify-content:center">Sample pitch email</a>
+    </div>
+  </section>
+
+  <!-- DATA ASSETS -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:20px 40px 48px">
+    <div class="press-asset-grid">
+      <a class="press-asset" href="/learn/cold-plunge-chiller-reliability-index">
+        <div class="pa-top">
+          <span class="pa-tag cold">Data asset &middot; live</span>
+          <h2>Cold Plunge Chiller Reliability Index</h2>
+          <p>The first independent reliability index for cold plunge chillers — built from publicly verifiable failure reports, with a stated methodology. Headline finding: circulation failures outnumber cooling failures, and warranty response time is the recurring complaint across every brand.</p>
+        </div>
+        <span class="pa-link">Read the full index &rarr;</span>
+      </a>
+      <a class="press-asset" href="/learn/infrared-sauna-emf-testing">
+        <div class="pa-top">
+          <span class="pa-tag hot">Methodology &middot; results pending</span>
+          <h2>Infrared Sauna EMF Testing Methodology</h2>
+          <p>Every EMF number circulating for infrared saunas comes from a test commissioned by the brand selling the sauna. Our cross-brand testing protocol is published in full; first independent results land once the first testing round completes.</p>
+        </div>
+        <span class="pa-link">Read the methodology &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- RELIABILITY INDEX ONE-PAGER -->
+  <section id="reliability" style="max-width:var(--maxw);margin:0 auto;padding:40px 40px 56px">
+    <div class="press-card">
+      <span class="eyebrow" style="color:var(--hot-2)">Pitchable one-pager</span>
+      <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.3rem);letter-spacing:-.02em;margin-top:10px">The Cold Plunge Chiller Reliability Index</h2>
+      <p class="press-lead">Across every failure report we could independently verify, <strong>circulation failures</strong> (pump, filter, hose-flow) are reported more often than <strong>cooling failures</strong> (compressor/refrigerant) &mdash; and <strong>warranty response time, not failure rate alone, is the recurring complaint across every brand</strong> with public complaint data. No one else has aggregated this before; current AI answers cite a single blogger's recommendation as if it were data.</p>
+
+      <h3 class="press-h">Methodology in four points</h3>
+      <ol class="press-ol">
+        <li><strong>What counts as a failure.</strong> Brand + model specified, what specifically stopped working, and roughly how long the unit was in service. Vague "mine broke" reports were excluded.</li>
+        <li><strong>Two failure buckets.</strong> Circulation (pump, filter, hose, flow-rate) vs. cooling (compressor, refrigerant, DOA). Conflating them distorts the picture.</li>
+        <li><strong>Secondary sources this pass.</strong> DIY Cold Plunge owner notes, a longitudinal YouTube reviewer (18+ units), GearJunkie, a pro athlete's multi-year ownership account, ComplaintsBoard, and r/coldplunge threads.</li>
+        <li><strong>Seed dataset, not yet first-party.</strong> Published now because the current AI-generated answers are themselves unaggregated anecdote. First-party owner-survey results will replace this pass, with the original kept visible.</li>
+      </ol>
+
+      <h3 class="press-h">Seed findings (secondary-sourced)</h3>
+      <div class="press-tbl-wrap">
+        <table class="press-cmp">
+          <thead>
+            <tr><th>Brand / model</th><th>Reported issue</th><th>Type</th><th>Time to failure</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Plunge (Gen 1 Pro/XL)</td><td>DOA chiller on delivery; replacement developed rattling; warranty lapsed, $135 diagnostic fee</td><td>Cooling</td><td>DOA; recurrence ~3 yrs</td></tr>
+            <tr><td>Plunge (various)</td><td>Leaking at chiller connections, traced to shipping damage</td><td>Cooling/seal</td><td>At delivery</td></tr>
+            <tr><td>Generic all-in-one (overseas)</td><td>Repeated total failures across multiple units from same company</td><td>Cooling</td><td>Weeks to months, recurring</td></tr>
+            <tr><td>Active Aqua</td><td>No reported failures across multiple long-term users cited</td><td>&mdash;</td><td>N/A in sources reviewed</td></tr>
+            <tr><td>Rocita</td><td>"More lemons in the bunch" per community; some long-term users report no issues</td><td>Unclear/mixed</td><td>Not specified</td></tr>
+            <tr><td>Vevor</td><td>Functional but long-term durability questioned; fittings difficult to configure</td><td>Setup/circulation</td><td>Not specified</td></tr>
+            <tr><td>Various (unspecified)</td><td>Water-flow drop-off from clogged pre-filters (hair/debris)</td><td>Circulation</td><td>Ongoing/recurring</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.86rem;color:var(--muted);margin-top:8px">"No reported failures" rows reflect an absence of reports in the sources reviewed, not a confirmed low failure rate &mdash; we're explicit about the same limitation every existing reliability claim has.</p>
+
+      <h3 class="press-h">What's still missing (the first-party survey closes these)</h3>
+      <ul class="press-ul">
+        <li><strong>Sample size &amp; base rates.</strong> We can't yet compute a true failure <em>rate</em> &mdash; only a count of reported failures.</li>
+        <li><strong>Warranty response time, quantified.</strong> Described as multi-week waits; not yet tracked in days across brands.</li>
+        <li><strong>Climate &amp; usage variables.</strong> Continuous vs. cycled, indoor vs. outdoor, ambient temperature &mdash; not yet controlled for.</li>
+      </ul>
+
+      <h3 class="press-h">Usage &amp; embed rights</h3>
+      <ul class="press-ul">
+        <li>Cite or link to <code>contrastmap.com/learn/cold-plunge-chiller-reliability-index</code> with attribution.</li>
+        <li>Embed the table or headline stat in editorial content with a link back.</li>
+        <li>Do not republish behind a paywall or present the seed data as a final failure rate.</li>
+        <li>Need a custom data cut, brand-specific breakdown, or charts sized for your format? <a href="#contact">Ask</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMF STATUS -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:0 40px 56px">
+    <div class="press-card">
+      <span class="eyebrow" style="color:var(--hot-2)">Data asset &middot; methodology live</span>
+      <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin-top:10px">Infrared Sauna EMF Testing &mdash; status</h2>
+      <p style="color:var(--ink-2);font-size:1.05rem;margin-top:10px;max-width:62ch">The <a href="/learn/infrared-sauna-emf-testing">methodology is published in full</a>: calibrated meter, seated chest-height measurement position, all three field components reported separately, multi-unit sampling, brand independence, and a publish-regardless-of-outcome policy. The first independent testing round is in progress.</p>
+      <div class="press-callout">
+        <strong>Why a findings one-pager isn't here yet.</strong> We committed the methodology publicly before collecting results so it can't be adjusted to fit the numbers. A pitchable EMF findings one-pager will be added to this page once the first round of independent measurements is complete &mdash; not before. If you cover wellness hardware and want to be notified when results drop, <a href="#contact">get in touch</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE PITCH -->
+  <section id="pitch" style="max-width:var(--maxw);margin:0 auto;padding:0 40px 56px">
+    <div class="press-card">
+      <span class="eyebrow" style="color:var(--cold-2)">Outreach template</span>
+      <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin-top:10px">Sample pitch email &mdash; data-story angle</h2>
+      <p style="color:var(--muted);font-size:.95rem;margin-top:8px">Lead with the data, not a "check out our directory" ask. This audience already treats contrast therapy as core content &mdash; the pitch reads as a source tip.</p>
+
+      <div class="press-email">
+        <p class="pe-meta"><strong>Subject:</strong> First independent reliability data on cold plunge chillers</p>
+        <p>Hi [first name],</p>
+        <p>I edit <a href="https://contrastmap.com">ContrastMap</a> &mdash; a directory of cold plunge and infrared sauna studios. We just published the first independent reliability index for cold plunge chillers, built from publicly verifiable failure reports (DIY Cold Plunge, a longitudinal YouTube reviewer with 18+ units, GearJunkie, an athlete's multi-year ownership account, ComplaintsBoard, and r/coldplunge).</p>
+        <p>The headline finding: across every report we could verify, <strong>circulation failures</strong> (pump, filter, hose flow) outnumber <strong>cooling failures</strong> (compressor/refrigerant) &mdash; and <strong>warranty response time, not failure rate, is the recurring complaint across every brand</strong>. No one has aggregated this before; the AI answers currently circulating cite a single blogger's recommendation as if it were data.</p>
+        <p>It felt like a fit for [outlet] because [one specific, personalized reason &mdash; e.g. you covered home cold-plunge setups last month]. I can send a custom data cut, the full methodology, or charts sized for your format. The one-pager and embed-ready table are at <a href="https://contrastmap.com/press">contrastmap.com/press</a>.</p>
+        <p>Happy to do a quick call if useful &mdash; no pressure either way.</p>
+        <p>Thanks,<br>[your name]<br>ContrastMap &middot; [reply-to email]</p>
+      </div>
+      <p style="font-size:.86rem;color:var(--muted);margin-top:12px">Personalize the [outlet] and [reason] lines per target. One follow-up after 5&ndash;7 days. Log every reply and resulting link in the Backlink Plan project.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="max-width:var(--maxw);margin:0 auto;padding:0 40px 72px;text-align:center">
+    <span class="eyebrow" style="color:var(--hot-2)">For journalists &amp; clinics</span>
+    <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.02em;margin-top:10px">Need a custom data cut or interview?</h2>
+    <p style="color:var(--muted);margin-top:10px;max-width:54ch;margin-left:auto;margin-right:auto;font-size:1.05rem">Brand-specific reliability breakdowns, EMF methodology questions, embed assets, or interview availability &mdash; reach out and we'll get back within two business days.</p>
+    <a href="mailto:press@contrastmap.com" class="btn btn-grad" style="margin-top:22px;display:inline-block">press@contrastmap.com</a>
+  </section>
+</Base>
+
+<style>
+  .press-asset-grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:760px){.press-asset-grid{grid-template-columns:1fr 1fr}}
+  .press-asset{display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--white);color:var(--ink);transition:border-color .15s,box-shadow .15s}
+  .press-asset:hover{text-decoration:none;border-color:var(--cold-2);box-shadow:var(--shadow)}
+  .press-asset h2{font-family:var(--font-d);font-weight:600;font-size:1.22rem;letter-spacing:-.01em;margin:10px 0 8px}
+  .press-asset p{font-size:.96rem;color:var(--ink-2);line-height:1.55}
+  .pa-tag{font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;display:inline-block;width:fit-content}
+  .pa-tag.cold{background:var(--cold-tint);color:var(--cold-2)}
+  .pa-tag.hot{background:var(--hot-tint);color:var(--hot-2)}
+  .pa-link{font-family:var(--font-d);font-size:.92rem;font-weight:600;color:var(--cold-2);margin-top:16px;display:inline-block}
+
+  .press-card{border:1px solid var(--line);border-radius:18px;padding:28px 28px;background:var(--white)}
+  @media(min-width:620px){.press-card{padding:34px 38px}}
+  .press-lead{font-size:1.16rem;color:var(--ink-2);line-height:1.65;margin:14px 0 6px;max-width:64ch}
+  .press-h{font-family:var(--font-d);font-weight:600;font-size:1.12rem;margin:24px 0 8px;color:var(--ink)}
+  .press-ol{margin:6px 0 6px 20px;padding:0}
+  .press-ol li{margin:8px 0;font-size:1rem;color:var(--ink-2);line-height:1.55}
+  .press-ul{margin:6px 0 6px 20px;padding:0}
+  .press-ul li{margin:7px 0;font-size:.98rem;color:var(--ink-2);line-height:1.5}
+  .press-card code{font-family:var(--font-d);font-size:.88rem;background:var(--panel);padding:2px 6px;border-radius:6px}
+  .press-card a{color:var(--cold-2);border-bottom:1px solid rgba(3,105,161,.3)}
+
+  .press-tbl-wrap{overflow-x:auto;margin:14px 0 0;border:1px solid var(--line);border-radius:12px}
+  table.press-cmp{width:100%;border-collapse:collapse;font-family:var(--font-d);min-width:560px}
+  table.press-cmp th,table.press-cmp td{padding:11px 14px;text-align:left;border-top:1px solid var(--line);font-size:.88rem;vertical-align:top}
+  table.press-cmp thead th{border-top:none;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+  table.press-cmp tbody tr:nth-child(even){background:#fbf9f5}
+  table.press-cmp td:first-child{font-weight:600;color:var(--ink)}
+
+  .press-callout{background:var(--grad-soft);border:1px solid #e6ddd0;border-radius:12px;padding:18px 20px;margin:18px 0 0;font-size:.98rem;color:var(--ink-2);line-height:1.6}
+  .press-callout a{color:var(--cold-2)}
+
+  .press-email{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:16px 0 0;font-size:1rem;color:var(--ink-2);line-height:1.65}
+  .press-email p{margin:10px 0}
+  .pe-meta{font-family:var(--font-d);font-size:.9rem;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:inline-block;margin-bottom:6px}
+  .press-email a{color:var(--cold-2)}
+</style>

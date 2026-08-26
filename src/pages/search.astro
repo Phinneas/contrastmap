@@ -1,0 +1,374 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/directory.css';
+
+const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN || '';
+const canonicalUrl = 'https://contrastmap.com/search';
+const seoTitle = 'Find Contrast Therapy Near You — Cold Plunge & Sauna by Zip | ContrastMap';
+const seoDesc = 'Enter your zip code to find cold plunge and infrared sauna studios ranked by distance from you. Filter by amenity and radius across every city ContrastMap covers.';
+---
+
+<Base title={seoTitle} description={seoDesc} canonical={canonicalUrl} noindex>
+  <link rel="stylesheet" href="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" />
+
+  <!-- Search hero -->
+  <section class="dir-hero search-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> &rsaquo; <span>Search</span></div>
+      <h1 id="searchTitle">Find contrast therapy near you</h1>
+      <p class="dir-hero-intro" id="searchIntro">Enter your zip code to see cold plunge and sauna studios ranked by distance from you. Distances use US zip-centroid coordinates, so they&rsquo;re approximate.</p>
+    </div>
+  </section>
+
+  <!-- Search controls -->
+  <section class="search-controls">
+    <div class="wrap">
+      <form id="searchForm" class="search-form" autocomplete="off">
+        <div class="search-zip">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <input type="text" id="zipInput" inputmode="numeric" maxlength="5" placeholder="Enter zip code" aria-label="Zip code" />
+        </div>
+        <button type="submit" class="btn btn-grad btn-sm">Search</button>
+        <button type="button" id="geoBtn" class="btn btn-ghost btn-sm">Use my location</button>
+        <div class="search-radius">
+          <label for="radiusSelect">Within</label>
+          <select id="radiusSelect" aria-label="Radius in miles">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span>miles</span>
+        </div>
+      </form>
+      <div class="search-amenity" id="amenityChips">
+        <span class="filter-label">Filter:</span>
+        <button type="button" data-amenity="cold-plunge" class="chip">Cold plunge</button>
+        <button type="button" data-amenity="infrared-sauna" class="chip">Infrared sauna</button>
+        <button type="button" data-amenity="traditional-sauna" class="chip">Traditional sauna</button>
+        <button type="button" data-amenity="contrast-therapy" class="chip">Contrast therapy</button>
+      </div>
+      <div class="search-error" id="searchError" hidden></div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="dir-results">
+    <div class="wrap dir-layout">
+      <div class="dir-list" id="dirList">
+        <div class="result-count" id="resultCount"></div>
+        <div class="grid cols3" id="listingGrid">
+          <div class="search-prompt" id="searchPrompt">
+            <p>Enter a zip code above to find studios near you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="dir-map" id="dirMap">
+        <div id="mapboxMap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile map close -->
+  <button class="mobile-map-close" id="mobileMapClose" style="display:none">&#10005; Close map</button>
+
+  <!-- Mapbox GL JS -->
+  <script src="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+
+  <!-- Client JS -->
+  <script is:inline define:vars={{ mapboxToken }}>
+    const MAPBOX_TOKEN = mapboxToken;
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => [...document.querySelectorAll(s)];
+    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    /* ---- URL state ---- */
+    function readState() {
+      const p = new URLSearchParams(window.location.search);
+      return {
+        zip: (p.get('zip') || '').trim(),
+        lat: p.get('lat') || '',
+        lng: p.get('lng') || '',
+        radius: p.get('radius') || '25',
+        amenity: p.get('amenity') || '',
+      };
+    }
+    function writeURL(s) {
+      const params = new URLSearchParams();
+      if (s.zip) params.set('zip', s.zip);
+      if (s.lat) params.set('lat', s.lat);
+      if (s.lng) params.set('lng', s.lng);
+      if (s.radius && s.radius !== '25') params.set('radius', s.radius);
+      if (s.amenity) params.set('amenity', s.amenity);
+      const qs = params.toString();
+      history.replaceState(null, '', `/search${qs ? '?' + qs : ''}`);
+    }
+
+    let state = readState();
+    let lastResults = null;
+
+    /* ---- Card helpers ---- */
+    function starHTML(rating, reviews) {
+      if (!rating) return '<span class="stars"><small>New / unrated</small></span>';
+      const full = Math.round(rating);
+      const s = '\u2605'.repeat(full) + '\u2606'.repeat(5 - full);
+      return `<span class="stars"><span class="s">${s}</span>${rating.toFixed(1)}${reviews ? ` <small>(${reviews > 1000 ? (reviews / 1000).toFixed(1) + 'k' : reviews})</small>` : ''}</span>`;
+    }
+    function serviceTag(slug) {
+      if (slug === 'cold-plunge') return '<span class="tag cold">\u2744 Cold plunge</span>';
+      if (slug === 'infrared-sauna') return '<span class="tag hot">\u2668 Infrared sauna</span>';
+      if (slug === 'traditional-sauna') return '<span class="tag hot">Traditional sauna</span>';
+      if (slug === 'contrast-therapy') return '<span class="tag both">\u21c4 Contrast</span>';
+      return '';
+    }
+    const hasCold = (l) => l.services.includes('cold-plunge');
+    const hasHot = (l) => l.services.includes('infrared-sauna') || l.services.includes('traditional-sauna');
+    function providerGrad(l) {
+      if (hasCold(l) && hasHot(l)) return 'linear-gradient(115deg,#0EA5E9 0%,#38BDF8 35%,#A78BFA 55%,#F97316 100%)';
+      if (hasHot(l)) return 'linear-gradient(135deg,#FB923C,#C2410C)';
+      return 'linear-gradient(135deg,#38BDF8,#0369A1)';
+    }
+    function markerClass(l) {
+      if (hasCold(l) && hasHot(l)) return 'both';
+      if (hasHot(l)) return 'hot';
+      return 'cold';
+    }
+    function distLabel(mi) {
+      if (mi == null) return '';
+      return mi < 1 ? `${(Math.round(mi * 10) / 10)} mi` : `${Math.round(mi)} mi`;
+    }
+
+    function cardHTML(l) {
+      const href = l.url || l.website || '#';
+      const dist = distLabel(l.distanceMi);
+      const loc = [l.neighborhood, l.city].filter(Boolean).join(' \u00b7 ');
+      return `<article class="card" id="card-${esc(l.slug)}" data-slug="${esc(l.slug)}">
+        <a href="${esc(href)}"${l.url ? '' : ' target="_blank" rel="nofollow noopener"'} style="text-decoration:none;color:inherit">
+        <div class="pv-top" style="background:${providerGrad(l)}">
+          ${l.featured ? '<span class="badge feat">\u2605 Featured</span>' : ''}
+          ${dist ? `<span class="badge dist">${esc(dist)}</span>` : ''}
+          <span class="glyph">${esc(l.name)}</span>
+        </div>
+        <div class="pv-body">
+          <h3>${esc(l.name)}</h3>
+          <div class="loc">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            ${esc(loc)}
+          </div>
+          <div class="tags">${l.services.slice(0, 3).map(serviceTag).join('')}</div>
+          ${l.blurb ? `<p class="pv-blurb">${esc(l.blurb)}</p>` : ''}
+          <div class="pv-meta">
+            ${starHTML(l.rating, l.reviews)}
+            <span class="price">${esc(l.priceNote || '')}</span>
+            <span class="conf-pill" title="Listing confidence — data completeness &amp; verification recency, not a customer rating">
+              <span class="conf-pill-bar"><span style="width:${l.confidence}%"></span></span>
+              Confidence ${l.confidence}
+            </span>
+          </div>
+        </div>
+        </a>
+        <div class="pv-actions" style="padding:0 17px 17px">
+          ${l.url ? `<a class="btn btn-ghost btn-sm" href="${esc(l.url)}" style="flex:1;justify-content:center">View details</a>` : ''}
+          ${l.website ? `<a class="btn btn-grad btn-sm" href="${esc(l.website)}" target="_blank" rel="nofollow noopener" style="flex:1;justify-content:center">Visit site</a>` : `<button class="btn btn-grad btn-sm" onclick='openQuote(${JSON.stringify(l.name)})' style="flex:1;justify-content:center">Get a quote</button>`}
+        </div>
+      </article>`;
+    }
+
+    /* ---- Map ---- */
+    let map = null;
+    let markers = [];
+    let originMarker = null;
+
+    function initMap() {
+      if (map) return;
+      if (typeof mapboxgl === 'undefined') return;
+      if (!MAPBOX_TOKEN) {
+        document.getElementById('mapboxMap').innerHTML = '<div style="display:grid;place-items:center;height:100%;color:var(--muted);font-size:.88rem;text-align:center;padding:20px">Set <code>PUBLIC_MAPBOX_TOKEN</code> in .env to enable the map.</div>';
+        return;
+      }
+      mapboxgl.accessToken = MAPBOX_TOKEN;
+      map = new mapboxgl.Map({
+        container: 'mapboxMap',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-98.5, 39.8],
+        zoom: 3,
+        scrollZoom: false,
+      });
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    }
+
+    function updateMap(data) {
+      if (!map) return;
+      for (const m of markers) m.remove();
+      markers = [];
+      if (originMarker) { originMarker.remove(); originMarker = null; }
+
+      const bounds = new mapboxgl.LngLatBounds();
+      const origin = data.origin;
+
+      // origin pin
+      if (origin) {
+        const el = document.createElement('div');
+        el.className = 'cm-origin';
+        el.innerHTML = '<span class="cm-origin-dot"></span><span class="cm-origin-pulse"></span>';
+        originMarker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
+          .setLngLat([origin.lng, origin.lat])
+          .addTo(map);
+        bounds.extend([origin.lng, origin.lat]);
+      }
+
+      for (const l of data.listings) {
+        if (l.lat == null || l.lng == null) continue;
+        const cls = markerClass(l);
+        const featCls = l.featured ? ' featured' : '';
+        const el = document.createElement('div');
+        el.className = `cm-marker ${cls}${featCls}`;
+        el.innerHTML = `<span class="cm-ic">${cls === 'cold' ? '\u2744' : cls === 'hot' ? '\u2668' : '\u21c4'}</span>`;
+        const popup = new mapboxgl.Popup({ offset: 25, closeButton: false })
+          .setHTML(`<b>${esc(l.name)}</b><div class="popup-meta">${esc(distLabel(l.distanceMi))} \u00b7 ${esc(l.neighborhood || l.city || '')}</div>`);
+        const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
+          .setLngLat([l.lng, l.lat])
+          .setPopup(popup)
+          .addTo(map);
+        el.addEventListener('click', () => {
+          const card = document.getElementById('card-' + l.slug);
+          if (card) {
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            card.classList.add('highlighted');
+            setTimeout(() => card.classList.remove('highlighted'), 2000);
+          }
+        });
+        markers.push(marker);
+        bounds.extend([l.lng, l.lat]);
+      }
+
+      if (!bounds.isEmpty()) {
+        map.fitBounds(bounds, { padding: 60, maxZoom: 13 });
+      }
+    }
+
+    /* ---- Fetch + render ---- */
+    function showError(msg) {
+      const el = $('#searchError');
+      el.textContent = msg;
+      el.hidden = false;
+    }
+    function clearError() { $('#searchError').hidden = true; }
+
+    async function search() {
+      clearError();
+      const params = new URLSearchParams();
+      if (state.zip) params.set('zip', state.zip);
+      else if (state.lat && state.lng) { params.set('lat', state.lat); params.set('lng', state.lng); }
+      else { return; } // nothing to search on
+      params.set('radius', state.radius);
+      if (state.amenity) params.set('amenity', state.amenity);
+
+      $('#listingGrid').innerHTML = '<div class="search-loading">Finding studios near you&hellip;</div>';
+      $('#resultCount').textContent = '';
+
+      try {
+        const res = await fetch(`/api/search?${params.toString()}`);
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || `Search failed (${res.status})`);
+        }
+        const data = await res.json();
+        lastResults = data;
+        renderResults(data);
+        if (map) updateMap(data);
+      } catch (err) {
+        $('#listingGrid').innerHTML = '';
+        showError(err.message || 'Something went wrong.');
+      }
+    }
+
+    function renderResults(data) {
+      const list = data.listings || [];
+      const origin = data.origin || {};
+      // update title/intro
+      if (origin.zip) {
+        $('#searchTitle').textContent = `Contrast therapy near zip ${origin.zip}`;
+        $('#searchIntro').textContent = `${list.length} ${list.length === 1 ? 'studio' : 'studios'} within ${data.radiusMi} miles, ranked by distance. Distances are approximate (zip-centroid based).`;
+      } else if (state.lat) {
+        $('#searchTitle').textContent = `Contrast therapy near your location`;
+        $('#searchIntro').textContent = `${list.length} ${list.length === 1 ? 'studio' : 'studios'} within ${data.radiusMi} miles, ranked by distance. Distances are approximate.`;
+      }
+
+      const within = data.withinRadius ?? list.length;
+      const total = data.total ?? list.length;
+      $('#resultCount').innerHTML = list.length === 0
+        ? `<b>0</b> studios within ${data.radiusMi} miles`
+        : `<b>${list.length}</b> ${list.length === 1 ? 'studio' : 'studios'} shown` +
+          (within < total ? ` <span class="muted">(${within} within ${data.radiusMi} mi, ${total} total nationwide)</span>` : '');
+
+      if (list.length === 0) {
+        $('#listingGrid').innerHTML = `<div class="empty-state"><h3>No studios within ${data.radiusMi} miles</h3><p>Try widening the radius or clearing the amenity filter.</p></div>`;
+      } else {
+        $('#listingGrid').innerHTML = list.map(cardHTML).join('');
+      }
+    }
+
+    /* ---- UI sync ---- */
+    function syncControls() {
+      $('#zipInput').value = state.zip;
+      $('#radiusSelect').value = state.radius;
+      $$('#amenityChips .chip').forEach(c => c.classList.toggle('on', c.dataset.amenity === state.amenity));
+    }
+
+    /* ---- Events ---- */
+    $('#searchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = $('#zipInput').value.trim();
+      if (!/^\d{5}$/.test(v)) { showError('Enter a valid 5-digit zip code.'); return; }
+      state.zip = v; state.lat = ''; state.lng = '';
+      writeURL(state); search();
+    });
+
+    $('#radiusSelect').addEventListener('change', (e) => {
+      state.radius = e.target.value;
+      writeURL(state);
+      if (state.zip || (state.lat && state.lng)) search();
+    });
+
+    $$('#amenityChips .chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        state.amenity = state.amenity === chip.dataset.amenity ? '' : chip.dataset.amenity;
+        syncControls();
+        writeURL(state);
+        if (state.zip || (state.lat && state.lng)) search();
+      });
+    });
+
+    $('#geoBtn').addEventListener('click', () => {
+      if (!navigator.geolocation) { showError('Geolocation is not supported by your browser.'); return; }
+      $('#geoBtn').textContent = 'Locating\u2026';
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          $('#geoBtn').textContent = 'Use my location';
+          state.lat = pos.coords.latitude.toFixed(4);
+          state.lng = pos.coords.longitude.toFixed(4);
+          state.zip = '';
+          $('#zipInput').value = '';
+          writeURL(state); search();
+        },
+        () => {
+          $('#geoBtn').textContent = 'Use my location';
+          showError('Could not get your location. Enter a zip code instead.');
+        },
+        { timeout: 10000 },
+      );
+    });
+
+    /* ---- Init ---- */
+    syncControls();
+    function tryInitMap() {
+      if (typeof mapboxgl !== 'undefined') { initMap(); }
+      else { setTimeout(tryInitMap, 100); }
+    }
+    tryInitMap();
+    if (state.zip || (state.lat && state.lng)) {
+      search().then(() => { if (map && lastResults) updateMap(lastResults); });
+    }
+  </script>
+</Base>

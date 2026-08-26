@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import '../../styles/directory.css';
 import listingsData from '../../data/listings.json';
 import { computeListingConfidence } from '../../lib/confidence-score';
+import { STATE_BY_CITY_SLUG } from '../../lib/states';
 
 export function getStaticPaths() {
   const AMENITY_INFO = {
@@ -104,6 +105,7 @@ const CITY_INFO = {
 const { amenitySlug, citySlug, count } = Astro.props;
 const amenity = AMENITY_INFO[amenitySlug];
 const city = CITY_INFO[citySlug];
+const stateInfo = STATE_BY_CITY_SLUG[citySlug];
 const cityCenter = { lat: city.lat, lng: city.lng, zoom: city.zoom };
 
 // Transform listings for this city + amenity
@@ -151,14 +153,14 @@ const otherAmenities = Object.entries(AMENITY_INFO)
   });
 
 const canonicalUrl = `https://contrastmap.com/${amenitySlug}/${citySlug}`;
-const seoTitle = `${amenity.name} in ${city.name}, ${city.state} — ${count} Studios | ContrastMap`;
-const seoDesc = `Find ${amenity.short} studios in ${city.name}, ${city.state}. Compare prices, amenities, and read reviews. ${count} verified studios listed on ContrastMap.`;
+const seoTitle = `${amenity.name} in ${city.name}, ${stateInfo.abbr} — ${count} Studios | ContrastMap`;
+const seoDesc = `Find ${amenity.name} studios in ${city.name}, ${stateInfo.abbr}. Compare prices, amenities, and read reviews. ${count} verified studios listed on ContrastMap.`;
 
 // ItemList JSON-LD
 const itemListJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: `${amenity.name} in ${city.name}, ${city.state}`,
+  name: `${amenity.name} in ${city.name}, ${stateInfo.abbr}`,
   itemListElement: comboListings.map((l, i) => ({
     '@type': 'ListItem',
     position: i + 1,
@@ -184,10 +186,11 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN || '';
     <div class="wrap">
       <div class="crumb">
         <a href="/">Home</a> &rsaquo;
+        <a href={`/states/${stateInfo.slug}`}>{stateInfo.name}</a> &rsaquo;
         <a href={`/${citySlug}`}>{city.name}</a> &rsaquo;
         <span>{amenity.name}</span>
       </div>
-      <h1>{amenity.name} in {city.name}, {city.state}</h1>
+      <h1>{amenity.name} in {city.name}, {stateInfo.abbr}</h1>
       <p class="dir-hero-intro">{amenity.intro}</p>
       <p class="dir-hero-scene">{city.scene}</p>
       <div class="city-stats">

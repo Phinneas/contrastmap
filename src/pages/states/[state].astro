@@ -1,0 +1,155 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/directory.css';
+import listingsData from '../../data/listings.json';
+import { STATES, STATE_SLUG_MAP } from '../../lib/states';
+
+export function getStaticPaths() {
+  return STATES.map((s) => ({
+    params: { state: s.slug },
+    props: { stateInfo: s },
+  }));
+}
+
+const { stateInfo } = Astro.props;
+
+// Per-city listing counts + available amenities in this state
+const AMENITY_LABELS = {
+  'cold-plunge': 'Cold Plunge',
+  'infrared-sauna': 'Infrared Sauna',
+  'traditional-sauna': 'Traditional Sauna',
+  'contrast-therapy': 'Contrast Therapy',
+};
+
+const cityData = stateInfo.cities.map((c) => {
+  const cityListings = listingsData.listings.filter((l) => l.location.city === c.name);
+  const amenities = Object.entries(AMENITY_LABELS).filter(([slug]) =>
+    cityListings.some((l) => {
+      if (slug === 'cold-plunge') return l.amenities.coldPlunge;
+      if (slug === 'infrared-sauna') return l.amenities.infraredSauna;
+      if (slug === 'traditional-sauna') return l.amenities.traditionalSauna;
+      if (slug === 'contrast-therapy') return l.amenities.contrastTherapyMarketed;
+      return false;
+    }),
+  );
+  return {
+    ...c,
+    count: cityListings.length,
+    verified: cityListings.filter((l) => l.editorial.verified).length,
+    featured: cityListings.filter((l) => l.editorial.featured).length,
+    amenities,
+  };
+});
+
+const totalCount = cityData.reduce((a, c) => a + c.count, 0);
+const totalVerified = cityData.reduce((a, c) => a + c.verified, 0);
+const totalFeatured = cityData.reduce((a, c) => a + c.featured, 0);
+
+const canonicalUrl = `https://contrastmap.com/states/${stateInfo.slug}`;
+const seoTitle = `Cold Plunge & Infrared Sauna in ${stateInfo.name} — ${totalCount} Studios | ContrastMap`;
+const seoDesc = `Browse cold plunge and infrared sauna studios across ${stateInfo.name}. ${stateInfo.cities.length} ${stateInfo.cities.length === 1 ? 'metro' : 'metros'} covered on ContrastMap — filter by city and amenity.`;
+
+// CollectionPage JSON-LD
+const collectionJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Contrast therapy studios in ${stateInfo.name}`,
+  url: canonicalUrl,
+  description: seoDesc,
+  mainEntity: cityData.map((c) => ({
+    '@type': 'Place',
+    name: `Cold plunge & infrared sauna in ${c.name}, ${stateInfo.abbr}`,
+    url: `https://contrastmap.com/${c.slug}`,
+  })),
+});
+
+// BreadcrumbList JSON-LD
+const breadcrumbLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://contrastmap.com/' },
+    { '@type': 'ListItem', position: 2, name: stateInfo.name, item: canonicalUrl },
+  ],
+});
+---
+
+<Base title={seoTitle} description={seoDesc} canonical={canonicalUrl} ogType="website">
+  <script is:inline type="application/ld+json" set:html={collectionJsonLd} />
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd} />
+
+  <!-- State hero -->
+  <section class="dir-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> &rsaquo; <span>{stateInfo.name}</span></div>
+      <h1>Cold Plunge &amp; Infrared Sauna in {stateInfo.name}</h1>
+      <p class="dir-hero-intro">Browse contrast therapy studios across {stateInfo.name}. {stateInfo.cities.length} {stateInfo.cities.length === 1 ? 'metro is' : 'metros are'} covered — pick a city to filter by amenity, price, and neighborhood.</p>
+      <div class="city-stats">
+        <div><b>{totalCount}</b><span>studios listed</span></div>
+        <div><b>{stateInfo.cities.length}</b><span>{stateInfo.cities.length === 1 ? 'metro' : 'metros'}</span></div>
+        <div><b>{totalVerified}</b><span>verified</span></div>
+        <div><b>{totalFeatured}</b><span>featured</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- City cards -->
+  <section class="sec-pad" style="padding-top:36px">
+    <div class="wrap">
+      <div class="state-city-grid">
+        {cityData.map((c) => (
+          <a class="state-city-card" href={`/${c.slug}`}>
+            <div class="scc-top">
+              <h2>{c.name}</h2>
+              <span class="scc-count">{c.count} {c.count === 1 ? 'studio' : 'studios'}</span>
+            </div>
+            <div class="scc-meta">
+              {c.verified > 0 && <span>{c.verified} verified</span>}
+              {c.featured > 0 && <span>{c.featured} featured</span>}
+            </div>
+            {c.amenities.length > 0 && (
+              <div class="scc-amenities">
+                {c.amenities.map(([slug, label]) => (
+                  <a href={`/${slug}/${c.slug}`} class="scc-amenity" onclick="event.stopPropagation()">{label} &rarr;</a>
+                ))}
+              </div>
+            )}
+            <span class="scc-link">Browse {c.name} studios &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Other states -->
+  <section class="sec-pad" style="padding-top:20px;padding-bottom:64px">
+    <div class="wrap" style="text-align:center">
+      <span class="eyebrow" style="color:var(--cold-2)">Browse other states</span>
+      <div class="state-chips">
+        {STATES.filter((s) => s.slug !== stateInfo.slug).map((s) => (
+          <a href={`/states/${s.slug}`} class="state-chip">{s.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .state-city-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.state-city-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:980px){.state-city-grid{grid-template-columns:1fr 1fr 1fr}}
+  .state-city-card{display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);border-radius:16px;padding:22px 22px;background:var(--white);color:var(--ink);transition:border-color .15s,box-shadow .15s;text-decoration:none}
+  .state-city-card:hover{border-color:var(--cold-2);box-shadow:var(--shadow);text-decoration:none}
+  .scc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .scc-top h2{font-family:var(--font-d);font-weight:600;font-size:1.2rem;letter-spacing:-.01em;margin:0}
+  .scc-count{font-family:var(--font-d);font-size:.8rem;font-weight:600;color:var(--cold-2);background:var(--cold-tint-2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .scc-meta{display:flex;gap:14px;margin-top:10px;font-size:.82rem;color:var(--muted)}
+  .scc-amenities{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .scc-amenity{font-family:var(--font-d);font-size:.78rem;font-weight:500;padding:5px 12px;border-radius:999px;background:var(--panel);color:var(--ink-2);border:1px solid var(--line);text-decoration:none}
+  .scc-amenity:hover{border-color:var(--cold-2);color:var(--cold-2);text-decoration:none}
+  .scc-link{font-family:var(--font-d);font-size:.9rem;font-weight:600;color:var(--cold-2);margin-top:18px;display:inline-block}
+
+  .state-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+  .state-chip{font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line);text-decoration:none}
+  .state-chip:hover{border-color:var(--cold-2);color:var(--cold-2);text-decoration:none}
+</style>
