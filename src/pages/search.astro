@@ -286,26 +286,51 @@ const seoDesc = 'Enter your zip code to find cold plunge and infrared sauna stud
     function renderResults(data) {
       const list = data.listings || [];
       const origin = data.origin || {};
-      // update title/intro
-      if (origin.zip) {
-        $('#searchTitle').textContent = `Contrast therapy near zip ${origin.zip}`;
-        $('#searchIntro').textContent = `${list.length} ${list.length === 1 ? 'studio' : 'studios'} within ${data.radiusMi} miles, ranked by distance. Distances are approximate (zip-centroid based).`;
-      } else if (state.lat) {
-        $('#searchTitle').textContent = `Contrast therapy near your location`;
-        $('#searchIntro').textContent = `${list.length} ${list.length === 1 ? 'studio' : 'studios'} within ${data.radiusMi} miles, ranked by distance. Distances are approximate.`;
-      }
-
       const within = data.withinRadius ?? list.length;
       const total = data.total ?? list.length;
-      $('#resultCount').innerHTML = list.length === 0
-        ? `<b>0</b> studios within ${data.radiusMi} miles`
-        : `<b>${list.length}</b> ${list.length === 1 ? 'studio' : 'studios'} shown` +
-          (within < total ? ` <span class="muted">(${within} within ${data.radiusMi} mi, ${total} total nationwide)</span>` : '');
+      const nearest = list.length ? list[0] : null;
+      const loc = origin.zip ? `zip ${origin.zip}` : 'your location';
+      const hasNearby = within > 0;
 
-      if (list.length === 0) {
-        $('#listingGrid').innerHTML = `<div class="empty-state"><h3>No studios within ${data.radiusMi} miles</h3><p>Try widening the radius or clearing the amenity filter.</p></div>`;
+      // Title + intro (honest about whether anything is actually within range)
+      $('#searchTitle').textContent = hasNearby
+        ? `Contrast therapy near ${loc}`
+        : `No contrast therapy studios near ${loc} yet`;
+
+      if (hasNearby) {
+        const extra = list.length - within;
+        $('#searchIntro').textContent =
+          `${within} ${within === 1 ? 'studio' : 'studios'} within ${data.radiusMi} miles` +
+          (extra > 0 ? `, plus ${extra} more from further out` : '') +
+          `, ranked by distance. Distances are approximate.`;
+      } else if (list.length > 0) {
+        $('#searchIntro').textContent =
+          `ContrastMap has ${total} listed studios, but none are within ${data.radiusMi} miles of ${loc}. ` +
+          `Showing the nearest instead — the closest is about ${Math.round(nearest.distanceMi)} miles away in ${nearest.city}, ${nearest.state}.`;
       } else {
-        $('#listingGrid').innerHTML = list.map(cardHTML).join('');
+        $('#searchIntro').textContent =
+          `We don't have any studios within ${data.radiusMi} miles of ${loc} yet.`;
+      }
+
+      // Result count
+      if (list.length === 0) {
+        $('#resultCount').innerHTML = `<b>0</b> studios within ${data.radiusMi} miles`;
+      } else if (!hasNearby) {
+        $('#resultCount').innerHTML =
+          `<span class="muted"><b>0</b> within ${data.radiusMi} mi · showing the ${list.length} nearest of ${total} nationwide</span>`;
+      } else {
+        $('#resultCount').innerHTML =
+          `<b>${within}</b> within ${data.radiusMi} miles` +
+          (list.length > within ? ` <span class="muted">· ${list.length} shown, ${total} total nationwide</span>` : '');
+      }
+
+      // List, with a clear notice when the results are all out of range
+      if (list.length === 0) {
+        $('#listingGrid').innerHTML = `<div class="empty-state"><h3>No studios within ${data.radiusMi} miles</h3><p>Try widening the radius or browsing by city instead.</p></div>`;
+      } else {
+        const notice = hasNearby ? '' :
+          `<div class="search-notice"><strong>No studios within ${data.radiusMi} miles of ${loc}.</strong> The closest is ${Math.round(nearest.distanceMi)} mi away in ${nearest.city}, ${nearest.state}. We're adding new cities — try widening the radius or <a href="/#studios">browse a covered city</a>.</div>`;
+        $('#listingGrid').innerHTML = notice + list.map(cardHTML).join('');
       }
     }
 
