@@ -16,12 +16,6 @@
 .listing-rating .verified-badge{font-family:var(--font-d);font-size:.72rem;font-weight:600;color:var(--cold-2);background:var(--cold-tint);padding:4px 10px;border-radius:999px}
 .listing-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 
-/* Claim listing CTA */
-.claim-cta{margin-top:20px;border:1px dashed var(--line);border-radius:12px;background:var(--panel);padding:14px 18px}
-.claim-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.claim-cta strong{font-family:var(--font-d);font-size:.95rem;color:var(--ink)}
-.claim-cta p{font-size:.82rem;color:var(--muted);margin-top:2px}
-
 /* Info card (sidebar / at-a-glance) */
 .info-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm)}
 .info-card h3{font-family:var(--font-d);font-size:1.05rem;margin-bottom:16px}

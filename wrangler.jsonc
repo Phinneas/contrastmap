@@ -2,11 +2,14 @@
   "name": "contrastmap",
   "compatibility_date": "2026-08-01",
   "compatibility_flags": ["nodejs_compat"],
+  "main": "dist/_worker.js/index.js",
   "routes": [
-    { "pattern": "www.contrastmap.com", "custom_domain": true }
+    { "pattern": "www.contrastmap.com", "custom_domain": true },
+    { "pattern": "contrastmap.com", "custom_domain": true }
   ],
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "binding": "ASSETS"
   },
   "observability": {
     "enabled": true

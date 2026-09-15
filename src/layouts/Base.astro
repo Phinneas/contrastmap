@@ -54,9 +54,6 @@ const {
       <a href="/#how">How it works</a>
       <a href="/#journal">Journal</a>
     </nav>
-    <div class="nav-cta">
-      <a href="/#list" class="btn-pill">List your studio</a>
-    </div>
   </div>
 </header>
 
@@ -78,21 +75,22 @@ const {
         <a href="/#studios">Find a studio</a>
         <a href="/#shop">Shop</a>
         <a href="/#journal">Journal</a>
+        <a href="/#how">How it works</a>
       </div>
     </div>
     <div>
       <h4>Company</h4>
       <div class="links">
-        <a href="/#list">About</a>
-        <a href="/#list">List your studio</a>
-        <a href="/#list">Contact</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/press">Press</a>
       </div>
     </div>
     <div>
       <h4>Legal</h4>
       <div class="links">
-        <a href="/#list">Privacy</a>
-        <a href="/#list">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
       </div>
     </div>
   </div>
@@ -137,14 +135,6 @@ function openQuote(name){
   document.getElementById('modalSub').textContent='Send your details and this studio will reach out with availability and pricing.';
   document.getElementById('mSvcLabel').textContent='Interested in';
   document.getElementById('modalOkMsg').textContent=`${name} will be in touch soon. (Demo — nothing was actually sent.)`;
-  showModal();
-}
-function openList(plan){
-  document.getElementById('modalEyebrow').textContent='For business · '+plan;
-  document.getElementById('modalTitle').textContent=plan==='Claim'?'Claim your listing':`Start the ${plan} plan`;
-  document.getElementById('modalSub').textContent='Tell us about your studio and we\'ll set you up.';
-  document.getElementById('mSvcLabel').textContent='Your studio offers';
-  document.getElementById('modalOkMsg').textContent='Thanks! Our team will reach out to get you listed. (Demo — nothing was actually sent.)';
   showModal();
 }
 function showModal(){

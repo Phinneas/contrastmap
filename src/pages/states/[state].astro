@@ -45,7 +45,7 @@ const totalCount = cityData.reduce((a, c) => a + c.count, 0);
 const totalVerified = cityData.reduce((a, c) => a + c.verified, 0);
 const totalFeatured = cityData.reduce((a, c) => a + c.featured, 0);
 
-const canonicalUrl = `https://contrastmap.com/states/${stateInfo.slug}`;
+const canonicalUrl = `https://www.contrastmap.com/states/${stateInfo.slug}`;
 const seoTitle = `Cold Plunge & Infrared Sauna in ${stateInfo.name} — ${totalCount} Studios | ContrastMap`;
 const seoDesc = `Browse cold plunge and infrared sauna studios across ${stateInfo.name}. ${stateInfo.cities.length} ${stateInfo.cities.length === 1 ? 'metro' : 'metros'} covered on ContrastMap — filter by city and amenity.`;
 
@@ -59,7 +59,7 @@ const collectionJsonLd = JSON.stringify({
   mainEntity: cityData.map((c) => ({
     '@type': 'Place',
     name: `Cold plunge & infrared sauna in ${c.name}, ${stateInfo.abbr}`,
-    url: `https://contrastmap.com/${c.slug}`,
+    url: `https://www.contrastmap.com/${c.slug}`,
   })),
 });
 
@@ -68,7 +68,7 @@ const breadcrumbLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://contrastmap.com/' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.contrastmap.com/' },
     { '@type': 'ListItem', position: 2, name: stateInfo.name, item: canonicalUrl },
   ],
 });
@@ -101,12 +101,18 @@ const breadcrumbLd = JSON.stringify({
           <a class="state-city-card" href={`/${c.slug}`}>
             <div class="scc-top">
               <h2>{c.name}</h2>
-              <span class="scc-count">{c.count} {c.count === 1 ? 'studio' : 'studios'}</span>
+              {c.live === false ? (
+                <span class="scc-count" style="background:var(--panel);color:var(--muted)">Coming soon</span>
+              ) : (
+                <span class="scc-count">{c.count} {c.count === 1 ? 'studio' : 'studios'}</span>
+              )}
             </div>
-            <div class="scc-meta">
-              {c.verified > 0 && <span>{c.verified} verified</span>}
-              {c.featured > 0 && <span>{c.featured} featured</span>}
-            </div>
+            {c.live !== false && (
+              <div class="scc-meta">
+                {c.verified > 0 && <span>{c.verified} verified</span>}
+                {c.featured > 0 && <span>{c.featured} featured</span>}
+              </div>
+            )}
             {c.amenities.length > 0 && (
               <div class="scc-amenities">
                 {c.amenities.map(([slug, label]) => (
@@ -114,7 +120,7 @@ const breadcrumbLd = JSON.stringify({
                 ))}
               </div>
             )}
-            <span class="scc-link">Browse {c.name} studios &rarr;</span>
+            <span class="scc-link">{c.live === false ? `${c.name} coming soon &rarr;` : `Browse ${c.name} studios &rarr;`}</span>
           </a>
         ))}
       </div>

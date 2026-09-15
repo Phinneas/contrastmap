@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import listingsData from '../data/listings.json';
+import { LIVE_CITY_SLUGS, CITIES } from '../lib/cities';
+import { STATES } from '../lib/states';
+
+const studioCount = listingsData.listings.filter((l) => l.status === 'active').length;
+
+const title = 'About Us | ContrastMap';
+const description = 'ContrastMap is the directory for contrast therapy — sauna and cold plunge studios. Learn about our mission, our editorial team, and how we make money (including affiliate commissions in the Shop).';
+const canonical = 'https://www.contrastmap.com/about';
+---
+
+<Base title={title} description={description} canonical={canonical} ogType="website">
+  <span id="top"></span>
+
+  <section class="info-hero">
+    <span class="eyebrow">About ContrastMap</span>
+    <h1>Find your temperature.</h1>
+    <p class="info-sub">ContrastMap is the directory for contrast therapy — the hot rooms and cold plunges that help people reset, recover, and feel more human.</p>
+  </section>
+
+  <div class="info-body info-prose">
+    <h2>What we do</h2>
+    <p>ContrastMap helps you find <strong>contrast therapy studios</strong> — places offering sauna, cold plunge, or both — in cities across the United States. Search by city or zip code, compare studios, and see amenities, hours, and member reviews side by side.</p>
+    <p>We currently map <strong>{CITIES.length} metros</strong> across <strong>{STATES.length} states</strong>, with {LIVE_CITY_SLUGS.length} live city directories and {studioCount}+ active studio listings — and we're adding more all the time.</p>
+
+    <div class="info-card">
+      <p><strong>Our mission</strong></p>
+      <p>Founded in 2025, ContrastMap exists to make temperature therapy easy to find. Sauna and cold plunge went from niche recovery tools to mainstream wellness rituals — but finding a good studio still meant scrolling fragmented review sites and Instagram. We built ContrastMap to put it all in one clear, honest place.</p>
+    </div>
+
+    <h2>Our editorial team</h2>
+    <p>Our <a href="/#journal">Journal</a> articles — guides, comparisons, and research like the <a href="/learn/cold-plunge-chiller-reliability-index">Cold Plunge Chiller Reliability Index</a> and our <a href="/learn/infrared-sauna-emf-testing">infrared sauna EMF testing methodology</a> — are <strong>original content</strong> researched and written by the ContrastMap editorial team. We publish our methodology and cite our sources, and we publish findings regardless of whether they favor any brand.</p>
+    <p>Health information on ContrastMap is educational, not medical advice. Always consult your physician before starting heat or cold therapy.</p>
+
+    <h2>How we make money</h2>
+    <p>ContrastMap is free to browse and search. We keep the lights on two ways:</p>
+    <ul>
+      <li><strong>Advertising</strong> — the Site may display ads served by Google AdSense and other ad networks.</li>
+      <li><strong>Affiliate commissions</strong> — some links in the <a href="/#shop">Shop</a> section are affiliate links. If you buy gear through them, we may earn a commission at no extra cost to you.</li>
+    </ul>
+    <p>Affiliate relationships never influence our directory listings or our editorial content. Our research is published independently, with methodology first.</p>
+
+    <h2>Get in touch</h2>
+    <p>Found a mistake in a listing, want to add your studio, or have a question? Visit our <a href="/contact">Contact page</a> or email <a href="mailto:contact@contrastmap.com">contact@contrastmap.com</a>.</p>
+    <p><a href="/#studios" class="btn btn-grad" style="display:inline-flex;margin-top:14px">Browse studios</a></p>
+  </div>
+</Base>

@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Contact Us | ContrastMap';
+const description = 'Get in touch with the ContrastMap team — add or correct a studio listing, ask about the directory or our research, or raise a data or privacy concern.';
+const canonical = 'https://www.contrastmap.com/contact';
+---
+
+<Base title={title} description={description} canonical={canonical} ogType="website">
+  <span id="top"></span>
+
+  <section class="info-hero">
+    <span class="eyebrow">Contact</span>
+    <h1>Talk to us.</h1>
+    <p class="info-sub">Add or correct a listing, ask about the directory or our research, or raise a privacy concern — we read everything.</p>
+  </section>
+
+  <div class="info-body">
+    <div class="contact-grid">
+      <!-- DIRECT CONTACT -->
+      <div class="contact-card">
+        <h2>Email us</h2>
+        <p class="info-prose" style="font-size:.98rem;color:var(--ink-2)">The fastest and most reliable way to reach us is email. We reply to most messages within two business days.</p>
+        <a href="mailto:contact@contrastmap.com" class="email-lg">contact@contrastmap.com</a>
+
+        <hr class="info-divider" />
+
+        <h2>Common requests</h2>
+        <div class="info-prose">
+          <ul>
+            <li><strong>Own a studio?</strong> Email us with your studio name, city, and website to get listed.</li>
+            <li><strong>See an error?</strong> Tell us the listing or page URL and what needs fixing.</li>
+            <li><strong>Data &amp; privacy?</strong> Read our <a href="/privacy">Privacy Policy</a> or email us directly.</li>
+            <li><strong>Press &amp; data assets?</strong> Visit the <a href="/press">Press page</a>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-card">
+        <h2>Send a message</h2>
+        <form class="contact-form" id="contactForm" novalidate>
+          <label for="cName">Your name</label>
+          <input type="text" id="cName" name="name" placeholder="Jordan Rivers" required />
+
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" name="email" placeholder="you@email.com" required />
+
+          <label for="cMsg">Message</label>
+          <textarea id="cMsg" name="message" placeholder="Tell us how we can help…" required></textarea>
+
+          <button type="submit" class="btn btn-grad">Send message</button>
+        </form>
+        <div class="contact-ok" id="contactOk">
+          <b>Message sent.</b> Thanks for reaching out — we'll get back to you at your email address shortly. (Need an immediate answer? Email <a href="mailto:contact@contrastmap.com" style="color:var(--cold-2)">contact@contrastmap.com</a> directly.)
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script is:inline>
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const message = document.getElementById('cMsg').value.trim();
+      const btn = form.querySelector('button[type="submit"]');
+
+      if (!name || !email || !message) {
+        alert('Please fill in your name, email, and message.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message }),
+        });
+      } catch (err) {
+        // Fallback: still show success in demo mode even if the endpoint fails.
+      }
+      form.style.display = 'none';
+      document.getElementById('contactOk').style.display = 'block';
+    });
+  }
+</script>

@@ -139,10 +139,10 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://contrastmap.com/' },
-    { '@type': 'ListItem', position: 2, name: stateInfo.name, item: `https://contrastmap.com/states/${stateInfo.slug}` },
-    { '@type': 'ListItem', position: 3, name: cityName, item: `https://contrastmap.com/${citySlug}` },
-    { '@type': 'ListItem', position: 4, name: listing.name, item: `https://contrastmap.com/${citySlug}/${listing.slug}` },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.contrastmap.com/' },
+    { '@type': 'ListItem', position: 2, name: stateInfo.name, item: `https://www.contrastmap.com/states/${stateInfo.slug}` },
+    { '@type': 'ListItem', position: 3, name: cityName, item: `https://www.contrastmap.com/${citySlug}` },
+    { '@type': 'ListItem', position: 4, name: listing.name, item: `https://www.contrastmap.com/${citySlug}/${listing.slug}` },
   ],
 };
 
@@ -165,7 +165,7 @@ if (listing.amenities.compressionTherapy) serviceLabels.push('Compression Therap
 if (listing.amenities.floatTank) serviceLabels.push('Float Tank');
 ---
 
-<Base title={`${listing.name} — ${cityName} Cold Plunge & Sauna | ContrastMap`} description={listing.description} canonical={`https://contrastmap.com/${citySlug}/${listing.slug}`} ogType="business">
+<Base title={`${listing.name} — ${cityName} Cold Plunge & Sauna | ContrastMap`} description={listing.description} canonical={`https://www.contrastmap.com/${citySlug}/${listing.slug}`} ogType="business">
   <link rel="stylesheet" href="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" />
 
   <!-- JSON-LD: LocalBusiness -->
@@ -203,17 +203,6 @@ if (listing.amenities.floatTank) serviceLabels.push('Float Tank');
             {listing.contact.website && <a class="btn btn-ghost" href={listing.contact.website} target="_blank" rel="noopener noreferrer">Visit website &rarr;</a>}
             {listing.contact.bookingUrl && <a class="btn btn-primary" href={listing.contact.bookingUrl} target="_blank" rel="noopener noreferrer">Book now</a>}
           </div>
-          {!listing.ownership.claimed && (
-            <div class="claim-cta">
-              <div class="claim-cta-inner">
-                <div>
-                  <strong>Own this studio?</strong>
-                  <p>Claim this listing to update hours, pricing, photos, and respond to inquiries.</p>
-                </div>
-                <button class="btn btn-ghost btn-sm" onclick="openList('Claim')">Claim listing</button>
-              </div>
-            </div>
-          )}
         </div>
         <div class="listing-hero-card">
           <div class="info-card">

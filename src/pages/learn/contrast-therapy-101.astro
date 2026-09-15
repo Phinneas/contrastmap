@@ -3,10 +3,14 @@ import Article from '../../layouts/Article.astro';
 
 const title = "Contrast Therapy 101: What It Is, How It Works, and Who It's For | ContrastMap";
 const description = "Contrast therapy isn't one protocol — it's two different traditions that get blended online. A clinical contrast bath protocol and a wellness sauna-and-plunge protocol. Here's how to tell them apart.";
-const canonical = 'https://contrastmap.com/learn/contrast-therapy-101';
+const canonical = 'https://www.contrastmap.com/learn/contrast-therapy-101';
+const hero = 'https://images.unsplash.com/photo-1741601274134-fa98352f1c95?w=1600&q=80&auto=format&fit=crop';
+const heroAlt = 'A man pouring water over hot sauna rocks';
+const hero2 = 'https://images.unsplash.com/photo-1681980016814-0bac16721969?w=1600&q=80&auto=format&fit=crop';
+const hero2Alt = 'A man sitting in an ice bath';
 ---
 
-<Article title={title} description={description} canonical={canonical}>
+<Article title={title} description={description} canonical={canonical} heroImage={hero} heroAlt={heroAlt}>
   <span id="top"></span>
 
   <div class="wrap ahead">
@@ -25,12 +29,12 @@ const canonical = 'https://contrastmap.com/learn/contrast-therapy-101';
     </div>
 
     <div class="hero-split" aria-hidden="true">
-      <div class="side hot">
+      <div class="side photo" style={`background-image:linear-gradient(180deg,rgba(2,6,23,.10) 30%,rgba(2,6,23,.55) 100%),url('${hero}'),linear-gradient(165deg,#FDBA74,#F97316 55%,#9A3412)`}>
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.6.7-3 1.6-4.2C9 7.9 9.6 9 10.6 9 12 9 12 6.6 12 2z"/></svg></div>
         <span class="lbl">Heat</span>
         <div class="tmp">Sauna</div>
       </div>
-      <div class="side cold">
+      <div class="side photo" style={`background-image:linear-gradient(180deg,rgba(2,6,23,.10) 30%,rgba(2,6,23,.55) 100%),url('${hero2}'),linear-gradient(165deg,#7DD3FC,#0EA5E9 55%,#075985)`}>
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c-3 4.2-4.5 7-4.5 9.5A4.5 4.5 0 0 0 12 16a4.5 4.5 0 0 0 4.5-4.5C16.5 9 15 6.2 12 2z"/></svg></div>
         <span class="lbl">Cold</span>
         <div class="tmp">Plunge</div>

@@ -25,6 +25,8 @@ h1,h2,h3,h4{font-family:var(--font-d);font-weight:600;line-height:1.1;letter-spa
 .gcold{color:var(--cold-2)} .ghot{color:var(--hot-2)}
 .gradient-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 section{position:relative}
+/* Keep hash-anchored sections clear of the sticky nav when deep-linked */
+section[id]{scroll-margin-top:84px}
 .sec-pad{padding:76px 0}
 @media(max-width:700px){.sec-pad{padding:52px 0}}
 
@@ -351,12 +353,18 @@ footer ul a:hover{color:#fff}
 @media(min-width:760px){.lp-journal-grid{grid-template-columns:repeat(3,1fr)}}
 .lp-article-card{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;text-decoration:none;color:inherit}
 .lp-article-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.lp-article-card .thumb{height:130px;background:repeating-linear-gradient(90deg,var(--panel),var(--panel) 10px,var(--line-2) 10px,var(--line-2) 20px);display:grid;place-items:center}
-.lp-article-card .thumb span{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--faint)}
+.lp-article-card .thumb{height:150px;display:grid;place-items:center;position:relative;overflow:hidden}
+.lp-article-card .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 120% at 20% 8%,rgba(255,255,255,.28),transparent 52%)}
+.lp-article-card .journal-glyph{font-size:3.2rem;color:rgba(255,255,255,.96);text-shadow:0 2px 14px rgba(15,23,42,.2);line-height:1;position:relative;z-index:1}
 .lp-article-card .body{padding:20px}
 .lp-article-card .cat{font-family:var(--font-d);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--hot-2)}
 .lp-article-card h3{font-family:var(--font-d);font-weight:600;font-size:1.05rem;margin:8px 0 6px}
 .lp-article-card p{font-size:.88rem;color:var(--ink-2);margin:0}
+
+/* LP City pills (coming soon) */
+.lp-city-soon{font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--white);color:var(--faint);border:1px dashed var(--line);display:inline-flex;align-items:center;gap:7px;transition:border-color .15s,color .15s}
+.lp-city-soon .soon{font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:var(--panel);color:var(--muted)}
+.lp-city-soon:hover{border-color:var(--cold-2);color:var(--cold-2)}
 
 /* LP Newsletter */
 .lp-newsletter{background:var(--ink);padding:60px 40px;margin-top:20px}
@@ -383,3 +391,38 @@ footer ul a:hover{color:#fff}
 .lp-footer .links a{font-size:.9rem;color:var(--ink-2);transition:color .15s}
 .lp-footer .links a:hover{color:var(--ink)}
 .lp-footer-bot{max-width:var(--maxw);margin:34px auto 0;padding-top:22px;border-top:1px solid var(--line);font-size:.82rem;color:var(--faint);text-align:center}
+
+/* ===== INFO / LEGAL PAGES ===== */
+.info-hero{max-width:var(--maxw);margin:0 auto;padding:64px 40px 20px}
+.info-hero .eyebrow{display:block;color:var(--cold-2)}
+.info-hero h1{font-family:var(--font-d);font-weight:700;font-size:clamp(2rem,4.6vw,3rem);letter-spacing:-.03em;margin-top:12px;max-width:20ch}
+.info-hero .info-sub{font-family:var(--font-b);font-style:italic;font-size:1.15rem;color:var(--ink-2);margin-top:14px;max-width:62ch}
+.info-body{max-width:820px;margin:0 auto;padding:20px 40px 84px}
+.info-prose h2{font-size:1.4rem;margin:34px 0 8px;letter-spacing:-.02em}
+.info-prose h3{font-size:1.08rem;margin:22px 0 6px}
+.info-prose p{font-size:1.02rem;color:var(--ink-2);line-height:1.72;margin:12px 0}
+.info-prose ul,.info-prose ol{margin:12px 0 12px 22px;color:var(--ink-2)}
+.info-prose li{margin:8px 0;font-size:1rem;line-height:1.62}
+.info-prose a{color:var(--cold-2);border-bottom:1px solid rgba(3,105,161,.3)}
+.info-prose a:hover{text-decoration:none}
+.info-prose strong{color:var(--ink)}
+.info-prose .info-date{font-family:var(--font-d);font-size:.8rem;color:var(--muted);margin-top:18px}
+.info-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 26px;margin:22px 0}
+.info-card p{font-size:.98rem}
+.info-divider{border:none;border-top:1px solid var(--line);margin:26px 0}
+@media(max-width:640px){.info-hero{padding:44px 22px 16px}.info-body{padding:16px 22px 64px}}
+
+/* contact form */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:26px}
+@media(min-width:860px){.contact-grid{grid-template-columns:1fr 1.15fr}}
+.contact-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.contact-card h2{font-size:1.2rem;margin-bottom:10px}
+.contact-card .email-lg{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-d);font-weight:600;font-size:1.05rem;color:var(--cold-2);margin-top:12px}
+.contact-form label{display:block;font-size:.78rem;font-weight:600;color:var(--ink-2);margin:14px 0 5px}
+.contact-form label:first-child{margin-top:0}
+.contact-form input,.contact-form textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--font-b);font-size:.95rem;color:var(--ink);outline:none;background:var(--white);transition:border-color .15s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--cold-1)}
+.contact-form textarea{min-height:130px;resize:vertical}
+.contact-form .btn{width:100%;justify-content:center;margin-top:18px}
+.contact-ok{display:none;background:var(--grad-soft);border:1px solid #e6ddd0;border-radius:var(--r);padding:20px 22px;margin-top:16px;color:var(--ink-2);font-size:.95rem}
+.contact-ok b{color:var(--ink)}

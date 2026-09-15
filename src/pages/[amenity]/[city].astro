@@ -152,7 +152,7 @@ const otherAmenities = Object.entries(AMENITY_INFO)
     return listingsData.listings.some(l => l.location.city === city.name && l.status === 'active' && l.amenities[key]);
   });
 
-const canonicalUrl = `https://contrastmap.com/${amenitySlug}/${citySlug}`;
+const canonicalUrl = `https://www.contrastmap.com/${amenitySlug}/${citySlug}`;
 const seoTitle = `${amenity.name} in ${city.name}, ${stateInfo.abbr} — ${count} Studios | ContrastMap`;
 const seoDesc = `Find ${amenity.name} studios in ${city.name}, ${stateInfo.abbr}. Compare prices, amenities, and read reviews. ${count} verified studios listed on ContrastMap.`;
 
@@ -167,7 +167,7 @@ const itemListJsonLd = JSON.stringify({
     item: {
       '@type': 'HealthAndBeautyBusiness',
       name: l.name,
-      url: `https://contrastmap.com/${citySlug}/${l.slug}`,
+      url: `https://www.contrastmap.com/${citySlug}/${l.slug}`,
       listingConfidence: l.confidence,
       ...(l.lat ? { geo: { '@type': 'GeoCoordinates', latitude: l.lat, longitude: l.lng } } : {}),
     },

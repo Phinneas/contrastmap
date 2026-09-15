@@ -5,9 +5,11 @@ interface Props {
   title: string;
   description: string;
   canonical?: string;
+  heroImage?: string;
+  heroAlt?: string;
 }
 
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, heroImage, heroAlt } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,6 +24,11 @@ const { title, description, canonical } = Astro.props;
   <meta property="og:type" content="article" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  {canonical && <meta property="og:url" content={canonical} />}
+  {heroImage && <meta property="og:image" content={heroImage} />}
+  {heroImage && <meta name="twitter:card" content="summary_large_image" />}
+  {heroImage && <meta name="twitter:image" content={heroImage} />}
+  {heroImage && <meta name="twitter:image:alt" content={heroAlt || title} />}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,6 +80,10 @@ const { title, description, canonical } = Astro.props;
   .hero-split .side{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff}
   .hero-split .cold{background:linear-gradient(165deg,#7DD3FC,#0EA5E9 55%,#075985)}
   .hero-split .hot{background:linear-gradient(165deg,#FDBA74,#F97316 55%,#9A3412)}
+  /* Photo hero: a real image with a soft dark gradient on top for legibility.
+     The page passes `background-image` inline as:
+     linear-gradient(overlay), url(photo), linear-gradient(fallback). */
+  .hero-split .side.photo{background-size:cover;background-position:center;background-repeat:no-repeat}
   .hero-split .ic{position:absolute;top:20px;left:22px;width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.2);display:grid;place-items:center;backdrop-filter:blur(4px)}
   .hero-split .lbl{font-family:var(--font-d);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.92}
   .hero-split .tmp{font-family:var(--font-d);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1;margin-top:4px}

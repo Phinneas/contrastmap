@@ -3,10 +3,14 @@ import Article from '../../layouts/Article.astro';
 
 const title = 'Infrared Sauna vs Traditional Sauna: Which Is Better? (2026) | ContrastMap';
 const description = 'Infrared vs traditional sauna: temperature, heat type, health benefits, cost, and which one is right for you. A complete, evidence-based comparison.';
-const canonical = 'https://contrastmap.com/learn/infrared-vs-traditional-sauna';
+const canonical = 'https://www.contrastmap.com/learn/infrared-vs-traditional-sauna';
+const hero = 'https://images.unsplash.com/photo-1660735698223-23a4edefa264?w=1600&q=80&auto=format&fit=crop';
+const heroAlt = 'Steam rising from a traditional sauna heater';
+const hero2 = 'https://images.unsplash.com/photo-1678988227223-45112511eca2?w=1600&q=80&auto=format&fit=crop';
+const hero2Alt = 'A wooden infrared sauna interior';
 ---
 
-<Article title={title} description={description} canonical={canonical}>
+<Article title={title} description={description} canonical={canonical} heroImage={hero} heroAlt={heroAlt}>
   <span id="top"></span>
 
   <div class="wrap ahead">
@@ -25,12 +29,12 @@ const canonical = 'https://contrastmap.com/learn/infrared-vs-traditional-sauna';
     </div>
 
     <div class="hero-split" aria-hidden="true">
-      <div class="side hot">
+      <div class="side photo" style={`background-image:linear-gradient(180deg,rgba(2,6,23,.10) 30%,rgba(2,6,23,.55) 100%),url('${hero}'),linear-gradient(165deg,#FDBA74,#F97316 55%,#9A3412)`}>
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2s5 4.5 5 9a5 5 0 0 1-10 0c0-1.6.7-3 1.6-4.2C9 7.9 9.6 9 10.6 9 12 9 12 6.6 12 2z"/></svg></div>
         <span class="lbl">Traditional</span>
         <div class="tmp">150&ndash;200&deg;F</div>
       </div>
-      <div class="side cold" style="background:linear-gradient(165deg,#FDBA74,#F97316 55%,#9A3412)">
+      <div class="side photo" style={`background-image:linear-gradient(180deg,rgba(2,6,23,.10) 30%,rgba(2,6,23,.55) 100%),url('${hero2}'),linear-gradient(165deg,#FDBA74,#F97316 55%,#9A3412)`}>
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
         <span class="lbl">Infrared</span>
         <div class="tmp">110&ndash;150&deg;F</div>

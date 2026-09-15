@@ -1,10 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import '../styles/global.css';
+import listingsData from '../data/listings.json';
+import { CITIES, LIVE_CITY_SLUGS } from '../lib/cities';
+import { STATES } from '../lib/states';
 
-const title = 'Press & Data Assets | ContrastMap';
-const description = 'ContrastMap press kit and pitchable data assets: the independent Cold Plunge Chiller Reliability Index and our infrared sauna EMF testing methodology. Cite, embed, or request a custom data cut.';
-const canonical = 'https://contrastmap.com/press';
+const studioCount = listingsData.listings.filter((l) => l.status === 'active').length;
+const liveCityCount = LIVE_CITY_SLUGS.length;
+const totalCityCount = CITIES.length;
+
+const title = 'Press & Media Kit | ContrastMap';
+const description = 'ContrastMap press kit: company boilerplate, fast facts, story angles, brand assets, and pitchable data — the independent Cold Plunge Chiller Reliability Index and infrared sauna EMF testing methodology.';
+const canonical = 'https://www.contrastmap.com/press';
 ---
 
 <Base title={title} description={description} canonical={canonical} ogType="article">
@@ -18,6 +25,22 @@ const canonical = 'https://contrastmap.com/press';
     <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:22px">
       <a href="#reliability" class="btn btn-grad" style="text-align:center;justify-content:center">Reliability Index one-pager</a>
       <a href="#pitch" class="btn-pill" style="text-align:center;justify-content:center">Sample pitch email</a>
+    </div>
+  </section>
+
+  <!-- ABOUT / BOILERPLATE -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:0 40px 48px">
+    <div class="press-card">
+      <span class="eyebrow" style="color:var(--cold-2)">About ContrastMap</span>
+      <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin-top:10px">What ContrastMap is</h2>
+      <p class="press-lead">ContrastMap is the independent directory for contrast therapy &mdash; cold plunge and infrared sauna studios. It maps studios across U.S. metros so people can find a hot room or a cold plunge in seconds, and it publishes methodology-first research on the gear and protocols behind the ritual. Listings are free to browse; research findings are published regardless of outcome.</p>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:10px">Copy the paragraph above as-is for an about/boilerplate line, or trim to fit your format.</p>
+      <div class="press-facts">
+        <div class="pf"><b>{studioCount}+</b><span>studios listed</span></div>
+        <div class="pf"><b>{liveCityCount}</b><span>live metros</span></div>
+        <div class="pf"><b>{totalCityCount}</b><span>metros mapped</span></div>
+        <div class="pf"><b>{STATES.length}</b><span>states covered</span></div>
+      </div>
     </div>
   </section>
 
@@ -86,7 +109,7 @@ const canonical = 'https://contrastmap.com/press';
 
       <h3 class="press-h">Usage &amp; embed rights</h3>
       <ul class="press-ul">
-        <li>Cite or link to <code>contrastmap.com/learn/cold-plunge-chiller-reliability-index</code> with attribution.</li>
+        <li>Cite or link to <code>www.contrastmap.com/learn/cold-plunge-chiller-reliability-index</code> with attribution.</li>
         <li>Embed the table or headline stat in editorial content with a link back.</li>
         <li>Do not republish behind a paywall or present the seed data as a final failure rate.</li>
         <li>Need a custom data cut, brand-specific breakdown, or charts sized for your format? <a href="#contact">Ask</a>.</li>
@@ -106,6 +129,21 @@ const canonical = 'https://contrastmap.com/press';
     </div>
   </section>
 
+  <!-- STORY ANGLES -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:0 40px 56px">
+    <div class="press-card">
+      <span class="eyebrow" style="color:var(--hot-2)">Story angles</span>
+      <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin-top:10px">Ways to cover ContrastMap</h2>
+      <p style="color:var(--muted);font-size:.95rem;margin-top:8px">A few angles if you'd rather write about the directory itself than the data assets.</p>
+      <div class="press-angles">
+        <div class="pang"><strong>The contrast-therapy boom, mapped.</strong> A directory tracking where hot-and-cold recovery has landed across U.S. cities &mdash; from Austin&rsquo;s private sauna-and-plunge suites to NYC&rsquo;s bathing clubs.</div>
+        <div class="pang"><strong>Studios vs. gyms.</strong> Why dedicated contrast-therapy studios are outgrowing gym amenities, and what actually separates them.</div>
+        <div class="pang"><strong>The gear-reliability gap.</strong> Cold plunge chillers had no independent reliability data &mdash; until our index.</div>
+        <div class="pang"><strong>EMF claims, tested.</strong> Every infrared sauna EMF number traces to the brand selling it; we&rsquo;re publishing independent measurements.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- SAMPLE PITCH -->
   <section id="pitch" style="max-width:var(--maxw);margin:0 auto;padding:0 40px 56px">
     <div class="press-card">
@@ -116,13 +154,27 @@ const canonical = 'https://contrastmap.com/press';
       <div class="press-email">
         <p class="pe-meta"><strong>Subject:</strong> First independent reliability data on cold plunge chillers</p>
         <p>Hi [first name],</p>
-        <p>I edit <a href="https://contrastmap.com">ContrastMap</a> &mdash; a directory of cold plunge and infrared sauna studios. We just published the first independent reliability index for cold plunge chillers, built from publicly verifiable failure reports (DIY Cold Plunge, a longitudinal YouTube reviewer with 18+ units, GearJunkie, an athlete's multi-year ownership account, ComplaintsBoard, and r/coldplunge).</p>
+        <p>I edit <a href="https://www.contrastmap.com">ContrastMap</a> &mdash; a directory of cold plunge and infrared sauna studios. We just published the first independent reliability index for cold plunge chillers, built from publicly verifiable failure reports (DIY Cold Plunge, a longitudinal YouTube reviewer with 18+ units, GearJunkie, an athlete's multi-year ownership account, ComplaintsBoard, and r/coldplunge).</p>
         <p>The headline finding: across every report we could verify, <strong>circulation failures</strong> (pump, filter, hose flow) outnumber <strong>cooling failures</strong> (compressor/refrigerant) &mdash; and <strong>warranty response time, not failure rate, is the recurring complaint across every brand</strong>. No one has aggregated this before; the AI answers currently circulating cite a single blogger's recommendation as if it were data.</p>
-        <p>It felt like a fit for [outlet] because [one specific, personalized reason &mdash; e.g. you covered home cold-plunge setups last month]. I can send a custom data cut, the full methodology, or charts sized for your format. The one-pager and embed-ready table are at <a href="https://contrastmap.com/press">contrastmap.com/press</a>.</p>
+        <p>It felt like a fit for [outlet] because [one specific, personalized reason &mdash; e.g. you covered home cold-plunge setups last month]. I can send a custom data cut, the full methodology, or charts sized for your format. The one-pager and embed-ready table are at <a href="https://www.contrastmap.com/press">www.contrastmap.com/press</a>.</p>
         <p>Happy to do a quick call if useful &mdash; no pressure either way.</p>
         <p>Thanks,<br>[your name]<br>ContrastMap &middot; [reply-to email]</p>
       </div>
       <p style="font-size:.86rem;color:var(--muted);margin-top:12px">Personalize the [outlet] and [reason] lines per target. One follow-up after 5&ndash;7 days. Log every reply and resulting link in the Backlink Plan project.</p>
+    </div>
+  </section>
+
+  <!-- BRAND ASSETS -->
+  <section style="max-width:var(--maxw);margin:0 auto;padding:0 40px 56px">
+    <div class="press-card" style="display:flex;gap:26px;align-items:center;flex-wrap:wrap">
+      <div class="press-logo" aria-hidden="true">
+        <svg width="72" height="72" viewBox="0 0 64 64"><defs><clipPath id="pressmark"><circle cx="32" cy="32" r="30"/></clipPath></defs><g clip-path="url(#pressmark)"><rect x="0" width="32" height="64" fill="#F97316"/><rect x="32" width="32" height="64" fill="#0EA5E9"/><rect x="30.3" width="3.4" height="64" fill="#FAF7F2"/></g></svg>
+      </div>
+      <div style="flex:1;min-width:250px">
+        <h2 style="font-family:var(--font-d);font-weight:700;font-size:clamp(1.4rem,3vw,1.9rem);letter-spacing:-.02em;margin:0 0 8px">Brand assets</h2>
+        <p style="color:var(--muted);font-size:.96rem;margin:0 0 16px">Need the ContrastMap logo (SVG/PNG, light or dark) for a story, roundup, or embed? Email us and we&rsquo;ll send the full logo pack within one business day.</p>
+        <a href="mailto:press@contrastmap.com?subject=Logo%20pack%20request" class="btn btn-ghost btn-sm">Request logo pack</a>
+      </div>
     </div>
   </section>
 
@@ -157,6 +209,19 @@ const canonical = 'https://contrastmap.com/press';
   .press-ul li{margin:7px 0;font-size:.98rem;color:var(--ink-2);line-height:1.5}
   .press-card code{font-family:var(--font-d);font-size:.88rem;background:var(--panel);padding:2px 6px;border-radius:6px}
   .press-card a{color:var(--cold-2);border-bottom:1px solid rgba(3,105,161,.3)}
+
+  .press-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+  @media(min-width:680px){.press-facts{grid-template-columns:repeat(4,1fr)}}
+  .press-facts .pf{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center}
+  .press-facts .pf b{font-family:var(--font-d);font-size:1.7rem;font-weight:700;color:var(--ink);display:block;line-height:1}
+  .press-facts .pf span{font-size:.8rem;color:var(--muted)}
+
+  .press-angles{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+  @media(min-width:680px){.press-angles{grid-template-columns:1fr 1fr}}
+  .press-angles .pang{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:.96rem;color:var(--ink-2);line-height:1.5}
+  .press-angles .pang strong{display:block;font-family:var(--font-d);color:var(--ink);margin-bottom:4px}
+
+  .press-logo{flex:none;display:grid;place-items:center;width:96px;height:96px;border-radius:20px;background:var(--panel);border:1px solid var(--line)}
 
   .press-tbl-wrap{overflow-x:auto;margin:14px 0 0;border:1px solid var(--line);border-radius:12px}
   table.press-cmp{width:100%;border-collapse:collapse;font-family:var(--font-d);min-width:560px}

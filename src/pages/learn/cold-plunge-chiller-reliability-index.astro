@@ -3,10 +3,12 @@ import Article from '../../layouts/Article.astro';
 
 const title = 'The Cold Plunge Chiller Reliability Index (Methodology + Initial Findings) | ContrastMap';
 const description = 'An independent reliability index for cold plunge chillers. Methodology, initial findings from secondary sources, and what nobody else has published before.';
-const canonical = 'https://contrastmap.com/learn/cold-plunge-chiller-reliability-index';
+const canonical = 'https://www.contrastmap.com/learn/cold-plunge-chiller-reliability-index';
+const hero = 'https://images.unsplash.com/photo-1713270232602-bf8dc038d91c?w=1600&q=80&auto=format&fit=crop';
+const heroAlt = 'A cold plunge tub filled with water';
 ---
 
-<Article title={title} description={description} canonical={canonical}>
+<Article title={title} description={description} canonical={canonical} heroImage={hero} heroAlt={heroAlt}>
   <span id="top"></span>
 
   <div class="wrap ahead">
@@ -25,7 +27,7 @@ const canonical = 'https://contrastmap.com/learn/cold-plunge-chiller-reliability
     </div>
 
     <div class="hero-split" aria-hidden="true">
-      <div class="side cold" style="grid-column:1/-1">
+      <div class="side photo" style={`grid-column:1/-1;background-image:linear-gradient(180deg,rgba(2,6,23,.10) 30%,rgba(2,6,23,.55) 100%),url('${hero}'),linear-gradient(165deg,#7DD3FC,#0EA5E9 55%,#075985)`}>
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c-3 4.2-4.5 7-4.5 9.5A4.5 4.5 0 0 0 12 16a4.5 4.5 0 0 0 4.5-4.5C16.5 9 15 6.2 12 2z"/></svg></div>
         <span class="lbl">Chiller reliability</span>
         <div class="tmp">Index</div>

@@ -1,5 +1,8 @@
 import type { APIRoute } from 'astro';
 
+// Handled on-demand by the Worker (not prerendered), so POST requests reach it.
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();

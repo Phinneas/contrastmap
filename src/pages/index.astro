@@ -4,22 +4,12 @@ import '../styles/global.css';
 import listingsData from '../data/listings.json';
 import catalogRaw from '../data/catalog.json';
 import { STATES } from '../lib/states';
+import { CITIES } from '../lib/cities';
 
-// City data for search routing
-const CITY_SLUGS = {
-  'austin': 'austin',
-  'los angeles': 'los-angeles',
-  'new york': 'new-york',
-  'denver': 'denver',
-  'chicago': 'chicago',
-  'san diego': 'san-diego',
-  'houston': 'houston',
-  'tampa': 'tampa',
-  'las vegas': 'las-vegas',
-  'minneapolis': 'minneapolis',
-  'nashville': 'nashville',
-};
-const cities = Object.keys(CITY_SLUGS);
+// City data for search routing (lowercased name -> slug, all covered metros)
+const CITY_SLUGS = Object.fromEntries(
+  CITIES.map((c) => [c.name.toLowerCase(), c.slug]),
+);
 
 // Transform listings to card format for featured studios
 function listingToCardData(l) {
@@ -50,49 +40,87 @@ const shopProducts = [
   PRODUCTS.find(p => p.name === 'HigherDOSE Infrared Sauna Blanket'),
 ].filter(Boolean);
 
-// Journal articles
+// Journal articles (glyph + gradient give each card a distinct, self-contained image)
 const articles = [
   {
     category: 'Guide',
     title: 'Contrast Therapy 101',
     excerpt: "What it is, how it works, and who it's for — including the part almost nobody explains: there are two different protocols that share the same name.",
     href: '/learn/contrast-therapy-101',
+    glyph: '\u21c4',
+    gradient: 'linear-gradient(135deg,#0EA5E9 0%,#7C9EDE 50%,#F97316 100%)',
   },
   {
     category: 'Science',
     title: 'Cold Plunge Benefits: The Science-Backed List',
     excerpt: "A claim-by-claim breakdown graded by evidence strength — what the research actually supports vs. what's overhyped.",
     href: '/learn/cold-plunge-benefits',
+    glyph: '\u2744',
+    gradient: 'linear-gradient(135deg,#38BDF8,#0369A1)',
   },
   {
     category: 'Comparison',
     title: 'Cold Plunge vs Infrared Sauna',
     excerpt: 'Which is better for recovery, sleep, and mood — and why doing both wins.',
     href: '/learn/cold-plunge-vs-infrared-sauna',
+    glyph: '\u2696',
+    gradient: 'linear-gradient(135deg,#0EA5E9 0%,#A78BFA 55%,#F97316 100%)',
   },
   {
     category: 'Comparison',
     title: 'Infrared vs Traditional Sauna',
     excerpt: 'Two very different ways to sweat. Which one is right for recovery, relaxation, and your budget?',
     href: '/learn/infrared-vs-traditional-sauna',
+    glyph: '\u2668',
+    gradient: 'linear-gradient(135deg,#FB923C,#C2410C)',
   },
   {
     category: 'Cost Guide',
     title: 'Membership vs Drop-In',
     excerpt: 'When does paying per session make sense, and when is a membership the better deal?',
     href: '/learn/cold-plunge-membership-vs-dropin',
+    glyph: '$',
+    gradient: 'linear-gradient(135deg,#FBBF24,#EA580C)',
   },
   {
     category: 'Research',
     title: 'How We Test EMF Levels in Infrared Saunas',
     excerpt: "Every EMF number you've seen comes from a test commissioned by the brand selling the sauna. Here's our independent methodology.",
     href: '/learn/infrared-sauna-emf-testing',
+    glyph: '\u26a1',
+    gradient: 'linear-gradient(135deg,#818CF8,#4F46E5)',
   },
   {
     category: 'Research',
     title: 'Cold Plunge Chiller Reliability Index',
     excerpt: 'An independent reliability index for cold plunge chillers — methodology, initial findings, and why no one else has published this before.',
     href: '/learn/cold-plunge-chiller-reliability-index',
+    glyph: '\u271a',
+    gradient: 'linear-gradient(135deg,#2DD4BF,#0F766E)',
+  },
+  {
+    category: 'Guide',
+    title: 'Why Am I Not Sweating in My Infrared Sauna?',
+    excerpt: "It's common — and usually normal. How infrared heat works differently, and how to get more from your sessions.",
+    href: '/learn/not-sweating-in-infrared-sauna',
+    glyph: '\u2601',
+    gradient: 'linear-gradient(135deg,#F97316,#9A3412)',
+  },
+  {
+    category: 'Comparison',
+    title: 'Contrast Bath vs. Contrast Therapy vs. Sauna Combo',
+    excerpt: "Contrast bath is the clinical term, contrast therapy is the umbrella, and sauna combo is the equipment. Here's what each one actually means.",
+    href: '/learn/contrast-bath-vs-contrast-therapy-vs-sauna-combo',
+    glyph: '\u2194',
+    gradient: 'linear-gradient(135deg,#38BDF8 0%,#64748B 50%,#F97316 100%)',
+  },
+  {
+    category: 'Buying Guide',
+    title: 'Cold Plunge Chillers: The Types That Actually Exist',
+    excerpt: 'Integrated, external, or portable — plus cooling method, plumbing, and capacity. How to map yourself to the right chiller type.',
+    href: '/learn/cold-plunge-chiller-types',
+    glyph: '\u2699',
+    gradient: 'linear-gradient(135deg,#22D3EE,#0369A1)',
   },
 ];
 ---
@@ -221,17 +249,11 @@ const articles = [
     <span class="eyebrow" style="color:var(--cold-2)">Browse by city</span>
     <h2 style="font-family:var(--font-d);font-weight:600;font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-.02em;margin-top:10px">Find studios near you</h2>
     <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px">
-      <a href="/austin" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Austin</a>
-      <a href="/denver" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Denver</a>
-      <a href="/chicago" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Chicago</a>
-      <a href="/houston" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Houston</a>
-      <a href="/san-diego" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">San Diego</a>
-      <a href="/los-angeles" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Los Angeles</a>
-      <a href="/new-york" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">New York</a>
-      <a href="/tampa" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Tampa</a>
-      <a href="/las-vegas" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Las Vegas</a>
-      <a href="/minneapolis" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Minneapolis</a>
-      <a href="/nashville" style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">Nashville</a>
+      {CITIES.map(c => c.live ? (
+        <a href={`/${c.slug}`} style="font-family:var(--font-d);font-size:.92rem;font-weight:500;padding:8px 18px;border-radius:999px;background:var(--panel);color:var(--ink);border:1px solid var(--line)">{c.name}</a>
+      ) : (
+        <a href={`/${c.slug}`} class="lp-city-soon">{c.name}<span class="soon">Soon</span></a>
+      ))}
     </div>
     <div style="margin-top:20px">
       <span class="eyebrow" style="color:var(--hot-2);font-size:.68rem">Browse by state</span>
@@ -312,7 +334,9 @@ const articles = [
     <div class="lp-journal-grid">
       {articles.map(a => (
         <a class="lp-article-card" href={a.href}>
-          <div class="thumb"><span>article image</span></div>
+          <div class="thumb" style={`background:${a.gradient}`} aria-hidden="true">
+            <span class="journal-glyph">{a.glyph}</span>
+          </div>
           <div class="body">
             <span class="cat">{a.category}</span>
             <h3>{a.title}</h3>
@@ -322,14 +346,6 @@ const articles = [
       ))}
 
     </div>
-  </section>
-
-  <!-- LIST YOUR STUDIO CTA -->
-  <section id="list" style="max-width:var(--maxw);margin:0 auto;padding:56px 40px;text-align:center">
-    <span class="eyebrow" style="color:var(--hot-2)">For studio owners</span>
-    <h2 style="font-family:var(--font-d);font-weight:600;font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-.02em;margin-top:10px">Get in front of ready-to-book locals</h2>
-    <p style="color:var(--muted);margin-top:8px;max-width:52ch;margin-left:auto;margin-right:auto">Claim your listing free, or upgrade for featured placement and qualified leads delivered to your inbox.</p>
-    <a href="/list-your-studio" class="btn-pill" style="margin-top:22px;display:inline-block">List your studio</a>
   </section>
 
   <!-- NEWSLETTER -->
