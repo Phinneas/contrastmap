@@ -43,6 +43,14 @@ const shopProducts = [
 // Journal articles (glyph + gradient give each card a distinct, self-contained image)
 const articles = [
   {
+    category: 'Buyer Protection',
+    title: 'Cold Plunge Buyer Protection Guide',
+    excerpt: 'BBB ratings, complaint response rates, and warranty terms for 14 cold plunge brands — checked against the public record before you buy.',
+    href: '/learn/buyer-protection',
+    glyph: '✓',
+    gradient: 'linear-gradient(135deg,#34D399,#0F766E)',
+  },
+  {
     category: 'Guide',
     title: 'Contrast Therapy 101',
     excerpt: "What it is, how it works, and who it's for — including the part almost nobody explains: there are two different protocols that share the same name.",
@@ -256,7 +264,7 @@ const articles = [
       ))}
     </div>
     <div style="margin-top:20px">
-      <span class="eyebrow" style="color:var(--hot-2);font-size:.68rem">Browse by state</span>
+      <a href="/states" class="eyebrow" style="color:var(--hot-2);font-size:.68rem;text-decoration:none">Browse by state &rarr;</a>
       <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px">
         {STATES.map((s) => (
           <a href={`/states/${s.slug}`} style="font-family:var(--font-d);font-size:.84rem;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--white);color:var(--ink-2);border:1px solid var(--line)">{s.name}</a>

@@ -1,0 +1,80 @@
+---
+import Article from './Article.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    canonical?: string;
+    crumb?: string;
+    eyebrow?: string;
+    updated?: string;
+    minutes?: number;
+  };
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { frontmatter, headings } = Astro.props;
+const { title, description, canonical, crumb, eyebrow, updated, minutes } = frontmatter;
+const toc = headings.filter((h) => h.depth === 2);
+---
+
+<Article title={title} description={description} canonical={canonical}>
+  <!-- Markdown-rendered article chrome: header, TOC, prose wrapper -->
+  <style is:global>
+    /* Plain markdown elements inside .prose (no hand-applied classes) */
+    .prose > p:first-of-type{font-size:1.28rem;color:var(--ink-2);line-height:1.7}
+    .prose table{width:100%;border-collapse:collapse;font-family:var(--font-d);margin:20px 0;display:block;overflow-x:auto}
+    .prose thead,.prose tbody{display:table;width:100%;min-width:520px}
+    .prose th,.prose td{padding:13px 16px;text-align:left;border-top:1px solid var(--line);font-size:.92rem;vertical-align:top}
+    .prose thead th{border-top:none;font-size:.8rem;letter-spacing:.04em;background:var(--panel)}
+    .prose tbody tr:nth-child(even){background:#fbf9f5}
+    .prose td:first-child{font-weight:600}
+    .prose hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+    .prose hr + p,.prose hr + p + p{font-size:.9rem;color:var(--muted)}
+    .prose blockquote{margin:20px 0;padding:16px 22px;border-left:4px solid var(--cold-1);background:var(--cold-tint-2);border-radius:0 var(--r) var(--r) 0}
+    .prose blockquote p{font-size:1.02rem;margin:4px 0}
+  </style>
+
+  <div class="wrap ahead">
+    <div class="crumb"><a href="/">Home</a> &rsaquo; <a href="/#journal">Learn</a> &rsaquo; {crumb && crumb !== 'Buyer Protection Guide' ? <span><a href="/learn/buyer-protection">Buyer Protection Guide</a> &rsaquo; {crumb}</span> : <span>Buyer Protection Guide</span>}</div>
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h1 class="title">{title.replace(/ \| ContrastMap$/, '').replace(/ \(October 2026\)$/, '')}</h1>
+    <p class="dek">{description}</p>
+    <div class="byline">
+      <span class="who">By the ContrastMap Editorial Team</span>
+      <span class="sep"></span>
+      <span>Updated {updated || 'October 2026'}</span>
+      <span class="sep"></span>
+      <span>{minutes || 5} min read</span>
+    </div>
+  </div>
+
+  <div class="wrap layout">
+    {toc.length > 1 && (
+      <aside class="toc">
+        <h5>On this page</h5>
+        {toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}
+      </aside>
+    )}
+
+    <article class="prose">
+      {toc.length > 1 && (
+        <details class="toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+            {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+          </ol>
+        </details>
+      )}
+
+      <slot />
+
+      <div class="finale">
+        <h2>Ready to try it?</h2>
+        <p>Find a studio with a cold plunge or sauna near you and book your first session.</p>
+        <a href="/austin" class="btn btn-grad">Browse studios on ContrastMap &rarr;</a>
+      </div>
+    </article>
+  </div>
+</Article>

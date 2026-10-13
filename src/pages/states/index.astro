@@ -1,0 +1,116 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/directory.css';
+import listingsData from '../../data/listings.json';
+import { STATES } from '../../lib/states';
+
+// Per-state rollup: live metros, coming-soon metros, studio counts
+const stateData = STATES.map((s) => {
+  const stateListings = listingsData.listings.filter((l) => l.location.state === s.abbr);
+  const liveCities = s.cities.filter((c) => c.live !== false);
+  return {
+    ...s,
+    count: stateListings.length,
+    verified: stateListings.filter((l) => l.editorial.verified).length,
+    liveCount: liveCities.length,
+    comingSoon: s.cities.length - liveCities.length,
+    cityNames: liveCities.map((c) => c.name),
+  };
+});
+
+const totalStudios = stateData.reduce((a, s) => a + s.count, 0);
+const totalVerified = stateData.reduce((a, s) => a + s.verified, 0);
+const liveStates = stateData.filter((s) => s.liveCount > 0).length;
+
+const canonicalUrl = 'https://www.contrastmap.com/states';
+const seoTitle = `Cold Plunge & Infrared Sauna Studios by State — ${totalStudios} Listed | ContrastMap`;
+const seoDesc = `Browse cold plunge, infrared sauna, and contrast therapy studios by state. ${totalStudios} studios across ${liveStates} states and counting — pick a state to explore its metros.`;
+
+const collectionJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Contrast therapy studios by state',
+  url: canonicalUrl,
+  description: seoDesc,
+  mainEntity: stateData.map((s) => ({
+    '@type': 'Place',
+    name: `Cold plunge & infrared sauna in ${s.name}`,
+    url: `https://www.contrastmap.com/states/${s.slug}`,
+  })),
+});
+
+const breadcrumbLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.contrastmap.com/' },
+    { '@type': 'ListItem', position: 2, name: 'States', item: canonicalUrl },
+  ],
+});
+---
+
+<Base title={seoTitle} description={seoDesc} canonical={canonicalUrl} ogType="website">
+  <script is:inline type="application/ld+json" set:html={collectionJsonLd} />
+  <script is:inline type="application/ld+json" set:html={breadcrumbLd} />
+
+  <!-- Hero -->
+  <section class="dir-hero">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> &rsaquo; <span>States</span></div>
+      <h1>Browse Studios by State</h1>
+      <p class="dir-hero-intro">Cold plunge, infrared sauna, and contrast therapy studios across the US. Pick a state to see its metros, then filter by amenity, price, and neighborhood.</p>
+      <div class="city-stats">
+        <div><b>{totalStudios}</b><span>studios listed</span></div>
+        <div><b>{STATES.length}</b><span>states</span></div>
+        <div><b>{totalVerified}</b><span>verified</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- State cards -->
+  <section class="sec-pad" style="padding-top:36px;padding-bottom:64px">
+    <div class="wrap">
+      <div class="state-city-grid">
+        {stateData.map((s) => (
+          <a class="state-city-card" href={`/states/${s.slug}`}>
+            <div class="scc-top">
+              <h2>{s.name}</h2>
+              {s.liveCount === 0 ? (
+                <span class="scc-count" style="background:var(--panel);color:var(--muted)">Coming soon</span>
+              ) : (
+                <span class="scc-count">{s.count} {s.count === 1 ? 'studio' : 'studios'}</span>
+              )}
+            </div>
+            {s.liveCount > 0 && (
+              <div class="scc-meta">
+                <span>{s.liveCount} {s.liveCount === 1 ? 'metro' : 'metros'}{s.comingSoon > 0 ? ` · ${s.comingSoon} coming soon` : ''}</span>
+                {s.verified > 0 && <span>{s.verified} verified</span>}
+              </div>
+            )}
+            {s.cityNames.length > 0 && (
+              <div class="scc-amenities">
+                {s.cityNames.map((n) => <span class="scc-amenity">{n}</span>)}
+              </div>
+            )}
+            <span class="scc-link">Browse {s.name} &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .state-city-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.state-city-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:980px){.state-city-grid{grid-template-columns:1fr 1fr 1fr}}
+  .state-city-card{display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);border-radius:16px;padding:22px 22px;background:var(--white);color:var(--ink);transition:border-color .15s,box-shadow .15s;text-decoration:none}
+  .state-city-card:hover{border-color:var(--cold-2);box-shadow:var(--shadow);text-decoration:none}
+  .scc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .scc-top h2{font-family:var(--font-d);font-weight:600;font-size:1.2rem;letter-spacing:-.01em;margin:0}
+  .scc-count{font-family:var(--font-d);font-size:.8rem;font-weight:600;color:var(--cold-2);background:var(--cold-tint-2);padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .scc-meta{display:flex;gap:14px;margin-top:10px;font-size:.82rem;color:var(--muted)}
+  .scc-amenities{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .scc-amenity{font-family:var(--font-d);font-size:.78rem;font-weight:500;padding:5px 12px;border-radius:999px;background:var(--panel);color:var(--ink-2);border:1px solid var(--line);text-decoration:none}
+  .scc-link{font-family:var(--font-d);font-size:.9rem;font-weight:600;color:var(--cold-2);margin-top:18px;display:inline-block}
+</style>
