@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import { STATES } from '../lib/states';
+import { CITIES } from '../lib/cities';
+
+const title = 'Sitemap | ContrastMap';
+const description = 'Every page on ContrastMap: studio directories by city and state, learn articles, buyer protection guides, and company pages.';
+const canonical = 'https://www.contrastmap.com/sitemap';
+
+const learnArticles = [
+  { href: '/learn/contrast-therapy-101', label: 'Contrast Therapy 101' },
+  { href: '/learn/cold-plunge-benefits', label: 'Cold Plunge Benefits: The Science-Backed List' },
+  { href: '/learn/cold-plunge-vs-infrared-sauna', label: 'Cold Plunge vs Infrared Sauna' },
+  { href: '/learn/infrared-vs-traditional-sauna', label: 'Infrared vs Traditional Sauna' },
+  { href: '/learn/cold-plunge-membership-vs-dropin', label: 'Membership vs Drop-In' },
+  { href: '/learn/infrared-sauna-emf-testing', label: 'How We Test EMF Levels in Infrared Saunas' },
+  { href: '/learn/cold-plunge-chiller-types', label: 'Cold Plunge Chiller Types' },
+  { href: '/learn/cold-plunge-chiller-reliability-index', label: 'Chiller Reliability Index' },
+  { href: '/learn/contrast-bath-vs-contrast-therapy-vs-sauna-combo', label: 'Contrast Bath vs Contrast Therapy vs Sauna Combo' },
+  { href: '/learn/not-sweating-in-infrared-sauna', label: 'Not Sweating in an Infrared Sauna?' },
+];
+
+const buyerProtection = [
+  { href: '/learn/buyer-protection/scam-checklist', label: 'The Pre-Purchase Scam Checklist' },
+  { href: '/learn/buyer-protection/plunge', label: 'Is Plunge a Scam?' },
+  { href: '/learn/buyer-protection/sun-home', label: 'Is Sun Home a Scam?' },
+  { href: '/learn/buyer-protection/polar-monkeys', label: 'Is Polar Monkeys a Scam?' },
+  { href: '/learn/buyer-protection/renu-therapy', label: 'Is Renu Therapy a Scam?' },
+  { href: '/learn/buyer-protection/nordic-wave', label: 'Is Nordic Wave a Scam?' },
+  { href: '/learn/buyer-protection/polar-dive', label: 'Is Polar Dive a Scam?' },
+  { href: '/learn/buyer-protection/blue-cube', label: 'Is Blue Cube a Scam?' },
+  { href: '/learn/buyer-protection/solstice', label: 'Is Solstice a Scam?' },
+  { href: '/learn/buyer-protection/odin-ice-baths', label: 'Is Odin Ice Baths a Scam?' },
+  { href: '/learn/buyer-protection/the-cold-life', label: 'Is The Cold Life a Scam?' },
+  { href: '/learn/buyer-protection/nuvio', label: 'Is Nuvio a Scam?' },
+  { href: '/learn/buyer-protection/edge-theory-labs', label: 'Is Edge Theory Labs a Scam?' },
+  { href: '/learn/buyer-protection/ice-bath-club', label: 'Is Ice Bath Club a Scam?' },
+  { href: '/learn/buyer-protection/everestpod', label: 'Is EverestPod a Scam?' },
+];
+
+const mainPages = [
+  { href: '/', label: 'Home' },
+  { href: '/states', label: 'Browse by State' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/press', label: 'Press' },
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms of Service' },
+  { href: '/disclaimer', label: 'Disclaimer' },
+];
+---
+
+<Base title={title} description={description} canonical={canonical} ogType="website">
+  <section class="info-hero">
+    <span class="eyebrow">Sitemap</span>
+    <h1>Every page on ContrastMap</h1>
+    <p class="info-sub">Studio directories, guides, and company pages — all in one place.</p>
+  </section>
+
+  <div class="info-body info-prose">
+    <h2>Main pages</h2>
+    <ul>
+      {mainPages.map((p) => <li><a href={p.href}>{p.label}</a></li>)}
+    </ul>
+
+    <h2>Studio directories by city</h2>
+    <ul>
+      {CITIES.map((c) => <li><a href={`/${c.slug}`}>{c.name}</a></li>)}
+    </ul>
+
+    <h2>Studio directories by state</h2>
+    <ul>
+      {STATES.map((s) => <li><a href={`/states/${s.slug}`}>{s.name}</a></li>)}
+    </ul>
+
+    <h2>Learn</h2>
+    <ul>
+      {learnArticles.map((a) => <li><a href={a.href}>{a.label}</a></li>)}
+    </ul>
+
+    <h2>Buyer protection guides</h2>
+    <ul>
+      <li><a href="/learn/buyer-protection">Cold Plunge Buyer Protection Guide</a></li>
+      {buyerProtection.map((a) => <li><a href={a.href}>{a.label}</a></li>)}
+    </ul>
+  </div>
+</Base>

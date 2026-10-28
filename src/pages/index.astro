@@ -139,7 +139,13 @@ const articles = [
   .lp-geo-btn svg{flex:none}
 </style>
 
-<Base>
+<Base canonical="https://www.contrastmap.com">
+  <script is:inline type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","name":"ContrastMap","url":"https://www.contrastmap.com","logo":"https://www.contrastmap.com/favicon.svg","description":"The directory for contrast therapy — find cold plunge and infrared sauna studios near you, and shop the best home tubs and saunas."},
+    {"@type":"WebSite","name":"ContrastMap","url":"https://www.contrastmap.com","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.contrastmap.com/search?zip={search_term_string}"},"query-input":"required name=search_term_string"}}
+  ]}
+  </script>
   <span id="top"></span>
 
   <!-- HERO -->
@@ -149,8 +155,8 @@ const articles = [
       <h1>Hot rooms and cold plunges, found in seconds.</h1>
       <p class="subhead">The friendliest way to find a sauna or cold plunge nearby — and everything you need to build the ritual at home.</p>
 
-      <form class="lp-searchbar" id="heroSearch" autocomplete="off">
-        <input type="text" id="heroCity" placeholder="Enter your city or zip code" />
+      <form class="lp-searchbar" id="heroSearch" autocomplete="off" role="search" aria-label="Find studios by city or zip">
+        <input type="search" id="heroCity" name="city" aria-label="City or zip code" placeholder="Enter your city or zip code" />
         <select id="heroType" aria-label="Studio type">
           <option value="">Any type</option>
           <option value="cold-plunge">Cold plunge</option>

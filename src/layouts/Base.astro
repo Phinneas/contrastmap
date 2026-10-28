@@ -93,6 +93,8 @@ const {
       <div class="links">
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/sitemap">Sitemap</a>
       </div>
     </div>
   </div>
@@ -153,6 +155,36 @@ document.getElementById('modalBg').addEventListener('click',function(e){
   if(e.target===document.getElementById('modalBg')) closeModal();
 });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+</script>
+
+<!-- COOKIE CONSENT (GDPR: shown until the visitor accepts or declines; choice is stored locally) -->
+<div id="cmConsent" class="cm-consent" hidden>
+  <p>We use cookies for site functionality and, where enabled, personalized ads via Google AdSense. See our <a href="/privacy">Privacy Policy</a>.</p>
+  <div class="cm-consent-btns">
+    <button type="button" id="cmConsentNo" class="cm-btn cm-btn-ghost">Decline</button>
+    <button type="button" id="cmConsentYes" class="cm-btn">Accept</button>
+  </div>
+</div>
+<style>
+  .cm-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:400;max-width:520px;margin:0 auto;background:#0B1220;color:#dbe4f0;border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:16px;box-shadow:0 12px 32px rgba(2,6,23,.35);font-size:.85rem;line-height:1.5}
+  .cm-consent[hidden]{display:none}
+  .cm-consent p{margin:0;flex:1}
+  .cm-consent a{color:#7DD3FC}
+  .cm-consent-btns{display:flex;gap:8px;flex:none}
+  .cm-btn{font:inherit;font-weight:600;padding:8px 16px;border-radius:9px;border:none;cursor:pointer;background:#0EA5E9;color:#fff}
+  .cm-btn-ghost{background:transparent;color:#94A3B8;border:1px solid #334155}
+  @media(max-width:560px){.cm-consent{flex-direction:column;align-items:stretch;text-align:center}.cm-consent-btns{justify-content:center}}
+</style>
+<script is:inline>
+(function(){
+  var KEY='cm-consent-v1';
+  var bar=document.getElementById('cmConsent');
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  bar.hidden=false;
+  function set(v){ try{ localStorage.setItem(KEY,v); }catch(e){} bar.hidden=true; }
+  document.getElementById('cmConsentYes').addEventListener('click',function(){ set('accepted'); });
+  document.getElementById('cmConsentNo').addEventListener('click',function(){ set('declined'); });
+})();
 </script>
 
 </body>
