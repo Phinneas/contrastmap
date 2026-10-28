@@ -2,11 +2,19 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
+import rehypeExternalLinks from 'rehype-external-links';
 
 export default defineConfig({
   adapter: cloudflare(),
   output: 'static',
   site: 'https://www.contrastmap.com',
+  markdown: {
+    // Markdown-rendered pages (buyer-protection guides): external links open
+    // in a new tab with safe rel attributes.
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+    ],
+  },
   integrations: [
     sitemap({
       filter: (page) => {
