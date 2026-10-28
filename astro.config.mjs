@@ -20,7 +20,11 @@ export default defineConfig({
       filter: (page) => {
         const path = new URL(page).pathname;
         // Keep internal tool pages out of the sitemap.
-        return !['/admin/', '/dashboard/', '/search/'].includes(path);
+        if (['/admin/', '/dashboard/', '/search/'].includes(path)) return false;
+        // Amenity×city filter pages are noindexed (doorway pattern); keep them
+        // out of the sitemap so the indexed footprint stays content-rich.
+        if (/^\/(cold-plunge|infrared-sauna|traditional-sauna|contrast-therapy)\/.+/.test(path)) return false;
+        return true;
       },
       // Truthful lastmod: only pages published/changed on 2026-10-13 carry a
       // date. Stamping every page would make Google discount the signal.

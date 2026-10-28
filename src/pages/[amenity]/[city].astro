@@ -177,7 +177,7 @@ const itemListJsonLd = JSON.stringify({
 const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN || '';
 ---
 
-<Base title={seoTitle} description={seoDesc} canonical={canonicalUrl} ogType="website">
+<Base title={seoTitle} description={seoDesc} canonical={canonicalUrl} ogType="website" noindex={true}>
   <link rel="stylesheet" href="https://cdn.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" />
   <script is:inline type="application/ld+json" set:html={itemListJsonLd} />
 
