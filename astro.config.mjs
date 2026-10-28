@@ -8,6 +8,9 @@ export default defineConfig({
   adapter: cloudflare(),
   output: 'static',
   site: 'https://www.contrastmap.com',
+  // NOTE: retired duplicate listing URLs are handled by static redirect stub
+  // pages in src/pages/austin/ (config-level redirects don't emit in static
+  // output when a dynamic route matches the same path).
   markdown: {
     // Markdown-rendered pages (buyer-protection guides): external links open
     // in a new tab with safe rel attributes.
